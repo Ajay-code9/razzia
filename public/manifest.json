@@ -1,0 +1,18 @@
+{
+  "name": "Razzia Marketplace",
+  "short_name": "Razzia",
+  "description": "Razzia neighborhood marketplace for customers, vendors, and drivers.",
+  "start_url": "/landing",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#EA3B0C",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
