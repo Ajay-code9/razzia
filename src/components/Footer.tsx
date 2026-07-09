@@ -11,7 +11,6 @@ const platformLinks = [
   { label: "Customer App", href: "/landing/shop" },
   { label: "Merchant Dashboard", href: "/landing/dashboard" },
   { label: "Driver Hub", href: "/landing/driver" },
-  { label: "Razzia Pay", href: "/landing/razzia-pay" },
 ];
 
 const supportLinks = [
@@ -30,8 +29,8 @@ const legalLinks = [
 
 const cities = ["Nairobi", "Mombasa", "Kisumu", "Nakuru", "Eldoret"];
 
-const linkStyle: React.CSSProperties = { color: "rgba(255,255,255,0.55)" };
-const mutedStyle: React.CSSProperties = { color: "rgba(255,255,255,0.30)" };
+const linkStyle: React.CSSProperties = { color: "var(--smoke-600)" };
+const mutedStyle: React.CSSProperties = { color: "var(--smoke-400)" };
 
 function TwitterIcon() {
   return (
@@ -68,35 +67,17 @@ function FacebookIcon() {
 export function Footer() {
   return (
     <footer
-      className="relative mt-0"
-      style={{ background: "linear-gradient(170deg,#0d0d0d 0%,#111 60%,#1a0800 100%)" }}
+      className="relative mt-0 bg-surface-50 border-t border-line-100 overflow-hidden"
     >
-      {/* ── Wavy top border (white wave dipping into dark footer) ── */}
-      <div
-        className="absolute left-0 w-full overflow-hidden leading-none pointer-events-none"
-        style={{ top: "-79px", height: "80px" }}
-      >
-        <svg
-          viewBox="0 0 1440 80"
-          preserveAspectRatio="none"
-          className="w-full h-full"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0,0 L1440,0 L1440,20 C1200,80 960,30 720,55 C480,80 240,15 0,45 Z"
-            fill="white"
-          />
-        </svg>
-      </div>
 
       {/* ── Orange glow accent ── */}
-      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-64 w-[700px] rounded-full bg-razzia-600 opacity-[0.07] blur-3xl" />
+      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-64 w-[700px] rounded-full bg-razzia-100 opacity-60 blur-3xl" />
 
       {/* ── Dot grid ── */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none opacity-20"
         style={{
-          backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0)",
+          backgroundImage: "radial-gradient(circle at 1px 1px, var(--smoke-300) 1px, transparent 0)",
           backgroundSize: "30px 30px",
         }}
       />
@@ -105,8 +86,7 @@ export function Footer() {
 
         {/* ── Main grid ── */}
         <div
-          className="grid gap-12 pb-14"
-          style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}
+          className="grid gap-12 pb-14 border-b border-line-200"
         >
           <div className="grid gap-10 lg:grid-cols-[1.8fr_1fr_1fr_1fr]">
 
@@ -114,18 +94,17 @@ export function Footer() {
             <div>
               <div className="flex items-center gap-2">
                 <div
-                  className="flex h-9 w-9 items-center justify-center rounded-xl shrink-0"
-                  style={{ background: "linear-gradient(135deg,#ea3b0c,#a32b0c)" }}
+                  className="flex h-9 w-9 items-center justify-center rounded-xl shrink-0 bg-razzia-500"
                 >
                   <svg viewBox="0 0 24 24" className="h-5 w-5 fill-white" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                   </svg>
                 </div>
-                <span className="text-2xl font-extrabold text-white tracking-tight">Razzia</span>
+                <span className="text-2xl font-extrabold text-smoke-900 tracking-tight">Razzia</span>
               </div>
 
-              <p className="mt-5 text-sm leading-relaxed max-w-xs" style={linkStyle}>
-                Your neighborhood marketplace for groceries, daily essentials, and fast doorstep delivery — built for local communities.
+              <p className="mt-5 text-sm leading-relaxed max-w-xs text-smoke-600">
+                Your live shopping destination for discovery, engagement, and instant checkout — built for modern creators and brands.
               </p>
 
               {/* Social icons */}
@@ -140,12 +119,7 @@ export function Footer() {
                     key={label}
                     href={href}
                     aria-label={label}
-                    className="flex h-9 w-9 items-center justify-center rounded-full transition-all duration-200 hover:scale-110"
-                    style={{
-                      border: "1px solid rgba(255,255,255,0.12)",
-                      background: "rgba(255,255,255,0.06)",
-                      color: "rgba(255,255,255,0.55)",
-                    }}
+                    className="flex h-9 w-9 items-center justify-center rounded-full transition-all duration-200 hover:scale-110 border border-line-200 bg-white text-smoke-500 hover:text-razzia-500 shadow-sm hover:shadow"
                   >
                     <Icon />
                   </a>
@@ -154,19 +128,14 @@ export function Footer() {
 
               {/* City badges */}
               <div className="mt-8">
-                <p className="mb-3 text-xs font-semibold uppercase tracking-widest" style={mutedStyle}>
+                <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-smoke-400">
                   Available in
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {cities.map((city) => (
                     <span
                       key={city}
-                      className="rounded-full px-3 py-1 text-xs font-medium"
-                      style={{
-                        border: "1px solid rgba(255,255,255,0.1)",
-                        background: "rgba(255,255,255,0.05)",
-                        color: "rgba(255,255,255,0.55)",
-                      }}
+                      className="rounded-full px-3 py-1 text-xs font-medium border border-line-200 bg-white text-smoke-600 shadow-sm"
                     >
                       {city}
                     </span>
@@ -178,8 +147,8 @@ export function Footer() {
             {/* Company */}
             <div>
               <h4
-                className="text-xs font-bold uppercase mb-5"
-                style={{ letterSpacing: "0.18em", color: "#ff6f43" }}
+                className="text-xs font-bold uppercase mb-5 text-razzia-500"
+                style={{ letterSpacing: "0.18em" }}
               >
                 Company
               </h4>
@@ -188,8 +157,7 @@ export function Footer() {
                   <li key={item.label}>
                     <Link
                       href={item.href}
-                      className="text-sm transition-all duration-200 hover:translate-x-1 inline-block"
-                      style={linkStyle}
+                      className="text-sm transition-all duration-200 hover:translate-x-1 inline-block text-smoke-600 hover:text-razzia-500"
                     >
                       {item.label}
                     </Link>
@@ -201,8 +169,8 @@ export function Footer() {
             {/* Platform */}
             <div>
               <h4
-                className="text-xs font-bold uppercase mb-5"
-                style={{ letterSpacing: "0.18em", color: "#ff6f43" }}
+                className="text-xs font-bold uppercase mb-5 text-razzia-500"
+                style={{ letterSpacing: "0.18em" }}
               >
                 Platform
               </h4>
@@ -211,8 +179,7 @@ export function Footer() {
                   <li key={item.label}>
                     <Link
                       href={item.href}
-                      className="text-sm transition-all duration-200 hover:translate-x-1 inline-block"
-                      style={linkStyle}
+                      className="text-sm transition-all duration-200 hover:translate-x-1 inline-block text-smoke-600 hover:text-razzia-500"
                     >
                       {item.label}
                     </Link>
@@ -224,8 +191,8 @@ export function Footer() {
             {/* Support + Newsletter */}
             <div>
               <h4
-                className="text-xs font-bold uppercase mb-5"
-                style={{ letterSpacing: "0.18em", color: "#ff6f43" }}
+                className="text-xs font-bold uppercase mb-5 text-razzia-500"
+                style={{ letterSpacing: "0.18em" }}
               >
                 Support
               </h4>
@@ -234,8 +201,7 @@ export function Footer() {
                   <li key={item.label}>
                     <Link
                       href={item.href}
-                      className="text-sm transition-all duration-200 hover:translate-x-1 inline-block"
-                      style={linkStyle}
+                      className="text-sm transition-all duration-200 hover:translate-x-1 inline-block text-smoke-600 hover:text-razzia-500"
                     >
                       {item.label}
                     </Link>
@@ -246,25 +212,22 @@ export function Footer() {
               {/* Newsletter */}
               <div className="mt-10">
                 <p
-                  className="text-xs font-bold uppercase mb-3"
-                  style={{ letterSpacing: "0.18em", color: "#ff6f43" }}
+                  className="text-xs font-bold uppercase mb-3 text-razzia-500"
+                  style={{ letterSpacing: "0.18em" }}
                 >
                   Stay updated
                 </p>
                 <div
-                  className="flex overflow-hidden rounded-xl"
-                  style={{ border: "1px solid rgba(255,255,255,0.12)", background: "rgba(255,255,255,0.05)" }}
+                  className="flex overflow-hidden rounded-xl border border-line-200 bg-white shadow-sm focus-within:border-razzia-300 focus-within:ring-2 focus-within:ring-razzia-100 transition-all"
                 >
                   <input
                     type="email"
                     placeholder="your@email.com"
-                    className="flex-1 bg-transparent px-4 py-2.5 text-sm text-white outline-none min-w-0"
-                    style={{ color: "white" }}
+                    className="flex-1 bg-transparent px-4 py-2.5 text-sm text-smoke-900 outline-none min-w-0 placeholder:text-smoke-400"
                   />
                   <button
                     type="button"
-                    className="shrink-0 px-4 py-2.5 text-xs font-bold text-white transition-opacity hover:opacity-90"
-                    style={{ background: "linear-gradient(135deg,#ea3b0c,#a32b0c)" }}
+                    className="shrink-0 px-4 py-2.5 text-xs font-bold text-white transition-colors bg-razzia-500 hover:bg-razzia-600"
                   >
                     Subscribe
                   </button>
@@ -277,7 +240,7 @@ export function Footer() {
 
         {/* ── Bottom bar ── */}
         <div className="flex flex-wrap items-center justify-between gap-4 py-6">
-          <p className="text-xs" style={mutedStyle}>
+          <p className="text-xs text-smoke-500">
             © {new Date().getFullYear()} Razzia Technologies Ltd. All rights reserved.
           </p>
           <div className="flex flex-wrap gap-5">
@@ -285,8 +248,7 @@ export function Footer() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-xs transition-colors hover:text-white"
-                style={mutedStyle}
+                className="text-xs transition-colors text-smoke-500 hover:text-razzia-500"
               >
                 {item.label}
               </Link>

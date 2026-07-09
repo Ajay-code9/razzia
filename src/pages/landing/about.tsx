@@ -85,11 +85,11 @@ const values = [
 ];
 
 const milestones = [
-  { year: "2022", title: "The Idea", body: "Razzia was founded in Nairobi by two tech entrepreneurs frustrated that great local shops had no digital presence." },
-  { year: "2023", title: "Beta Launch", body: "Launched with 50 hand-picked vendor partners across Westlands. First 1,000 deliveries completed in 90 days." },
-  { year: "2024", title: "City Scale", body: "Expanded to 500+ vendors, 1,200+ daily orders, and entered Mombasa and Kisumu markets." },
-  { year: "2025", title: "Razzia Pay", body: "Launched our own payment layer enabling instant M-Pesa and bank payouts for vendors and drivers." },
-  { year: "2026", title: "East Africa", body: "Operating in 5 cities with 15,000+ active users and partnerships with 2,500+ local merchants." },
+  { year: "2022", title: "The Idea", body: "Razzia was founded in Nairobi by two tech entrepreneurs frustrated that local shops couldn't connect with online customers in a human way." },
+  { year: "2023", title: "Beta Launch", body: "Launched our first live stream prototype. 50 local boutiques went live, resulting in a 400% increase in their daily sales." },
+  { year: "2024", title: "Instant Checkout", body: "Expanded the platform to support instant in-stream checkout, allowing buyers to purchase directly without leaving the video." },
+  { year: "2025", title: "Razzia Pay", body: "Launched our own payment layer enabling instant M-Pesa and bank payouts for vendors instantly after live drops." },
+  { year: "2026", title: "East Africa", body: "Operating in 5 cities with 15,000+ active users engaging in thousands of hours of live shopping." },
 ];
 
 const team = [
@@ -125,7 +125,7 @@ export default function AboutPage() {
   return (
     <Layout>
       <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes pulse-ring{0%{box-shadow:0 0 0 0 rgba(234,59,12,.35);}70%{box-shadow:0 0 0 12px rgba(234,59,12,0);}100%{box-shadow:0 0 0 0 rgba(234,59,12,0);}}
+        @keyframes pulse-ring{0%{box-shadow:0 0 0 0 rgba(255,51,102,.35);}70%{box-shadow:0 0 0 12px rgba(255,51,102,0);}100%{box-shadow:0 0 0 0 rgba(255,51,102,0);}}
         @keyframes float-a{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
         @keyframes float-b{0%,100%{transform:translateY(0);}50%{transform:translateY(10px);}}
         @keyframes shimmer{0%{background-position:-400px 0;}100%{background-position:400px 0;}}
@@ -141,57 +141,52 @@ export default function AboutPage() {
       `}} />
 
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#0d0d0d]">
+      <section className="relative overflow-hidden bg-white">
         {/* Grid */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.04]"
-          style={{ backgroundImage: "radial-gradient(circle at 1px 1px,white 1px,transparent 0)", backgroundSize: "32px 32px" }} />
+          style={{ backgroundImage: "radial-gradient(circle at 1px 1px,black 1px,transparent 0)", backgroundSize: "32px 32px" }} />
         {/* Glow */}
-        <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-96 w-[700px] rounded-full bg-razzia-600 opacity-[0.15] blur-3xl" />
-        <div className="pointer-events-none absolute bottom-0 right-0 h-64 w-[400px] rounded-full bg-razzia-800 opacity-[0.08] blur-3xl" />
+        <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-96 w-[700px] rounded-full bg-razzia-100 opacity-60 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 right-0 h-64 w-[400px] rounded-full bg-amber-50 opacity-60 blur-3xl" />
 
-        <div className="relative mx-auto max-w-7xl px-6 pt-24 pb-16 lg:pt-32 lg:pb-20">
+        <div className="relative mx-auto max-w-7xl px-6 pt-20 pb-12 lg:pt-24 lg:pb-20">
           <div className="grid items-center gap-10 lg:grid-cols-2">
             {/* Left */}
             <div>
-              <div style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "none" : "translateY(20px)", transition: "opacity .7s ease 0ms, transform .7s ease 0ms" }}>
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-razzia-400">
-                  <span className="h-1.5 w-1.5 rounded-full bg-razzia-500 pulse-dot inline-block" />
-                  About Razzia
-                </span>
-              </div>
+
 
               <h1 style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "none" : "translateY(28px)", transition: "opacity .7s ease 120ms, transform .7s ease 120ms" }}
-                className="mt-3 text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl">
-                Built for the{" "}
+                className="mt-3 text-4xl font-extrabold leading-tight text-smoke-900 md:text-5xl lg:text-6xl">
+                Bringing the{" "}
                 <span className="text-transparent bg-clip-text animated-gradient"
-                  style={{ backgroundImage: "linear-gradient(135deg,#ff6f43,#ea3b0c,#c9330a,#ff6f43)" }}>
-                  streets.
+                  style={{ backgroundImage: "linear-gradient(135deg, var(--razzia-400), var(--razzia-500), var(--razzia-600), var(--razzia-400))" }}>
+                  human connection
                 </span>
                 <br />
-                <span className="text-white/70">Scaled for</span>{" "}
-                the city.
+                <span className="text-smoke-400">back to</span>{" "}
+                online shopping.
               </h1>
 
               <p style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "none" : "translateY(20px)", transition: "opacity .7s ease 240ms, transform .7s ease 240ms" }}
-                className="mt-3 max-w-lg text-base leading-relaxed text-white/55">
-                Razzia was born from a simple frustration — great local shops were invisible online. We built the platform that brings your neighborhood marketplace to the modern customer.
+                className="mt-3 max-w-lg text-base leading-relaxed text-smoke-600">
+                Razzia was born from a simple frustration — standard e-commerce felt cold and static. We built a live video platform that brings the vibrant energy of the physical store right to your screen.
               </p>
 
               <div style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "none" : "translateY(16px)", transition: "opacity .7s ease 360ms, transform .7s ease 360ms" }}
                 className="mt-5 flex flex-wrap gap-3">
-                <div className="relative overflow-hidden rounded-full">
+                <div className="relative overflow-hidden rounded-full shadow-lg hover:shadow-xl transition-shadow">
                   <Button href="/landing/register" className="!px-7 !py-3">Join Razzia</Button>
                   <div className="shimmer-btn pointer-events-none absolute inset-0" />
                 </div>
                 <Button href="/landing/contact" variant="secondary"
-                  className="!border-white/20 !text-white !bg-white/5 hover:!bg-white/10 !px-7 !py-3">
+                  className="!border-line-200 !text-smoke-700 !bg-white hover:!bg-surface-50 !px-7 !py-3 shadow-sm">
                   Get in touch <ArrowRight className="ml-2 inline h-4 w-4" />
                 </Button>
               </div>
 
               {/* Quick stats */}
               <div style={{ opacity: heroVisible ? 1 : 0, transition: "opacity .7s ease 480ms" }}
-                className="mt-6 flex flex-wrap gap-5 border-t border-white/10 pt-5">
+                className="mt-6 flex flex-wrap gap-5 border-t border-line-100 pt-5">
                 {[
                   { val: "15K+", label: "Active Users" },
                   { val: "2.5K+", label: "Vendors" },
@@ -199,8 +194,8 @@ export default function AboutPage() {
                   { val: "5", label: "Cities" },
                 ].map((s) => (
                   <div key={s.label}>
-                    <p className="text-xl font-extrabold text-razzia-400">{s.val}</p>
-                    <p className="text-xs text-white/40 mt-0.5">{s.label}</p>
+                    <p className="text-xl font-extrabold text-razzia-500">{s.val}</p>
+                    <p className="text-xs text-smoke-500 mt-0.5">{s.label}</p>
                   </div>
                 ))}
               </div>
@@ -213,38 +208,19 @@ export default function AboutPage() {
               <div className="relative h-[360px] w-full">
 
                 {/* Main image — top-left, large */}
-                <div className="absolute left-0 top-0 w-[62%] h-[75%] overflow-hidden rounded-3xl border-2 border-white/10 shadow-2xl">
+                <div className="absolute left-0 top-0 w-[62%] h-[75%] overflow-hidden rounded-3xl border border-line-100 shadow-xl">
                   <Image alt="Nairobi local market" fill
                     src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=500&h=500&fit=crop&auto=format"
                     style={{ objectFit: "cover" }} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 </div>
 
                 {/* Second image — bottom-right, overlapping main */}
-                <div className="float-b absolute bottom-0 right-0 w-[58%] h-[65%] overflow-hidden rounded-3xl border-4 border-[#0d0d0d] shadow-2xl z-10">
+                <div className="float-b absolute bottom-0 right-0 w-[58%] h-[65%] overflow-hidden rounded-3xl border border-line-100 shadow-xl z-10">
                   <Image alt="Happy customer" fill
                     src="https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?w=500&h=500&fit=crop&auto=format"
                     style={{ objectFit: "cover" }} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 </div>
 
-                {/* Rating badge — anchored to top-right of second image */}
-                <div className="float-a absolute top-2 right-2 flex items-center gap-2 rounded-2xl border border-white/15 bg-black/70 px-3 py-2 backdrop-blur-md shadow-xl z-20">
-                  <Star className="h-4 w-4 text-amber-400 fill-current shrink-0" />
-                  <div>
-                    <p className="text-xs font-bold text-white">4.9 / 5.0 rating</p>
-                    <p className="text-[10px] text-white/55">12,400+ reviews</p>
-                  </div>
-                </div>
-
-                {/* Deliveries badge — anchored to bottom-left of main image */}
-                <div className="float-b absolute bottom-[26%] left-2 flex items-center gap-2 rounded-2xl border border-white/15 bg-black/70 px-3 py-2 backdrop-blur-md shadow-xl z-20">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
-                  <div>
-                    <p className="text-xs font-bold text-white">50K+ deliveries</p>
-                    <p className="text-[10px] text-white/55">Completed this year</p>
-                  </div>
-                </div>
 
               </div>
             </div>
@@ -288,7 +264,7 @@ export default function AboutPage() {
           <div className="grid gap-10 lg:grid-cols-2">
             <Reveal direction="left">
               <div className="relative h-full overflow-hidden rounded-3xl p-8 text-white"
-                style={{ background: "linear-gradient(135deg,#ea3b0c,#a32b0c)" }}>
+                style={{ background: "linear-gradient(135deg, var(--razzia-500), var(--razzia-600))" }}>
                 <div className="absolute inset-0 opacity-10 pointer-events-none"
                   style={{ backgroundImage: "radial-gradient(circle at 1px 1px,white 1px,transparent 0)", backgroundSize: "24px 24px" }} />
                 <div className="pointer-events-none absolute -top-10 -right-10 h-40 w-40 rounded-full bg-white opacity-10 blur-2xl" />
@@ -353,7 +329,7 @@ export default function AboutPage() {
               const Icon = v.icon;
               return (
                 <Reveal key={v.title} delay={i * 100} direction="up">
-                  <Card className="group h-full hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(234,59,12,0.08)] hover:border-razzia-100 transition-all duration-300">
+                  <Card className="group h-full hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(255,51,102,0.08)] hover:border-razzia-100 transition-all duration-300">
                     <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-razzia-50 transition-all duration-300 group-hover:bg-razzia-500 group-hover:scale-110">
                       <Icon className="h-6 w-6 text-razzia-500 transition-colors duration-300 group-hover:text-white" strokeWidth={1.75} />
                     </div>
@@ -369,26 +345,25 @@ export default function AboutPage() {
       </section>
 
       {/* ── JOURNEY / TIMELINE ───────────────────────────────── */}
-      <section className="relative overflow-hidden py-24"
-        style={{ background: "linear-gradient(160deg,#0d0d0d,#1a1a1a)" }}>
+      <section className="relative overflow-hidden py-24 bg-surface-50 border-y border-line-100">
         <div className="absolute inset-0 pointer-events-none opacity-[0.04]"
-          style={{ backgroundImage: "radial-gradient(circle at 1px 1px,white 1px,transparent 0)", backgroundSize: "32px 32px" }} />
-        <div className="pointer-events-none absolute top-0 left-1/4 h-72 w-72 rounded-full bg-razzia-600 opacity-[0.08] blur-3xl" />
+          style={{ backgroundImage: "radial-gradient(circle at 1px 1px,black 1px,transparent 0)", backgroundSize: "32px 32px" }} />
+        <div className="pointer-events-none absolute top-0 left-1/4 h-72 w-72 rounded-full bg-razzia-100 opacity-60 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <Reveal direction="up">
             <div className="text-center mb-16">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-razzia-400">
+              <span className="inline-flex items-center gap-2 rounded-full border border-razzia-100 bg-razzia-50 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-razzia-500">
                 Our journey
               </span>
-              <h2 className="mt-4 text-4xl font-extrabold text-white md:text-5xl">
+              <h2 className="mt-4 text-4xl font-extrabold text-smoke-900 md:text-5xl">
                 Paving the way for{" "}
                 <span className="text-transparent bg-clip-text animated-gradient"
-                  style={{ backgroundImage: "linear-gradient(135deg,#ff6f43,#ea3b0c)" }}>
+                  style={{ backgroundImage: "linear-gradient(135deg, var(--razzia-400), var(--razzia-500))" }}>
                   community commerce
                 </span>
               </h2>
-              <p className="mt-4 text-white/40 max-w-xl mx-auto">
+              <p className="mt-4 text-smoke-500 max-w-xl mx-auto">
                 From a small idea to a growing platform — here are the milestones that define us.
               </p>
             </div>
@@ -396,7 +371,7 @@ export default function AboutPage() {
 
           <div className="relative">
             {/* Center vertical line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-gradient-to-b from-razzia-500/60 via-razzia-500/20 to-transparent hidden lg:block" />
+            <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-gradient-to-b from-razzia-200 via-razzia-200/50 to-transparent hidden lg:block" />
 
             <div className="space-y-12">
               {milestones.map((m, i) => (
@@ -404,10 +379,10 @@ export default function AboutPage() {
                   <div className={`flex items-center gap-6 lg:gap-0 ${i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}>
                     {/* Content card */}
                     <div className="w-full lg:w-[calc(50%-2.5rem)]">
-                      <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm hover:border-razzia-500/30 hover:bg-white/[0.06] transition-all duration-300">
-                        <span className="text-xs font-extrabold uppercase tracking-widest text-razzia-400">{m.year}</span>
-                        <h4 className="mt-2 text-lg font-bold text-white">{m.title}</h4>
-                        <p className="mt-2 text-sm leading-relaxed text-white/50">{m.body}</p>
+                      <div className="rounded-2xl border border-line-100 bg-white p-6 shadow-sm hover:border-razzia-200 hover:shadow-md transition-all duration-300">
+                        <span className="text-xs font-extrabold uppercase tracking-widest text-razzia-500">{m.year}</span>
+                        <h4 className="mt-2 text-lg font-bold text-smoke-900">{m.title}</h4>
+                        <p className="mt-2 text-sm leading-relaxed text-smoke-600">{m.body}</p>
                       </div>
                     </div>
                     {/* Center node */}
@@ -454,7 +429,7 @@ export default function AboutPage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {team.map((member, i) => (
               <Reveal key={member.name} delay={i * 80} direction="up">
-                <div className="group relative overflow-hidden rounded-3xl border border-line-100 hover:border-razzia-200 hover:shadow-[0_20px_40px_rgba(234,59,12,0.08)] transition-all duration-300">
+                <div className="group relative overflow-hidden rounded-3xl border border-line-100 hover:border-razzia-200 hover:shadow-[0_20px_40px_rgba(255,51,102,0.08)] transition-all duration-300">
                   {/* Photo */}
                   <div className="relative h-64 w-full overflow-hidden">
                     <Image alt={member.name} fill src={member.photo} style={{ objectFit: "cover" }}
@@ -468,7 +443,7 @@ export default function AboutPage() {
                   </div>
                   {/* Hover border glow */}
                   <div className="absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
-                    style={{ boxShadow: "inset 0 0 0 1.5px #ea3b0c40" }} />
+                    style={{ boxShadow: "inset 0 0 0 1.5px #ff336640" }} />
                 </div>
               </Reveal>
             ))}
@@ -496,7 +471,7 @@ export default function AboutPage() {
               const Icon = b.icon;
               return (
                 <Reveal key={b.label} delay={i * 80} direction="up">
-                  <div className="group rounded-2xl border border-line-100 bg-white p-6 text-center hover:-translate-y-1 hover:border-razzia-200 hover:shadow-[0_12px_30px_rgba(234,59,12,0.07)] transition-all duration-300">
+                  <div className="group rounded-2xl border border-line-100 bg-white p-6 text-center hover:-translate-y-1 hover:border-razzia-200 hover:shadow-[0_12px_30px_rgba(255,51,102,0.07)] transition-all duration-300">
                     <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-razzia-50 transition-transform duration-300 group-hover:scale-110">
                       <Icon className="h-6 w-6 text-razzia-500" strokeWidth={1.75} />
                     </div>
@@ -530,7 +505,7 @@ export default function AboutPage() {
       <section className="mx-auto max-w-7xl px-6 py-16">
         <Reveal direction="up">
           <div className="relative overflow-hidden rounded-3xl text-white"
-            style={{ background: "linear-gradient(135deg,#ea3b0c 0%,#c9330a 55%,#a32b0c 100%)" }}>
+            style={{ background: "linear-gradient(135deg, var(--razzia-500) 0%, var(--razzia-600) 55%, var(--razzia-700) 100%)" }}>
             <div className="absolute inset-0 pointer-events-none opacity-[0.07]"
               style={{ backgroundImage: "radial-gradient(circle at 1px 1px,white 1px,transparent 0)", backgroundSize: "28px 28px" }} />
             <div className="pointer-events-none absolute -top-16 -right-16 h-64 w-64 rounded-full bg-white opacity-[0.06] blur-3xl" />

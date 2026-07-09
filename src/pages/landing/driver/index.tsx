@@ -57,7 +57,7 @@ export default function DriverHubPage() {
       `}} />
 
       {/* Hero Section */}
-      <section className="relative mx-auto w-full max-w-7xl overflow-hidden px-6 pt-24 pb-12 lg:pt-32 lg:pb-20">
+      <section className="relative mx-auto w-full max-w-7xl overflow-hidden px-6 pt-20 pb-12 lg:pt-24 lg:pb-20">
         <div className="absolute inset-0 bg-dots opacity-70 -z-10" />
         
         {/* Glow Effects */}
@@ -66,10 +66,7 @@ export default function DriverHubPage() {
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div ref={heroReveal.ref} style={{ opacity: heroReveal.isVisible ? 1 : 0, transform: heroReveal.isVisible ? "none" : "translateY(30px)", transition: "all 0.8s cubic-bezier(0.2, 1, 0.3, 1)" }}>
-            <span className="inline-flex items-center gap-2 rounded-full border border-green-200 bg-green-50 px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-green-700">
-              <Truck size={14} />
-              Razzia Driver Hub
-            </span>
+
             <h1 className="mt-6 text-5xl font-extrabold leading-[1.1] text-smoke-900 md:text-6xl lg:text-7xl">
               Turn your <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-amber-500">free time<svg className="absolute w-full h-3 -bottom-1 left-0 text-green-400 opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 15 100 5" stroke="currentColor" strokeWidth="4" fill="transparent"/></svg></span> into earnings.
             </h1>
@@ -144,36 +141,7 @@ export default function DriverHubPage() {
               </div>
             </div>
 
-            {/* Extra Floating Icons */}
-            <div className="absolute top-10 right-4 w-14 h-14 rounded-2xl bg-white/90 backdrop-blur shadow-lg flex items-center justify-center text-green-500 animate-float-medium z-0 border border-green-100" style={{ animationDelay: '0.5s' }}>
-              <Wallet size={28} />
-            </div>
 
-            <div className="absolute bottom-24 -left-4 w-12 h-12 rounded-full bg-white/90 backdrop-blur shadow-lg flex items-center justify-center text-amber-500 animate-float-medium z-0 border border-amber-100" style={{ animationDelay: '1.2s' }}>
-              <Map size={24} />
-            </div>
-
-            {/* Floating Element 1 */}
-            <div className="absolute top-1/3 -right-12 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-float z-20 hover:scale-105 transition-transform cursor-pointer border border-line-100">
-              <div className="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center text-amber-500">
-                <Clock size={24} />
-              </div>
-              <div>
-                <p className="font-bold text-sm">Flexible Hours</p>
-                <p className="text-xs text-smoke-600">Online 4h 20m</p>
-              </div>
-            </div>
-
-            {/* Floating Element 2 */}
-            <div className="absolute bottom-16 -left-16 bg-smoke-900 text-white p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-float z-20 hover:scale-105 transition-transform cursor-pointer" style={{ animationDelay: "1.5s" }}>
-              <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400">
-                <CreditCard size={20} />
-              </div>
-              <div>
-                <p className="font-bold text-sm">Instant Pay</p>
-                <p className="text-xs text-white/70">KES 4,500 Available</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -238,7 +206,7 @@ export default function DriverHubPage() {
               <div className="md:w-1/2">
                 <h3 className="text-3xl font-bold mb-4 group-hover:text-green-200 transition-colors duration-500">Get Paid Instantly</h3>
                 <p className="text-white/90 text-lg">Why wait a week? Earnings are deposited directly into your Razzia Wallet after every delivery. Cash out instantly, zero fees.</p>
-                <Button href="/landing/razzia-pay" variant="secondary" className="mt-8 hover:scale-105 transition-transform !bg-white !text-green-700 hover:!bg-surface-50 border-transparent shadow-lg">Learn about Payouts</Button>
+
               </div>
               <div className="md:w-1/2 flex justify-center">
                  <div className="w-full max-w-sm h-48 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-6 flex flex-col justify-between shadow-2xl group-hover:rotate-1 group-hover:scale-105 transition-transform duration-500 relative overflow-hidden">

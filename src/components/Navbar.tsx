@@ -21,7 +21,6 @@ const navItems: MenuItem[] = [
       { label: "Customer App", href: "/landing/shop" },
       { label: "Merchant Dashboard", href: "/landing/dashboard" },
       { label: "Driver Hub", href: "/landing/driver" },
-      { label: "Razzia Pay", href: "/landing/razzia-pay" },
     ],
   },
   { href: "/landing/partners", label: "Partners" },
@@ -112,8 +111,7 @@ export function Navbar() {
     return false;
   };
 
-  const isDarkPage = router.pathname === "/landing/about" || router.pathname === "/landing/razzia-pay" || router.pathname === "/landing/dashboard" || router.pathname === "/landing/partners";
-  const isDarkHeroTop = isDarkPage && !isScrolled;
+  const isDarkHeroTop = false;
 
   return (
     <>

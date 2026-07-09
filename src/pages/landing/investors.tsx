@@ -33,33 +33,30 @@ export default function InvestorsPage() {
   return (
     <Layout>
       <style dangerouslySetInnerHTML={{ __html: `
-        .text-gradient-primary { background: linear-gradient(135deg, #ea3b0c 0%, #f59e0b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .text-gradient-primary { background: linear-gradient(135deg, var(--razzia-500) 0%, #ff8fa3 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .soft-shadow { box-shadow: 0 20px 40px -15px rgba(0,0,0,0.05); }
         .bento-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .bento-card:hover { transform: translateY(-5px); box-shadow: 0 30px 60px -15px rgba(234, 59, 12, 0.1); border-color: rgba(234, 59, 12, 0.2); }
+        .bento-card:hover { transform: translateY(-5px); box-shadow: 0 30px 60px -15px rgba(255, 51, 102, 0.15); border-color: rgba(255, 51, 102, 0.2); }
       `}} />
 
       {/* Elegant Modern Hero Section */}
-      <section className="relative bg-[#FAFAFA] pt-32 pb-24 overflow-hidden border-b border-line-100">
+      <section className="relative bg-[#FAFAFA] pt-24 pb-16 lg:pt-24 lg:pb-16 overflow-hidden border-b border-line-100">
         {/* Subtle background pattern */}
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, black 1px, transparent 0)", backgroundSize: "32px 32px" }} />
         
         <div className="mx-auto w-full max-w-7xl px-6 grid lg:grid-cols-12 gap-12 items-center relative z-10">
           
           <div className="lg:col-span-6" ref={heroReveal.ref} style={{ opacity: heroReveal.isVisible ? 1 : 0, transform: heroReveal.isVisible ? "none" : "translateY(30px)", transition: "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)" }}>
-            <span className="inline-flex items-center gap-2 rounded-full border border-smoke-200 bg-white px-4 py-2 text-xs font-bold uppercase tracking-widest text-smoke-600 mb-8 shadow-sm">
-              <Activity size={14} className="text-razzia-500" />
-              Investor Relations
-            </span>
+
             <h1 className="text-5xl font-extrabold leading-[1.1] text-smoke-900 md:text-6xl tracking-tight mb-8">
-              Join us in shaping the future of <span className="text-gradient-primary">local commerce.</span>
+              Join us in shaping the future of <span className="text-gradient-primary">live shoppertainment.</span>
             </h1>
             <div className="space-y-6 text-lg leading-relaxed text-smoke-600">
               <p>
-                We invite you to be a vital part of our vision for the future at Razzia. By investing in our platform, you're not just contributing to a business—you're supporting a community-focused initiative that prioritizes innovation, engagement, and sustainable growth.
+                We invite you to be a vital part of our vision for the future at Razzia. By investing in our platform, you're backing a revolution in how people discover, interact with, and purchase products online.
               </p>
               <p>
-                At Razzia, we believe in empowering local business, enhancing customer experiences, and creating job opportunities. Your investment can help us expand our reach, improve our services, and make a meaningful impact in the communities we serve.
+                At Razzia, we merge the engagement of social media with the conversion of e-commerce. Your investment will help us scale our creator network and build the next generation of interactive shopping.
               </p>
             </div>
             
@@ -78,8 +75,8 @@ export default function InvestorsPage() {
             <div className="relative rounded-[2rem] p-2 bg-white border border-line-100 soft-shadow rotate-1 hover:rotate-0 transition-transform duration-700">
               <div className="rounded-[1.5rem] overflow-hidden relative h-[500px]">
                 <img 
-                  src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1200&q=80" 
-                  alt="Business Professionals" 
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" 
+                  alt="Modern Creators Team" 
                   className="w-full h-full object-cover object-center scale-105 hover:scale-100 transition-transform duration-1000"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
@@ -119,7 +116,7 @@ export default function InvestorsPage() {
             
             {[
               { icon: Activity, title: "Monthly GMV", value: "$4.2M", desc: "Gross Merchandise Value" },
-              { icon: Store, title: "Active Vendors", value: "2,400+", desc: "Verified partner businesses" },
+              { icon: Store, title: "Active Creators", value: "2,400+", desc: "Verified live streamers & brands" },
               { icon: Users, title: "Retention Rate", value: "78%", desc: "Cohort Month 6 average" },
               { icon: Building, title: "Revenue Run Rate", value: "$8.5M", desc: "Annualized platform revenue" },
             ].map((metric, i) => {
@@ -156,7 +153,7 @@ export default function InvestorsPage() {
               </div>
               <h3 className="text-2xl font-bold text-smoke-900 mb-4">$80B Addressable Market</h3>
               <p className="text-smoke-600 leading-relaxed">
-                Informal trade makes up over 70% of retail in East Africa. Razzia is building the essential digital infrastructure to organize this massive, untapped offline economy.
+                Live commerce is the fastest-growing segment in global e-commerce. Razzia is bringing the proven 'shoppertainment' model to untapped emerging markets.
               </p>
             </div>
 
@@ -166,7 +163,7 @@ export default function InvestorsPage() {
               </div>
               <h3 className="text-2xl font-bold text-smoke-900 mb-4">Sticky Ecosystem</h3>
               <p className="text-smoke-600 leading-relaxed">
-                By combining a consumer marketplace, a merchant dashboard, and a delivery fleet into one closed-loop system, we create incredibly high switching costs and robust retention.
+                By combining interactive social video, instant one-tap checkout, and built-in creator analytics, we create a highly engaging loop that drives unprecedented conversion and retention rates.
               </p>
             </div>
 
@@ -176,7 +173,7 @@ export default function InvestorsPage() {
               </div>
               <h3 className="text-2xl font-bold text-smoke-900 mb-4">Rapid Path to Profitability</h3>
               <p className="text-smoke-600 leading-relaxed">
-                We achieve positive unit economics on the first order. Our vendors average 3x revenue growth within 6 months, and every transaction generates a highly scalable platform fee.
+                Our creators see up to 10x higher conversion rates than traditional e-commerce. Every stream generates highly scalable revenue through transaction fees, tipping, and sponsored placements.
               </p>
             </div>
             
@@ -185,9 +182,9 @@ export default function InvestorsPage() {
       </section>
 
       {/* Elegant CTA */}
-      <section id="invest" className="py-24 bg-smoke-900 text-white relative overflow-hidden">
+      <section id="invest" className="py-24 bg-white text-smoke-900 relative overflow-hidden border-t border-line-100">
         {/* Subtle light leak */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-razzia-500/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-razzia-100/50 rounded-full blur-[120px] pointer-events-none" />
         
         <div ref={ctaReveal.ref} style={{ opacity: ctaReveal.isVisible ? 1 : 0, transform: ctaReveal.isVisible ? "none" : "translateY(20px)", transition: "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)" }}
           className="mx-auto w-full max-w-4xl px-6 text-center relative z-10">
@@ -195,15 +192,15 @@ export default function InvestorsPage() {
           <h2 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">
             Ready to invest?
           </h2>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+          <p className="text-xl text-smoke-600 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
             Let’s embark on this exciting journey together. We’d love to discuss the investment opportunities available and show you how you can play an essential role in our success.
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <Button href="/landing/contact" className="h-14 px-10 text-base bg-razzia-500 text-white hover:bg-razzia-600 transition-colors shadow-[0_0_20px_rgba(234,59,12,0.3)] border-none rounded-xl">
+            <Button href="/landing/contact" className="h-14 px-10 text-base bg-razzia-500 text-white hover:bg-razzia-600 transition-colors shadow-[0_0_20px_rgba(255,51,102,0.3)] border-none rounded-xl">
               Schedule a Meeting
             </Button>
-            <Button href="/landing/about" className="h-14 px-10 text-base !bg-white/10 backdrop-blur border border-white/20 !text-white hover:!bg-white/20 transition-colors rounded-xl">
+            <Button href="/landing/about" className="h-14 px-10 text-base !bg-transparent border border-line-200 !text-smoke-700 hover:bg-surface-50 transition-colors rounded-xl">
               View Master Plan
             </Button>
           </div>

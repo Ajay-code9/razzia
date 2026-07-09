@@ -25,71 +25,71 @@ import {
 
 const reasons = [
   {
+    icon: Smartphone,
+    title: "Interactive live shows",
+    body: "Watch local brands go live, interact in real-time, and see products in action before buying.",
+  },
+  {
+    icon: CreditCard,
+    title: "Instant in-stream checkout",
+    body: "Buy items instantly while watching the stream without ever leaving the video interface.",
+  },
+  {
     icon: Zap,
-    title: "Rapid doorstep delivery",
-    body: "Smart dispatch and nearby riders help your orders reach home in less time.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Protected checkout",
-    body: "Every payment channel is encrypted and monitored for secure transactions.",
-  },
-  {
-    icon: Store,
-    title: "Built for local sellers",
-    body: "Razzia helps neighborhood shops grow sales without complicated setup.",
+    title: "Rapid local delivery",
+    body: "Your purchases are dispatched immediately and delivered to your doorstep in minutes.",
   },
 ];
 
 const featuredProducts = [
   {
-    name: "Family Grocery Basket",
-    price: "KES 2,100",
-    seller: "Kibo Mart",
+    name: "Limited Edition Sneakers",
+    price: "KES 8,500",
+    seller: "Kicks City",
     rating: 4.9,
-    reviews: 142,
-    tag: "Best Seller",
-    photo: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&h=360&fit=crop&auto=format",
-    photoAlt: "Fresh grocery basket with vegetables and fruits",
+    reviews: 312,
+    tag: "Live Drop",
+    photo: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&h=360&fit=crop&auto=format",
+    photoAlt: "Pair of stylish limited edition sneakers",
   },
   {
-    name: "Farm Fresh Vegetables",
-    price: "KES 680",
-    seller: "Green Leaf Store",
+    name: "Noise-Cancelling Headphones",
+    price: "KES 12,999",
+    seller: "Tech Haven",
     rating: 4.8,
-    reviews: 88,
-    tag: "Fresh Today",
-    photo: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&h=360&fit=crop&auto=format",
-    photoAlt: "Assorted fresh vegetables on wooden surface",
+    reviews: 145,
+    tag: "Flash Sale",
+    photo: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=360&fit=crop&auto=format",
+    photoAlt: "Premium wireless noise-cancelling headphones",
   },
   {
-    name: "Weekly Household Pack",
+    name: "Vintage Denim Jacket",
     price: "KES 3,200",
-    seller: "Home Care Hub",
+    seller: "Thrift Kulture",
     rating: 4.7,
-    reviews: 64,
-    tag: "Bundle Deal",
-    photo: "https://images.unsplash.com/photo-1584473457406-6240486418e9?w=600&h=360&fit=crop&auto=format",
-    photoAlt: "Household cleaning and grocery products",
+    reviews: 89,
+    tag: "1 Left",
+    photo: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=360&fit=crop&auto=format",
+    photoAlt: "Stylish vintage denim jacket",
   },
 ];
 
 const faqs = [
   {
-    q: "How fast is the delivery on Razzia?",
-    a: "Most deliveries are completed in under 30 minutes, thanks to our smart matching algorithm that connects you to the nearest riders and neighborhood shops.",
+    q: "How does live shopping work on Razzia?",
+    a: "Simply join a live stream on the app. The seller broadcasts video on the top half of the screen, and you can browse and buy their featured products instantly on the bottom half.",
   },
   {
-    q: "How do vendors get paid?",
-    a: "Vendors receive their earnings directly into their registered mobile money account (M-Pesa/Airtel) or bank account immediately after the delivery confirmation.",
+    q: "How fast is the delivery?",
+    a: "Purchases made during live streams are prepared instantly. Our local riders pick them up and deliver them to your doorstep, often within 30 minutes of your purchase.",
+  },
+  {
+    q: "Can anyone go live and sell?",
+    a: "Yes! Whether you are a local boutique, a content creator, or a major brand, you can register as a vendor, list your products, and start broadcasting to customers.",
   },
   {
     q: "What payment options are supported?",
-    a: "We support M-Pesa, Airtel Money, Visa, Mastercard, and Bank Transfers. All transactions are secure and encrypted.",
-  },
-  {
-    q: "Can I register as both a vendor and a driver?",
-    a: "Yes, you can register for multiple roles, but you will need to complete the verification process separately for each role using different workspaces.",
+    a: "We support M-Pesa, Airtel Money, Visa, Mastercard, and Bank Transfers. Checkout happens seamlessly within the live stream interface without interrupting the video.",
   },
 ];
 
@@ -97,19 +97,19 @@ const testimonials = [
   {
     name: "Angela M.",
     role: "Customer",
-    quote: "Razzia made grocery shopping very easy for my family. Delivery is fast and support is always polite.",
+    quote: "I love being able to see the actual fabric of the clothes on the live stream before I buy. The instant checkout is dangerous but so convenient!",
     photo: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=80&h=80&fit=crop&auto=format",
   },
   {
     name: "Brian K.",
     role: "Vendor",
-    quote: "Our small shop now reaches many more customers every week. Listing products is simple and clear.",
+    quote: "Going live completely changed my business. I can demonstrate my tech gadgets to hundreds of people at once and see sales coming in real-time.",
     photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&auto=format",
   },
   {
     name: "Dennis O.",
     role: "Driver",
-    quote: "I can choose my hours and still earn steadily. The delivery flow is smooth and reliable.",
+    quote: "Live stream drops mean a huge rush of orders all from the same location. It's incredibly efficient for me to pick up and deliver in batches.",
     photo: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=80&h=80&fit=crop&auto=format",
   },
 ];
@@ -196,34 +196,34 @@ export default function LandingPage() {
   const tabContent = {
     customers: {
       title: "For Customers",
-      desc: "Order fresh produce and home essentials from trusted local shops with speed.",
+      desc: "Join live streams, interact with sellers in real-time, and purchase directly from the video feed.",
       steps: [
-        { label: "Create account", detail: "Quick sign-up and setup your delivery address." },
-        { label: "Browse products", detail: "Explore fresh grocer baskets, grain sets, and daily foods." },
-        { label: "One-click order", detail: "Checkout instantly using safe M-Pesa or card channels." },
-        { label: "Track delivery", detail: "Watch your assigned rider move to your doorstep in real-time." },
+        { label: "Join the live drop", detail: "Swipe through live streams of your favorite local brands and creators." },
+        { label: "Engage in real-time", detail: "Ask questions, see product demos, and chat with the host instantly." },
+        { label: "One-click in-stream order", detail: "Buy the featured item directly on the screen using M-Pesa or card." },
+        { label: "Rapid delivery", detail: "Watch your assigned rider bring your new purchase straight to you." },
       ],
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=500&h=380&fit=crop&auto=format",
-      imageAlt: "Customer using mobile app to order groceries",
+      image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=500&h=380&fit=crop&auto=format",
+      imageAlt: "Customer watching a live stream on their mobile device",
     },
     vendors: {
-      title: "For Vendors",
-      desc: "List your shop, manage products, and grow your local customer base with ease.",
+      title: "For Creators & Vendors",
+      desc: "Go live from your phone. Broadcast on the top half of the screen while your products are listed below for instant sales.",
       steps: [
-        { label: "Register shop", detail: "Submit your business profile and payout details." },
-        { label: "Upload inventory", detail: "Add products, bundle packs, and custom item pricing." },
-        { label: "Fulfill orders", detail: "Accept order requests and pack them for pickup." },
-        { label: "Instant payouts", detail: "Get paid straight to your bank or mobile money account." },
+        { label: "Setup your live shop", detail: "Add your exciting products and set up your seller profile." },
+        { label: "Go live instantly", detail: "Start broadcasting directly from your smartphone camera." },
+        { label: "Showcase & sell", detail: "Demonstrate products live. Items appear below the video for buyers." },
+        { label: "Instant payouts", detail: "Get paid straight to your bank or mobile money account instantly." },
       ],
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=380&fit=crop&auto=format",
-      imageAlt: "Vendor managing store dashboard on tablet",
+      image: "https://images.unsplash.com/photo-1516280440502-861f4384a513?w=500&h=380&fit=crop&auto=format",
+      imageAlt: "Vendor broadcasting a live product showcase on their phone",
     },
     drivers: {
       title: "For Drivers",
-      desc: "Become a courier partner, manage your deliveries, and maximize your hours.",
+      desc: "Deliver exciting products purchased during live drops, keeping the momentum going from stream to doorstep.",
       steps: [
         { label: "Apply online", detail: "Submit your license and vehicle registration document." },
-        { label: "Go online", detail: "Receive instant notifications for nearby pickup tasks." },
+        { label: "Go online", detail: "Receive instant notifications for nearby pickup tasks from live sellers." },
         { label: "Deliver route", detail: "Follow the optimized maps for quick customer dropoffs." },
         { label: "Track earnings", detail: "Monitor your delivery tips and base pay balance." },
       ],
@@ -234,50 +234,31 @@ export default function LandingPage() {
 
   return (
     <Layout>
-      {/* ── Global animation styles ─────────────────────────── */}
-      <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes float-a { 0%,100%{transform:translateY(0) rotate(0deg);} 50%{transform:translateY(-10px) rotate(1deg);} }
-        @keyframes float-b { 0%,100%{transform:translateY(0) rotate(0deg);} 50%{transform:translateY(10px) rotate(-1deg);} }
-        @keyframes shimmer { 0%{background-position:-400px 0;} 100%{background-position:400px 0;} }
-        @keyframes pulse-ring { 0%{box-shadow:0 0 0 0 rgba(234,59,12,.35);} 70%{box-shadow:0 0 0 12px rgba(234,59,12,0);} 100%{box-shadow:0 0 0 0 rgba(234,59,12,0);} }
-        @keyframes scroll-x { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
-        @keyframes gradient-shift { 0%,100%{background-position:0% 50%;} 50%{background-position:100% 50%;} }
-        .float-a{animation:float-a 4s ease-in-out infinite;}
-        .float-b{animation:float-b 5.5s ease-in-out infinite;}
-        .float-c{animation:float-a 6s ease-in-out infinite 1s;}
-        .grid-bg{background-image:radial-gradient(circle at 1px 1px,var(--line-100) 1px,transparent 0);background-size:28px 28px;}
-        .shimmer-btn{background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);background-size:400px 100%;animation:shimmer 2.4s linear infinite;}
-        .pulse-btn{animation:pulse-ring 2s cubic-bezier(.66,0,0,1) infinite;}
-        .ticker-track{animation:scroll-x 22s linear infinite;}
-        .animated-gradient{background-size:200% 200%;animation:gradient-shift 5s ease infinite;}
-      `}} />
+      {/* ── Background Blobs ────────────────────────────────────────── */}
+      <div className="absolute top-0 left-0 w-full h-[600px] overflow-hidden -z-20 pointer-events-none">
+        <div className="absolute -top-32 -left-32 w-[600px] h-[600px] bg-razzia-100/60 blur-[100px] animate-wave-morph mix-blend-multiply" />
+        <div className="absolute top-10 right-10 w-[400px] h-[400px] bg-razzia-50/80 blur-[80px] animate-wave-morph mix-blend-multiply" style={{ animationDelay: '2s' }} />
+      </div>
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative mx-auto grid w-full max-w-7xl items-center gap-10 overflow-hidden px-6 pt-24 pb-16 md:grid-cols-2 lg:pt-32 lg:pb-20">
-        <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none -z-10" />
-
+      <section className="relative mx-auto grid w-full max-w-7xl items-center gap-10 px-6 pt-20 pb-16 md:grid-cols-2 lg:pt-24 lg:pb-20">
+        
         {/* Left */}
         <div>
-          <div style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "none" : "translateY(20px)", transition: "opacity .7s ease 0ms, transform .7s cubic-bezier(.22,1,.36,1) 0ms" }}>
-            <span className="inline-flex items-center gap-2 rounded-full border border-razzia-200 bg-razzia-50 px-3 py-1 text-xs font-bold text-razzia-600">
-              <span className="h-1.5 w-1.5 rounded-full bg-razzia-500 pulse-btn inline-block" />
-              Local commerce, redesigned
-            </span>
-          </div>
 
           <h1 style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "none" : "translateY(24px)", transition: "opacity .7s ease 120ms, transform .7s cubic-bezier(.22,1,.36,1) 120ms" }}
             className="mt-5 text-4xl font-extrabold leading-tight text-smoke-900 md:text-6xl">
-            Your trusted{" "}
-            <span className="relative text-transparent bg-clip-text animated-gradient"
-              style={{ backgroundImage: "linear-gradient(135deg,#ea3b0c,#c9330a,#ff6f43,#ea3b0c)" }}>
-              neighborhood
+            Experience live{" "}
+            <span className="relative text-transparent bg-clip-text"
+              style={{ backgroundImage: "linear-gradient(135deg, var(--razzia-500), #ff8fa3)" }}>
+              shopping
             </span>{" "}
-            marketplace.
+            from local creators.
           </h1>
 
           <p style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "none" : "translateY(20px)", transition: "opacity .7s ease 240ms, transform .7s cubic-bezier(.22,1,.36,1) 240ms" }}
             className="mt-5 max-w-xl text-lg text-smoke-600 leading-relaxed">
-            Razzia connects customers, shops, and riders in one clean experience for fast ordering and dependable delivery.
+            Watch vendors showcase products live on video. See it in action, interact in real-time, and buy it instantly with seamless delivery.
           </p>
 
           <div style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "none" : "translateY(18px)", transition: "opacity .7s ease 360ms, transform .7s cubic-bezier(.22,1,.36,1) 360ms" }}
@@ -301,63 +282,28 @@ export default function LandingPage() {
 
         {/* Right */}
         <div style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "none" : "translateY(30px) scale(.97)", transition: "opacity .8s ease 200ms, transform .8s cubic-bezier(.22,1,.36,1) 200ms" }}
-          className="relative rounded-3xl border border-line-100 bg-white p-6 shadow-[0_20px_50px_rgba(20,20,20,0.09)]">
-          <div className="relative mx-auto max-w-sm overflow-hidden rounded-2xl">
+          className="relative rounded-[2.5rem] bg-white p-4 soft-shadow">
+          <div className="relative mx-auto max-w-sm overflow-hidden rounded-[2rem]">
             <Image
-              alt="Fresh produce at a local Nairobi market"
-              className="h-72 w-full object-cover rounded-2xl"
+              alt="Live stream creator interacting with audience"
+              className="h-72 w-full object-cover rounded-[2rem] hover:scale-105 transition-transform duration-700"
               height={460}
-              src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&h=460&fit=crop&auto=format"
+              src="https://images.unsplash.com/photo-1621570169569-8fc97e33e143?w=600&h=460&fit=crop&auto=format"
               width={460}
             />
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-razzia-900/40 to-transparent" />
           </div>
 
-          {/* Floating badge 1 */}
-          <div className="float-a absolute -top-5 -left-6 flex items-center gap-3 rounded-2xl border border-line-100 bg-white/95 p-3 shadow-xl backdrop-blur-md">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100">
-              <CheckCircle2 className="h-5 w-5 text-emerald-600" />
-            </span>
-            <div>
-              <p className="text-xs font-bold text-smoke-900">Order #1942</p>
-              <p className="flex items-center gap-1 text-[10px] text-smoke-600">
-                <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                Preparing now
-              </p>
-            </div>
-          </div>
-
-          {/* Floating badge 2 */}
-          <div className="float-b absolute bottom-6 -left-8 flex items-center gap-3 rounded-2xl border border-line-100 bg-white/95 p-3 shadow-xl backdrop-blur-md">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-razzia-100">
-              <Truck className="h-5 w-5 text-razzia-600" />
-            </span>
-            <div>
-              <p className="text-xs font-bold text-smoke-900">Rider assigned</p>
-              <p className="text-[10px] text-smoke-600">J. Mwangi • 3 min away</p>
-            </div>
-          </div>
-
-          {/* Floating badge 3 */}
-          <div className="float-c absolute top-1/3 -right-6 flex items-center gap-3 rounded-2xl border border-line-100 bg-white/95 p-3 shadow-xl backdrop-blur-md">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-amber-100">
-              <CreditCard className="h-5 w-5 text-amber-600" />
-            </span>
-            <div>
-              <p className="text-xs font-bold text-smoke-900">M-Pesa paid</p>
-              <p className="text-[10px] font-semibold text-emerald-600">KES 2,430 confirmed</p>
-            </div>
-          </div>
         </div>
       </section>
 
       {/* ── Trust ticker ──────────────────────────────────────── */}
-      <section className="overflow-hidden border-y border-line-100 bg-white py-5">
-        <div className="ticker-track flex w-max gap-12 px-6 text-sm font-semibold text-smoke-600">
+      <section className="overflow-hidden border-y border-razzia-100 bg-razzia-50 py-5">
+        <div className="animate-marquee-x flex w-max gap-12 px-6 text-sm font-semibold text-razzia-600 uppercase tracking-widest">
           {[...Array(2)].map((_, r) =>
-            ["Trusted by 500+ vendors", "Smart rider dispatch", "M-Pesa & card checkout", "Real-time order tracking", "Instant vendor payouts", "Driver earnings daily", "Live in 5+ cities"].map((t) => (
+            ["Trusted by 500+ creators", "Live interactive streams", "Instant in-video checkout", "Real-time engagement", "Rapid local delivery", "Swipe through live drops"].map((t) => (
               <span className="shrink-0 flex items-center gap-2" key={`${r}-${t}`}>
-                <CheckCircle2 className="h-3.5 w-3.5 text-razzia-500 shrink-0" />
+                <CheckCircle2 className="h-4 w-4 text-razzia-500 shrink-0" />
                 {t}
               </span>
             ))
@@ -379,9 +325,9 @@ export default function LandingPage() {
       <section className="mx-auto w-full max-w-7xl px-6 py-20" id="about">
         <Reveal direction="up">
           <SectionHeading
-            description="Designed for reliability from checkout to doorstep handoff."
+            description="The most engaging way to shop online, bringing the human connection back to e-commerce."
             eyebrow="Why choose Razzia"
-            title="Fast delivery, safe payments, real local support"
+            title="Live video showcases, instant purchases, real-time engagement"
           />
         </Reveal>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -389,9 +335,9 @@ export default function LandingPage() {
             const Icon = reason.icon;
             return (
               <Reveal key={reason.title} delay={i * 100} direction="up">
-                <Card className="group h-full hover:shadow-[0_20px_40px_rgba(20,20,20,0.07)] hover:-translate-y-1 transition-all duration-300">
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-razzia-50 transition-transform duration-300 group-hover:scale-110">
-                    <Icon className="h-6 w-6 text-razzia-500" strokeWidth={1.75} />
+                <Card className="bento-card group h-full p-8 border border-line-100">
+                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-razzia-50 transition-transform duration-300 group-hover:scale-110">
+                    <Icon className="h-7 w-7 text-razzia-500" strokeWidth={1.75} />
                   </div>
                   <h3 className="text-xl font-bold text-smoke-900 group-hover:text-razzia-500 transition-colors">{reason.title}</h3>
                   <p className="mt-3 leading-relaxed text-smoke-600">{reason.body}</p>
@@ -404,33 +350,32 @@ export default function LandingPage() {
       </section>
 
       {/* ── How It Works ─────────────────────────────────────── */}
-      <section className="relative overflow-hidden py-24" id="how-it-works"
-        style={{ background: "linear-gradient(160deg,#0f0f0f 0%,#1a1a1a 50%,#111 100%)" }}>
+      <section className="relative overflow-hidden py-24 bg-slate-50 border-y border-line-100" id="how-it-works">
 
         {/* Background grid */}
-        <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
-          style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "32px 32px" }} />
+        <div className="absolute inset-0 opacity-10 pointer-events-none"
+          style={{ backgroundImage: "radial-gradient(circle at 1px 1px, black 1px, transparent 0)", backgroundSize: "32px 32px" }} />
 
         {/* Decorative glow */}
-        <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-[600px] rounded-full bg-razzia-500 opacity-[0.12] blur-3xl" />
+        <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-[600px] rounded-full bg-razzia-100 opacity-60 blur-[100px]" />
 
         <div className="relative mx-auto w-full max-w-7xl px-6">
 
           {/* Header */}
           <Reveal direction="up">
             <div className="text-center">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-razzia-400">
+              <span className="inline-flex items-center gap-2 rounded-full border border-razzia-100 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-razzia-500 shadow-sm">
                 <span className="h-1.5 w-1.5 rounded-full bg-razzia-500 pulse-btn inline-block" />
                 How it works
               </span>
-              <h2 className="mt-5 text-4xl font-extrabold text-white md:text-5xl">
+              <h2 className="mt-5 text-4xl font-extrabold text-smoke-900 md:text-5xl">
                 Simple steps for{" "}
                 <span className="text-transparent bg-clip-text"
-                  style={{ backgroundImage: "linear-gradient(135deg,#ff6f43,#ea3b0c)" }}>
+                  style={{ backgroundImage: "linear-gradient(135deg,#ea3b0c,#ff6f43)" }}>
                   everyone.
                 </span>
               </h2>
-              <p className="mt-4 text-white/50 max-w-xl mx-auto">
+              <p className="mt-4 text-smoke-600 max-w-xl mx-auto">
                 Each role has a clear, guided flow from sign-up to success — built for speed.
               </p>
             </div>
@@ -439,7 +384,7 @@ export default function LandingPage() {
           {/* Role tabs */}
           <Reveal delay={120}>
             <div className="mt-10 flex justify-center">
-              <div className="inline-flex rounded-2xl border border-white/10 bg-white/5 p-1.5 gap-1 backdrop-blur-sm">
+              <div className="inline-flex rounded-2xl border border-line-100 bg-white p-1.5 gap-1 shadow-sm">
                 {(["customers", "vendors", "drivers"] as const).map((tab) => (
                   <button
                     key={tab}
@@ -447,8 +392,8 @@ export default function LandingPage() {
                     type="button"
                     className={`relative overflow-hidden rounded-xl px-7 py-2.5 text-sm font-semibold transition-all duration-300 ${
                       activeTab === tab
-                        ? "bg-razzia-500 text-white shadow-lg shadow-razzia-900/50"
-                        : "text-white/50 hover:text-white/80 hover:bg-white/5"
+                        ? "bg-razzia-500 text-white shadow-lg shadow-razzia-500/30"
+                        : "text-smoke-600 hover:text-smoke-900 hover:bg-razzia-50"
                     }`}
                   >
                     {activeTab === tab && <div className="shimmer-btn pointer-events-none absolute inset-0" />}
@@ -464,16 +409,16 @@ export default function LandingPage() {
             <div className="mt-12 grid items-stretch gap-6 lg:grid-cols-[1fr_1.1fr]">
 
               {/* Left: Steps panel */}
-              <div className="flex flex-col justify-between rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-sm">
+              <div className="flex flex-col justify-between rounded-3xl border border-line-100 bg-white p-8 shadow-sm">
 
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-razzia-400 mb-1">
+                  <p className="text-xs font-bold uppercase tracking-widest text-razzia-500 mb-1">
                     {activeTab === "customers" ? "Customer journey" : activeTab === "vendors" ? "Vendor journey" : "Driver journey"}
                   </p>
-                  <h3 className="text-2xl font-extrabold text-white">
+                  <h3 className="text-2xl font-extrabold text-smoke-900">
                     {tabContent[activeTab].title}
                   </h3>
-                  <p className="mt-2 text-sm text-white/50 leading-relaxed">
+                  <p className="mt-2 text-sm text-smoke-600 leading-relaxed">
                     {tabContent[activeTab].desc}
                   </p>
                 </div>
@@ -484,24 +429,24 @@ export default function LandingPage() {
                     <li key={step.label} className="flex gap-4">
                       {/* Step indicator + connector line */}
                       <div className="flex flex-col items-center">
-                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-razzia-500 text-xs font-extrabold text-white shadow-lg shadow-razzia-900/50 ring-4 ring-razzia-500/20">
+                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-razzia-500 text-xs font-extrabold text-white shadow-lg shadow-razzia-500/30 ring-4 ring-razzia-50">
                           {index + 1}
                         </div>
                         {index < tabContent[activeTab].steps.length - 1 && (
-                          <div className="mt-1 w-px flex-1 bg-gradient-to-b from-razzia-500/50 to-transparent" style={{ minHeight: "28px" }} />
+                          <div className="mt-1 w-px flex-1 bg-gradient-to-b from-razzia-200 to-transparent" style={{ minHeight: "28px" }} />
                         )}
                       </div>
                       {/* Step text */}
                       <div className={`pb-6 ${index === tabContent[activeTab].steps.length - 1 ? "pb-0" : ""}`}>
-                        <h4 className="text-sm font-bold text-white">{step.label}</h4>
-                        <p className="mt-1 text-xs leading-relaxed text-white/45">{step.detail}</p>
+                        <h4 className="text-sm font-bold text-smoke-900">{step.label}</h4>
+                        <p className="mt-1 text-xs leading-relaxed text-smoke-500">{step.detail}</p>
                       </div>
                     </li>
                   ))}
                 </ol>
 
                 {/* Bottom CTA */}
-                <div className="mt-8 pt-6 border-t border-white/10">
+                <div className="mt-8 pt-6 border-t border-line-100">
                   <Button
                     href={activeTab === "customers" ? "/landing/shop" : activeTab === "vendors" ? "/landing/register" : "/landing/driver"}
                     className="!bg-razzia-500 !text-white !font-semibold hover:!bg-razzia-600 w-full justify-center"
@@ -528,54 +473,54 @@ export default function LandingPage() {
                 {/* Floating stat cards */}
                 {activeTab === "customers" && (
                   <>
-                    <div className="float-a absolute top-5 right-5 flex items-center gap-3 rounded-2xl border border-white/15 bg-black/50 px-4 py-3 backdrop-blur-md shadow-xl">
-                      <CheckCircle2 className="h-5 w-5 text-emerald-400 shrink-0" />
+                    <div className="float-a absolute top-5 right-5 flex items-center gap-3 rounded-2xl border border-line-100 bg-white/95 px-4 py-3 backdrop-blur-md shadow-xl">
+                      <CheckCircle2 className="h-5 w-5 text-emerald-500 shrink-0" />
                       <div>
-                        <p className="text-xs font-bold text-white">Order confirmed</p>
-                        <p className="text-[10px] text-white/60">Delivery in 28 min</p>
+                        <p className="text-xs font-bold text-smoke-900">Order confirmed</p>
+                        <p className="text-[10px] text-smoke-600">Delivery in 28 min</p>
                       </div>
                     </div>
-                    <div className="float-b absolute bottom-16 left-5 flex items-center gap-3 rounded-2xl border border-white/15 bg-black/50 px-4 py-3 backdrop-blur-md shadow-xl">
-                      <Star className="h-5 w-5 text-amber-400 fill-current shrink-0" />
+                    <div className="float-b absolute bottom-16 left-5 flex items-center gap-3 rounded-2xl border border-line-100 bg-white/95 px-4 py-3 backdrop-blur-md shadow-xl">
+                      <Star className="h-5 w-5 text-amber-500 fill-current shrink-0" />
                       <div>
-                        <p className="text-xs font-bold text-white">4.9 avg rating</p>
-                        <p className="text-[10px] text-white/60">From 12,400+ orders</p>
+                        <p className="text-xs font-bold text-smoke-900">4.9 avg rating</p>
+                        <p className="text-[10px] text-smoke-600">From 12,400+ orders</p>
                       </div>
                     </div>
                   </>
                 )}
                 {activeTab === "vendors" && (
                   <>
-                    <div className="float-a absolute top-5 right-5 flex items-center gap-3 rounded-2xl border border-white/15 bg-black/50 px-4 py-3 backdrop-blur-md shadow-xl">
-                      <TrendingUp className="h-5 w-5 text-emerald-400 shrink-0" />
+                    <div className="float-a absolute top-5 right-5 flex items-center gap-3 rounded-2xl border border-line-100 bg-white/95 px-4 py-3 backdrop-blur-md shadow-xl">
+                      <TrendingUp className="h-5 w-5 text-emerald-500 shrink-0" />
                       <div>
-                        <p className="text-xs font-bold text-white">KES 84,320</p>
-                        <p className="text-[10px] text-white/60">Today&apos;s revenue</p>
+                        <p className="text-xs font-bold text-smoke-900">KES 84,320</p>
+                        <p className="text-[10px] text-smoke-600">Today&apos;s revenue</p>
                       </div>
                     </div>
-                    <div className="float-b absolute bottom-16 left-5 flex items-center gap-3 rounded-2xl border border-white/15 bg-black/50 px-4 py-3 backdrop-blur-md shadow-xl">
-                      <Store className="h-5 w-5 text-razzia-400 shrink-0" />
+                    <div className="float-b absolute bottom-16 left-5 flex items-center gap-3 rounded-2xl border border-line-100 bg-white/95 px-4 py-3 backdrop-blur-md shadow-xl">
+                      <Store className="h-5 w-5 text-razzia-500 shrink-0" />
                       <div>
-                        <p className="text-xs font-bold text-white">48 active orders</p>
-                        <p className="text-[10px] text-white/60">Across 3 product lines</p>
+                        <p className="text-xs font-bold text-smoke-900">48 active orders</p>
+                        <p className="text-[10px] text-smoke-600">Across 3 product lines</p>
                       </div>
                     </div>
                   </>
                 )}
                 {activeTab === "drivers" && (
                   <>
-                    <div className="float-a absolute top-5 right-5 flex items-center gap-3 rounded-2xl border border-white/15 bg-black/50 px-4 py-3 backdrop-blur-md shadow-xl">
-                      <Truck className="h-5 w-5 text-razzia-400 shrink-0" />
+                    <div className="float-a absolute top-5 right-5 flex items-center gap-3 rounded-2xl border border-line-100 bg-white/95 px-4 py-3 backdrop-blur-md shadow-xl">
+                      <Truck className="h-5 w-5 text-razzia-500 shrink-0" />
                       <div>
-                        <p className="text-xs font-bold text-white">14 deliveries</p>
-                        <p className="text-[10px] text-white/60">Completed today</p>
+                        <p className="text-xs font-bold text-smoke-900">14 deliveries</p>
+                        <p className="text-[10px] text-smoke-600">Completed today</p>
                       </div>
                     </div>
-                    <div className="float-b absolute bottom-16 left-5 flex items-center gap-3 rounded-2xl border border-white/15 bg-black/50 px-4 py-3 backdrop-blur-md shadow-xl">
-                      <Zap className="h-5 w-5 text-amber-400 shrink-0" />
+                    <div className="float-b absolute bottom-16 left-5 flex items-center gap-3 rounded-2xl border border-line-100 bg-white/95 px-4 py-3 backdrop-blur-md shadow-xl">
+                      <Zap className="h-5 w-5 text-amber-500 shrink-0" />
                       <div>
-                        <p className="text-xs font-bold text-white">KES 4,850 earned</p>
-                        <p className="text-[10px] text-white/60">Payout ready now</p>
+                        <p className="text-xs font-bold text-smoke-900">KES 4,850 earned</p>
+                        <p className="text-[10px] text-smoke-600">Payout ready now</p>
                       </div>
                     </div>
                   </>
@@ -583,7 +528,7 @@ export default function LandingPage() {
 
                 {/* Bottom label */}
                 <div className="absolute bottom-0 left-0 right-0 px-6 pb-6">
-                  <p className="text-xs font-semibold text-white/40 uppercase tracking-widest">
+                  <p className="text-xs font-semibold text-white/80 uppercase tracking-widest">
                     {tabContent[activeTab].imageAlt}
                   </p>
                 </div>
@@ -827,12 +772,10 @@ export default function LandingPage() {
       <section className="mx-auto w-full max-w-7xl px-6 pb-16">
         <Reveal direction="up">
           <div className="relative overflow-hidden rounded-3xl text-white"
-            style={{ background: "linear-gradient(135deg,#ea3b0c 0%,#c9330a 55%,#a32b0c 100%)" }}>
-            <div className="absolute inset-0 opacity-20 animated-gradient pointer-events-none"
-              style={{ background: "linear-gradient(135deg,#ff6f43,#ea3b0c,#a32b0c,#ff9a77,#ea3b0c)", backgroundSize: "300% 300%" }} />
-            <div className="absolute inset-0 grid-bg opacity-[0.07] pointer-events-none" />
-            <div className="pointer-events-none absolute -top-16 -right-16 h-64 w-64 rounded-full bg-white opacity-[0.06] blur-3xl" />
-            <div className="pointer-events-none absolute bottom-0 left-1/3 h-48 w-48 rounded-full bg-orange-300 opacity-[0.12] blur-2xl" />
+            style={{ background: "linear-gradient(135deg, var(--razzia-500) 0%, var(--razzia-600) 55%, var(--razzia-700) 100%)" }}>
+            <div className="absolute inset-0 opacity-20 bg-gradient-to-br from-white/30 to-transparent pointer-events-none" />
+            <div className="pointer-events-none absolute -top-16 -right-16 h-64 w-64 rounded-full bg-white opacity-10 blur-3xl" />
+            <div className="pointer-events-none absolute bottom-0 left-1/3 h-48 w-48 rounded-full bg-white opacity-10 blur-2xl" />
 
             <div className="relative grid items-center gap-10 px-8 py-14 lg:grid-cols-[1.3fr_1fr] lg:py-16">
               <div>
