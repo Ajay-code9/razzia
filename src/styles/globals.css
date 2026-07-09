@@ -39,8 +39,13 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: clip;
+}
+
 body {
   margin: 0;
+  overflow-x: clip;
   background: #fff;
   color: var(--smoke-900);
   font-family: var(--font-plus-jakarta), sans-serif;
