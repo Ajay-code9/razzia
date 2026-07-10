@@ -134,6 +134,8 @@ export function Navbar() {
                 src="/razzia-logo.svg"
                 width={96}
                 height={96}
+                priority
+                unoptimized
               />
             </div>
           </Link>
