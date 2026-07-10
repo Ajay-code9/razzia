@@ -127,8 +127,8 @@ export function Navbar() {
           className={`mx-auto flex w-full max-w-7xl items-center justify-between px-6 transition-all duration-300 ${isScrolled ? "py-2.5" : "py-5"
             }`}
         >
-          <Link className="flex items-center gap-3" href="/landing">
-            <div className={`flex items-center justify-center rounded-full transition-colors duration-300 ${isDarkHeroTop ? "bg-white shadow-sm p-1" : ""}`}>
+          <Link className="relative block w-24 h-12" href="/landing">
+            <div className={`absolute -top-2 left-0 z-50 flex items-center justify-center rounded-full transition-all duration-300 ${isDarkHeroTop ? "bg-white shadow-md p-2" : "drop-shadow-lg"}`}>
               <Image
                 alt="Razzia logo"
                 src="/razzia-logo.svg"
