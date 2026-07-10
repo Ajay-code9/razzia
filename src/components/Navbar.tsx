@@ -128,7 +128,7 @@ export function Navbar() {
             }`}
         >
           <Link className="relative block w-24 h-12" href="/landing">
-            <div className={`absolute -top-2 left-0 z-50 flex items-center justify-center rounded-full transition-all duration-300 ${isDarkHeroTop ? "bg-white shadow-md p-2" : "drop-shadow-lg"}`}>
+            <div className={`absolute -top-2 left-0 z-50 flex items-center justify-center rounded-full transition-all duration-300 ${isDarkHeroTop ? "bg-white shadow-md p-1" : "drop-shadow-lg"}`}>
               <Image
                 alt="Razzia logo"
                 src="/razzia-logo.svg"
