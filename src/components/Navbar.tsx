@@ -134,11 +134,11 @@ export function Navbar() {
               <Image 
                 alt="Razzia logo" 
                 src="/razzia-logo.svg" 
-                width={36} 
-                height={36} 
+                width={48} 
+                height={48} 
               />
             </div>
-            <span className={`text-xl font-extrabold tracking-tight transition-colors duration-300 ${
+            <span className={`text-2xl font-extrabold tracking-tight transition-colors duration-300 ${
               isDarkHeroTop ? "text-white" : "text-smoke-900"
             }`}>
               Razzia
