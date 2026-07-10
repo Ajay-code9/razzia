@@ -1,840 +1,443 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Layout } from "@/components/Layout";
-import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { StatPill } from "@/components/ui/StatPill";
-import {
-  Zap,
-  ShieldCheck,
-  Store,
-  CheckCircle2,
-  Star,
-  ArrowRight,
-  Truck,
-  Clock,
-  CreditCard,
-  Lock,
-  Smartphone,
-  TrendingUp,
-  Users,
-} from "lucide-react";
+import { Heart, Store, Play, Apple, Info, ChevronLeft, ChevronRight, VolumeX, Share, X, Gift } from "lucide-react";
+import Link from "next/link";
 
-/* ─── Data ─────────────────────────────────────────────────────── */
+/* ─── Components ─────────────────────────────────────────────────── */
 
-const reasons = [
-  {
-    icon: Smartphone,
-    title: "Interactive live shows",
-    body: "Watch local brands go live, interact in real-time, and see products in action before buying.",
-  },
-  {
-    icon: CreditCard,
-    title: "Instant in-stream checkout",
-    body: "Buy items instantly while watching the stream without ever leaving the video interface.",
-  },
-  {
-    icon: Zap,
-    title: "Rapid local delivery",
-    body: "Your purchases are dispatched immediately and delivered to your doorstep in minutes.",
-  },
-];
+function PhoneMockup({ 
+  imageSrc, 
+  title, 
+  name, 
+  likes,
+  floatingIcon = true,
+  className = ""
+}: { 
+  imageSrc: string; 
+  title: string; 
+  name: string; 
+  likes: string;
+  floatingIcon?: boolean;
+  className?: string;
+}) {
+  return (
+    <div className={`relative mx-auto w-full max-w-[320px] rounded-[3.5rem] border-[10px] border-white bg-white shadow-2xl overflow-hidden aspect-[9/19.5] group ${className}`}>
+      {/* Notch */}
+      <div className="absolute top-0 left-1/2 h-6 w-32 -translate-x-1/2 rounded-b-3xl bg-black z-30" />
+      
+      {/* Screen Content */}
+      <div className="relative h-full w-full bg-black overflow-hidden rounded-[2.5rem]">
+        <Image src={imageSrc} alt="Live Stream" fill className="object-cover opacity-90 group-hover:scale-105 transition-transform duration-[2s]" />
+        
+        {/* Stream UI Overlay */}
+        <div className="absolute inset-0 flex flex-col justify-between p-4 pb-6 pointer-events-none">
+          
+          {/* Top bar */}
+          <div className="mt-8 z-10 flex flex-col gap-2">
+            <div className="flex items-center gap-2">
+              <div className="h-10 w-10 rounded-full shrink-0 overflow-hidden relative shadow-lg">
+                 <Image src={imageSrc} fill alt="Avatar" className="object-cover" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h4 className="text-white font-semibold text-[13px] leading-tight truncate drop-shadow-md">{title}</h4>
+                <p className="text-white/80 text-[11px] font-medium drop-shadow-md">{name} <span className="mx-1 text-white/50">•</span> 👁 7909</p>
+              </div>
+              <div className="ml-auto shrink-0 flex items-center gap-3">
+                <VolumeX className="w-5 h-5 text-white drop-shadow-md" />
+                <Share className="w-5 h-5 text-white drop-shadow-md" />
+                <X className="w-5 h-5 text-white drop-shadow-md" />
+              </div>
+            </div>
+            <div className="flex items-center gap-2 ml-12">
+              <span className="bg-razzia-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-sm uppercase tracking-wider drop-shadow-md">LIVE</span>
+              <span className="border border-white/50 text-white backdrop-blur-sm text-[10px] font-semibold px-2 py-0.5 rounded-full drop-shadow-md">Follow</span>
+            </div>
+          </div>
 
-const featuredProducts = [
-  {
-    name: "Limited Edition Sneakers",
-    price: "KES 8,500",
-    seller: "Kicks City",
-    rating: 4.9,
-    reviews: 312,
-    tag: "Live Drop",
-    photo: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&h=360&fit=crop&auto=format",
-    photoAlt: "Pair of stylish limited edition sneakers",
-  },
-  {
-    name: "Noise-Cancelling Headphones",
-    price: "KES 12,999",
-    seller: "Tech Haven",
-    rating: 4.8,
-    reviews: 145,
-    tag: "Flash Sale",
-    photo: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=360&fit=crop&auto=format",
-    photoAlt: "Premium wireless noise-cancelling headphones",
-  },
-  {
-    name: "Vintage Denim Jacket",
-    price: "KES 3,200",
-    seller: "Thrift Kulture",
-    rating: 4.7,
-    reviews: 89,
-    tag: "1 Left",
-    photo: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=360&fit=crop&auto=format",
-    photoAlt: "Stylish vintage denim jacket",
-  },
-];
+          {/* Bottom bar */}
+          <div className="space-y-4 z-10 pointer-events-auto">
+            {/* Chat */}
+            <div className="text-white text-[11px] space-y-1.5 drop-shadow-lg max-w-[80%] font-medium">
+              <p><span className="font-bold text-white">Santeesantee</span> Tell me about it.</p>
+              <p><span className="font-bold text-white">suirenee</span> You have beautiful thoughts!</p>
+              <p><span className="font-bold text-white">xhaleyx</span> Woww</p>
+              <p><span className="font-bold text-white">Davidopelnn</span> Thanks for the amazing story</p>
+              <p><span className="font-bold text-white">Donnykk</span> That's gorgeous</p>
+              <div className="bg-black/40 backdrop-blur-md rounded-full px-2.5 py-1.5 inline-flex items-center gap-1.5 mt-1 border border-white/10">
+                <span className="text-yellow-400">🔔</span>
+                <span className="text-[10px] font-bold text-yellow-400">Notification</span>
+                <span className="text-[10px] text-white">2 weeks after you order</span>
+                <ChevronRight className="w-3 h-3 text-white/50" />
+              </div>
+            </div>
+            
+            {/* Input & Actions */}
+            <div className="flex items-center gap-3">
+              <div className="relative hover:scale-110 transition-transform cursor-pointer">
+                <div className="h-10 w-10 bg-white rounded-xl flex items-center justify-center shrink-0">
+                  <Store className="h-6 w-6 text-razzia-500" strokeWidth={2.5} />
+                </div>
+                <div className="absolute -top-2 -right-2 h-5 w-5 bg-razzia-500 rounded-full flex items-center justify-center text-[10px] text-white font-bold">24</div>
+              </div>
+              <div className="h-10 flex-1 bg-black/40 backdrop-blur-md rounded-full border border-white/20 px-4 flex items-center">
+                <span className="text-white/50 text-xs font-medium">Please enter message</span>
+              </div>
+              <div className="flex items-center gap-3 shrink-0 text-white cursor-pointer">
+                 <div className="relative hover:scale-110 transition-transform">
+                   <Gift className="h-6 w-6 text-white drop-shadow-md" />
+                   <div className="absolute -top-1 -right-1 h-3.5 w-3.5 bg-razzia-500 rounded-full flex items-center justify-center text-[8px] text-white font-bold">2</div>
+                 </div>
+                 <div className="flex flex-col items-center hover:scale-110 transition-transform">
+                   <Heart className="h-6 w-6 text-white drop-shadow-md" strokeWidth={2} />
+                   <span className="text-[9px] font-bold mt-0.5 drop-shadow-md text-white/90">{likes}</span>
+                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-const faqs = [
-  {
-    q: "How does live shopping work on Razzia?",
-    a: "Simply join a live stream on the app. The seller broadcasts video on the top half of the screen, and you can browse and buy their featured products instantly on the bottom half.",
-  },
-  {
-    q: "How fast is the delivery?",
-    a: "Purchases made during live streams are prepared instantly. Our local riders pick them up and deliver them to your doorstep, often within 30 minutes of your purchase.",
-  },
-  {
-    q: "Can anyone go live and sell?",
-    a: "Yes! Whether you are a local boutique, a content creator, or a major brand, you can register as a vendor, list your products, and start broadcasting to customers.",
-  },
-  {
-    q: "What payment options are supported?",
-    a: "We support M-Pesa, Airtel Money, Visa, Mastercard, and Bank Transfers. Checkout happens seamlessly within the live stream interface without interrupting the video.",
-  },
-];
+        {/* Floating Heart Animations */}
+        {floatingIcon && (
+          <div className="absolute bottom-28 right-4 animate-float-fast z-0">
+             <Heart className="h-8 w-8 text-razzia-400 fill-razzia-400 opacity-60 drop-shadow-lg" />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
-const testimonials = [
-  {
-    name: "Angela M.",
-    role: "Customer",
-    quote: "I love being able to see the actual fabric of the clothes on the live stream before I buy. The instant checkout is dangerous but so convenient!",
-    photo: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=80&h=80&fit=crop&auto=format",
-  },
-  {
-    name: "Brian K.",
-    role: "Vendor",
-    quote: "Going live completely changed my business. I can demonstrate my tech gadgets to hundreds of people at once and see sales coming in real-time.",
-    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&auto=format",
-  },
-  {
-    name: "Dennis O.",
-    role: "Driver",
-    quote: "Live stream drops mean a huge rush of orders all from the same location. It's incredibly efficient for me to pick up and deliver in batches.",
-    photo: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=80&h=80&fit=crop&auto=format",
-  },
-];
-
-
-
-/* ─── Hooks ─────────────────────────────────────────────────────── */
-
-function useReveal() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+function ScrollObserver() {
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect(); } },
-      { threshold: 0.1 }
-    );
-    observer.observe(el);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    
+    const elements = document.querySelectorAll('.reveal-on-scroll');
+    elements.forEach(el => observer.observe(el));
+    
     return () => observer.disconnect();
   }, []);
-  return { ref, visible };
-}
-
-function useCountUp(target: number, start: boolean, duration = 1800) {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    if (!start) return;
-    let startTime: number | null = null;
-    const step = (ts: number) => {
-      if (!startTime) startTime = ts;
-      const progress = Math.min((ts - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.floor(eased * target));
-      if (progress < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }, [start, target, duration]);
-  return count;
-}
-
-function AnimatedStat({ value, suffix, label }: { value: number; suffix: string; label: string }) {
-  const { ref, visible } = useReveal();
-  const count = useCountUp(value, visible);
-  return (
-    <div ref={ref} className="text-center">
-      <p className="text-3xl font-extrabold text-razzia-500">{visible ? count : 0}{suffix}</p>
-      <p className="mt-1 text-sm text-smoke-600">{label}</p>
-    </div>
-  );
-}
-
-function Reveal({
-  children, delay = 0, direction = "up", className = "",
-}: {
-  children: React.ReactNode; delay?: number; direction?: "up" | "left" | "right" | "none"; className?: string;
-}) {
-  const { ref, visible } = useReveal();
-  const translate = direction === "up" ? "translateY(28px)" : direction === "left" ? "translateX(-28px)" : direction === "right" ? "translateX(28px)" : "none";
-  return (
-    <div ref={ref} className={className}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "none" : translate,
-        transition: `opacity 0.65s ease ${delay}ms, transform 0.65s cubic-bezier(.22,1,.36,1) ${delay}ms`,
-      }}>
-      {children}
-    </div>
-  );
+  return null;
 }
 
 /* ─── Page ───────────────────────────────────────────────────────── */
 
 export default function LandingPage() {
-  const [activeTab, setActiveTab] = useState<"customers" | "vendors" | "drivers">("customers");
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [heroVisible, setHeroVisible] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHeroVisible(true), 80);
-    return () => clearTimeout(t);
-  }, []);
-
-  const tabContent = {
-    customers: {
-      title: "For Customers",
-      desc: "Join live streams, interact with sellers in real-time, and purchase directly from the video feed.",
-      steps: [
-        { label: "Join the live drop", detail: "Swipe through live streams of your favorite local brands and creators." },
-        { label: "Engage in real-time", detail: "Ask questions, see product demos, and chat with the host instantly." },
-        { label: "One-click in-stream order", detail: "Buy the featured item directly on the screen using M-Pesa or card." },
-        { label: "Rapid delivery", detail: "Watch your assigned rider bring your new purchase straight to you." },
-      ],
-      image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=500&h=380&fit=crop&auto=format",
-      imageAlt: "Customer watching a live stream on their mobile device",
-    },
-    vendors: {
-      title: "For Creators & Vendors",
-      desc: "Go live from your phone. Broadcast on the top half of the screen while your products are listed below for instant sales.",
-      steps: [
-        { label: "Setup your live shop", detail: "Add your exciting products and set up your seller profile." },
-        { label: "Go live instantly", detail: "Start broadcasting directly from your smartphone camera." },
-        { label: "Showcase & sell", detail: "Demonstrate products live. Items appear below the video for buyers." },
-        { label: "Instant payouts", detail: "Get paid straight to your bank or mobile money account instantly." },
-      ],
-      image: "https://images.unsplash.com/photo-1516280440502-861f4384a513?w=500&h=380&fit=crop&auto=format",
-      imageAlt: "Vendor broadcasting a live product showcase on their phone",
-    },
-    drivers: {
-      title: "For Drivers",
-      desc: "Deliver exciting products purchased during live drops, keeping the momentum going from stream to doorstep.",
-      steps: [
-        { label: "Apply online", detail: "Submit your license and vehicle registration document." },
-        { label: "Go online", detail: "Receive instant notifications for nearby pickup tasks from live sellers." },
-        { label: "Deliver route", detail: "Follow the optimized maps for quick customer dropoffs." },
-        { label: "Track earnings", detail: "Monitor your delivery tips and base pay balance." },
-      ],
-      image: "https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?w=700&h=520&fit=crop&auto=format",
-      imageAlt: "Delivery rider on motorcycle fulfilling orders",
-    },
-  };
-
+  
+  
   return (
     <Layout>
-      {/* ── Background Blobs ────────────────────────────────────────── */}
-      <div className="absolute top-0 left-0 w-full h-[600px] overflow-hidden -z-20 pointer-events-none">
-        <div className="absolute -top-32 -left-32 w-[600px] h-[600px] bg-razzia-100/60 blur-[100px] animate-wave-morph mix-blend-multiply" />
-        <div className="absolute top-10 right-10 w-[400px] h-[400px] bg-razzia-50/80 blur-[80px] animate-wave-morph mix-blend-multiply" style={{ animationDelay: '2s' }} />
-      </div>
-
-      {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative mx-auto grid w-full max-w-7xl items-center gap-10 px-6 pt-20 pb-16 md:grid-cols-2 lg:pt-24 lg:pb-20">
+      <ScrollObserver />
+      {/* 
+        ========================================================================
+        SECTION 1: HERO (SOLID RED)
+        ========================================================================
+      */}
+      <section className="relative w-full bg-razzia-500 pt-28 pb-16 lg:pt-32 lg:pb-16 z-20">
         
-        {/* Left */}
-        <div>
+        {/* Abstract Floating Circles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-to-tr from-razzia-600 to-razzia-400 rounded-full blur-2xl opacity-60 animate-pulse-glow" />
+          <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-razzia-700 to-razzia-500 rounded-full translate-x-1/4 translate-y-1/4 opacity-80" />
+          <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-gradient-to-r from-razzia-400 to-razzia-300 rounded-full blur-xl opacity-70 animate-float-slow" />
+        </div>
 
-          <h1 style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "none" : "translateY(24px)", transition: "opacity .7s ease 120ms, transform .7s cubic-bezier(.22,1,.36,1) 120ms" }}
-            className="mt-5 text-4xl font-extrabold leading-tight text-smoke-900 md:text-6xl">
-            Experience live{" "}
-            <span className="relative text-transparent bg-clip-text"
-              style={{ backgroundImage: "linear-gradient(135deg, var(--razzia-500), #ff8fa3)" }}>
-              shopping
-            </span>{" "}
-            from local creators.
-          </h1>
+        <div className="relative mx-auto w-full max-w-7xl px-6 grid gap-12 lg:grid-cols-2 items-center z-10">
+          
+          {/* Left: Typography & CTA */}
+          <div>
+            <h1 className=" text-6xl font-black text-white md:text-8xl leading-[1.05] tracking-tighter drop-shadow-sm">
+              See It LIVE.<br />
+              Shop It Now.
+            </h1>
 
-          <p style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "none" : "translateY(20px)", transition: "opacity .7s ease 240ms, transform .7s cubic-bezier(.22,1,.36,1) 240ms" }}
-            className="mt-5 max-w-xl text-lg text-smoke-600 leading-relaxed">
-            Watch vendors showcase products live on video. See it in action, interact in real-time, and buy it instantly with seamless delivery.
+            <p className=" mt-6 text-xl text-white/90 md:text-2xl font-light max-w-lg leading-relaxed">
+              Join the most engaging shopping experience. Watch local creators, interact in real-time, and grab exclusive drops instantly.
+            </p>
+
+            <div className=" mt-12">
+              <Link href="/landing/shop" className="inline-flex items-center gap-2 rounded-full bg-white text-razzia-500 px-8 py-4 text-lg font-black shadow-[0_15px_30px_rgba(0,0,0,0.15)] transition-all hover:scale-105 active:scale-95 group">
+                SHOP LIVE <Play className="w-5 h-5 ml-1 fill-razzia-500 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+
+            {/* App Store Badges removed as per request */}
+          </div>
+
+          {/* Right: Overlapping Phone */}
+          <div className=" relative lg:translate-y-16 xl:translate-y-20 z-30 drop-shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
+            <PhoneMockup 
+              imageSrc="https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=800&h=1600&fit=crop"
+              title="Makeup Masterclass 💋"
+              name="Beauty by Bella"
+              likes="12.4k"
+              className="lg:scale-110"
+            />
+          </div>
+
+        </div>
+      </section>
+
+      {/* 
+        ========================================================================
+        SECTION 2: WHO IS RAZZIA? (DARK BACKGROUND)
+        ========================================================================
+      */}
+      <section className="relative w-full overflow-hidden bg-smoke-900 pt-32 pb-24 lg:pt-48 lg:pb-32 z-10">
+        {/* Abstract background circles */}
+        <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-gradient-to-r from-razzia-600 to-razzia-400 rounded-full blur-xl opacity-20 -translate-x-1/2 -translate-y-1/2" />
+        
+        <div className="relative mx-auto w-full max-w-7xl px-6 grid gap-16 lg:grid-cols-2 items-center z-10">
+          
+          {/* Left: Phone */}
+          <div className={`order-2 lg:order-1 relative transition-all duration-1000 transform     `}>
+            <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-razzia-500 rounded-full blur-3xl opacity-30 -translate-x-1/2 -translate-y-1/2 animate-pulse-glow" />
+            <PhoneMockup 
+              imageSrc="https://images.unsplash.com/photo-1588629910531-df13b2ce43c6?w=800&h=1600&fit=crop"
+              title="Studio Setup Revealed"
+              name="Tech Tips Live"
+              likes="8.9k"
+            />
+          </div>
+
+          {/* Right: Text */}
+          <div className={`order-1 lg:order-2 lg:pl-12 transition-all duration-1000 delay-300 transform     `}>
+            <h2 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-razzia-400 to-razzia-600 tracking-tighter">
+              Beyond Shopping.
+            </h2>
+            <p className="mt-8 text-xl text-smoke-300 leading-relaxed font-light max-w-lg">
+              More than just a store—it's a live experience. <br/><br/>
+              Razzia brings the hustle and energy of the marketplace straight to your screen. We're breaking down the walls between sellers and buyers, combining live entertainment with instant checkout for a shopping experience like never before.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 
+        ========================================================================
+        SECTION 3: EVERYONE CAN SELL (LIGHT BACKGROUND)
+        ========================================================================
+      */}
+      <section className="relative w-full overflow-hidden bg-surface-50 py-16 lg:py-24">
+        
+        {/* Abstract background circles */}
+        <div className={`absolute top-1/2 right-1/4 w-[500px] h-[500px] bg-gradient-to-tr from-razzia-500 to-razzia-300 rounded-full blur-2xl opacity-80 translate-x-1/2 -translate-y-1/2 shadow-2xl transition-all duration-[2s]     `} />
+        <div className={`absolute top-1/4 right-[10%] w-32 h-32 bg-white rounded-full border-[16px] border-razzia-500 shadow-xl transition-all duration-[2s] delay-500     `} />
+
+        <div className="relative mx-auto w-full max-w-7xl px-6 grid gap-16 lg:grid-cols-2 items-center z-10">
+          
+          {/* Left: Text */}
+          <div className={`lg:pr-12 transition-all duration-1000 transform     `}>
+            <h2 className="text-5xl md:text-7xl font-black text-smoke-900 tracking-tighter">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-razzia-500 to-razzia-400">Turn Views</span> into Sales
+            </h2>
+            <p className="mt-8 text-xl text-smoke-600 leading-relaxed font-light max-w-lg">
+              Whether you're a local boutique or a rising influencer, Razzia gives you the stage. <br/><br/>
+              Go live from your phone, showcase your passion, and watch your community—and your business—grow instantly.
+            </p>
+          </div>
+
+          {/* Right: Phone */}
+          <div className={`relative transition-all duration-1000 delay-300 transform     `}>
+            <PhoneMockup 
+              imageSrc="https://images.unsplash.com/photo-1607083206968-13611e3d76db?w=800&h=1600&fit=crop"
+              title="Summer Collection Drop"
+              name="Streetwear Kings"
+              likes="15.8k"
+            />
+          </div>
+
+        </div>
+      </section>
+
+      {/* 
+        ========================================================================
+        SECTION 4: COMMUNICATE DIRECTLY
+        ========================================================================
+      */}
+      <section className="relative w-full overflow-hidden bg-white py-16 lg:py-24">
+        {/* Abstract background circles */}
+        <div className={`absolute top-1/4 left-10 w-64 h-64 bg-razzia-50 rounded-full blur-2xl opacity-80 transition-all duration-[2s]  - `} />
+        <div className={`absolute bottom-10 right-1/4 w-96 h-96 bg-razzia-50 rounded-full blur-3xl opacity-60 transition-all duration-[2s] delay-300   `} />
+
+        <div className="relative mx-auto w-full max-w-7xl px-6 grid gap-16 lg:grid-cols-2 items-center z-10">
+          
+          {/* Left: Phone */}
+          <div className={`order-2 lg:order-1 relative transition-all duration-1000 transform     `}>
+            <PhoneMockup 
+              imageSrc="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=800&h=1600&fit=crop"
+              title="Exclusive Sneaker Drop"
+              name="Sarah's Closet"
+              likes="22.1k"
+            />
+          </div>
+
+          {/* Right: Text */}
+          <div className={`order-1 lg:order-2 lg:pl-12 transition-all duration-1000 delay-300 transform     `}>
+            <h2 className="text-5xl md:text-7xl font-black text-smoke-900 tracking-tighter">
+              Build <span className="text-transparent bg-clip-text bg-gradient-to-r from-razzia-500 to-razzia-400">Connections</span>
+            </h2>
+            <p className="mt-8 text-xl text-smoke-600 leading-relaxed font-light max-w-lg">
+              Don't just add to cart—say hello! <br/><br/>
+              Ask questions, request specific product demonstrations, and chat directly with the people behind your favorite products.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 
+        ========================================================================
+        SECTION 5: CATCH THE DROP
+        ========================================================================
+      */}
+      <section className="relative w-full overflow-hidden bg-razzia-50 py-16 lg:py-24">
+        
+        <div className="relative mx-auto w-full max-w-7xl px-6 grid gap-16 lg:grid-cols-2 items-center z-10">
+          
+          {/* Left: Text */}
+          <div className={`lg:pr-12 transition-all duration-1000 transform     `}>
+            <h2 className="text-5xl md:text-7xl font-black text-smoke-900 tracking-tighter">
+              Catch the <span className="text-transparent bg-clip-text bg-gradient-to-r from-razzia-500 to-razzia-600">Flash Drops</span>
+            </h2>
+            <p className="mt-8 text-xl text-smoke-600 leading-relaxed font-light max-w-lg">
+              FOMO is real. <br/><br/>
+              Grab exclusive items and limited-time discounts right from the live stream. When the drop happens, you have to be fast!
+            </p>
+          </div>
+
+          {/* Right: Phone */}
+          <div className={`relative transition-all duration-1000 delay-300 transform     `}>
+            <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] sm:w-[500px] sm:h-[500px] bg-gradient-to-br from-razzia-500 to-razzia-600 rounded-full shadow-2xl -translate-x-1/2 -translate-y-1/2 animate-pulse-glow" />
+            
+            <div className="relative">
+              <PhoneMockup 
+                imageSrc="https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=800&h=1600&fit=crop"
+                title="Q&A Session"
+                name="Beauty Box"
+                likes="45k"
+                floatingIcon={false}
+              />
+              {/* Product Card Overlay inside Phone */}
+              <div className="absolute bottom-32 left-1/2 -translate-x-1/2 w-11/12 max-w-[280px] bg-white/90 backdrop-blur-xl rounded-2xl shadow-2xl p-4 animate-slide-up border border-white z-30">
+                <div className="relative h-32 w-full rounded-xl overflow-hidden mb-3 shadow-inner">
+                  <Image src="https://images.unsplash.com/photo-1512413914840-a309e3948e9c?w=400&h=400&fit=crop" fill alt="Product" className="object-cover" />
+                  <span className="absolute top-2 left-2 bg-black text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider shadow-lg shadow-black/50">Live Drop</span>
+                </div>
+                <h5 className="font-bold text-sm text-smoke-900 truncate">Limited Edition Kit</h5>
+                <p className="text-xs text-smoke-500 line-clamp-1 mt-0.5">Only 10 left in stock!</p>
+                <div className="flex items-center justify-between mt-3">
+                  <div className="flex items-center gap-2">
+                    <span className="text-razzia-500 font-extrabold text-lg">KES 4,500</span>
+                    <span className="text-smoke-400 text-xs line-through font-semibold">6,000</span>
+                  </div>
+                  <span className="text-xs font-bold text-razzia-500 bg-razzia-100 px-2 py-1 rounded shadow-sm">-25%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 
+        ========================================================================
+        SECTION 6: MEET OUR TOP CREATORS
+        ========================================================================
+      */}
+      <section className="relative w-full overflow-hidden bg-razzia-500 pt-24 pb-32 lg:pt-32 lg:pb-48">
+        <div className={`relative mx-auto w-full max-w-7xl px-6 z-10 text-center transition-all duration-1000 transform     `}>
+          <h2 className="text-5xl md:text-6xl font-black text-white tracking-tighter drop-shadow-sm">
+            Discover Top Creators
+          </h2>
+          <p className="mt-6 text-lg text-white/90 leading-relaxed max-w-xl mx-auto font-light">
+            Tune in daily to watch Razzia's most loved vendors showcase their latest drops, share styling tips, and entertain.
           </p>
 
-          <div style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "none" : "translateY(18px)", transition: "opacity .7s ease 360ms, transform .7s cubic-bezier(.22,1,.36,1) 360ms" }}
-            className="mt-8 flex flex-wrap gap-3">
-            <div className="relative overflow-hidden rounded-full">
-              <Button href="/landing/register">Start selling</Button>
-              <div className="shimmer-btn pointer-events-none absolute inset-0" />
-            </div>
-            <Button href="/landing/shop" variant="secondary">
-              Explore shop <ArrowRight className="ml-1 inline h-4 w-4" />
-            </Button>
-          </div>
-
-          <div style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "none" : "translateY(14px)", transition: "opacity .7s ease 480ms, transform .7s cubic-bezier(.22,1,.36,1) 480ms" }}
-            className="mt-8 flex flex-wrap gap-3">
-            <StatPill value="2x" label="faster deliveries" />
-            <StatPill value="24/7" label="order support" />
-            <StatPill value="100%" label="secure payments" />
-          </div>
-        </div>
-
-        {/* Right */}
-        <div style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "none" : "translateY(30px) scale(.97)", transition: "opacity .8s ease 200ms, transform .8s cubic-bezier(.22,1,.36,1) 200ms" }}
-          className="relative rounded-[2.5rem] bg-white p-4 soft-shadow">
-          <div className="relative mx-auto max-w-sm overflow-hidden rounded-[2rem]">
-            <Image
-              alt="Live stream creator interacting with audience"
-              className="h-72 w-full object-cover rounded-[2rem] hover:scale-105 transition-transform duration-700"
-              height={460}
-              src="https://images.unsplash.com/photo-1621570169569-8fc97e33e143?w=600&h=460&fit=crop&auto=format"
-              width={460}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-razzia-900/40 to-transparent" />
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── Trust ticker ──────────────────────────────────────── */}
-      <section className="overflow-hidden border-y border-razzia-100 bg-razzia-50 py-5">
-        <div className="animate-marquee-x flex w-max gap-12 px-6 text-sm font-semibold text-razzia-600 uppercase tracking-widest">
-          {[...Array(2)].map((_, r) =>
-            ["Trusted by 500+ creators", "Live interactive streams", "Instant in-video checkout", "Real-time engagement", "Rapid local delivery", "Swipe through live drops"].map((t) => (
-              <span className="shrink-0 flex items-center gap-2" key={`${r}-${t}`}>
-                <CheckCircle2 className="h-4 w-4 text-razzia-500 shrink-0" />
-                {t}
-              </span>
-            ))
-          )}
-        </div>
-      </section>
-
-      {/* ── Stats bar ─────────────────────────────────────────── */}
-      <section className="bg-surface-50 border-b border-line-100 py-14">
-        <div className="mx-auto grid max-w-7xl gap-8 px-6 sm:grid-cols-2 lg:grid-cols-4">
-          <AnimatedStat value={500} suffix="+" label="Active vendor partners" />
-          <AnimatedStat value={1200} suffix="+" label="Daily orders fulfilled" />
-          <AnimatedStat value={5} suffix="" label="Cities across East Africa" />
-          <AnimatedStat value={99} suffix="%" label="Payment success rate" />
-        </div>
-      </section>
-
-      {/* ── Why Razzia ────────────────────────────────────────── */}
-      <section className="mx-auto w-full max-w-7xl px-6 py-20" id="about">
-        <Reveal direction="up">
-          <SectionHeading
-            description="The most engaging way to shop online, bringing the human connection back to e-commerce."
-            eyebrow="Why choose Razzia"
-            title="Live video showcases, instant purchases, real-time engagement"
-          />
-        </Reveal>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {reasons.map((reason, i) => {
-            const Icon = reason.icon;
-            return (
-              <Reveal key={reason.title} delay={i * 100} direction="up">
-                <Card className="bento-card group h-full p-8 border border-line-100">
-                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-razzia-50 transition-transform duration-300 group-hover:scale-110">
-                    <Icon className="h-7 w-7 text-razzia-500" strokeWidth={1.75} />
+          <div className="relative mt-16 group">
+            <button 
+              onClick={() => {
+                const el = document.getElementById("creators-scroll");
+                if (el) el.scrollBy({ left: -320, behavior: 'smooth' });
+              }}
+              className="absolute -left-5 top-1/2 -translate-y-1/2 z-20 bg-white text-razzia-500 rounded-full p-3 shadow-xl hover:scale-110 transition-all duration-300  group-hover:opacity-100 hidden md:block"
+            >
+              <ChevronLeft size={28} />
+            </button>
+            <div 
+              id="creators-scroll"
+              className="flex overflow-x-auto gap-6 pb-12 pt-4 snap-x snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
+              {[
+                { name: "Aisha", img: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=400&fit=crop", desc: "Don't be fooled by her chic look. Aisha's charms will bring smiles to your face." },
+                { name: "Kamau", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop", desc: "Come and chat with your friendly neighborhood tech expert." },
+                { name: "Zawadi", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop", desc: "A talented designer, Zawadi will reveal all her beauty and fashion secrets." },
+                { name: "Brian", img: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&h=400&fit=crop", desc: "Feeling down? Brian will make you laugh and forget about all your worries." },
+                { name: "Naomi", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop", desc: "Your ultimate guide to affordable and trendy streetwear styling." },
+                { name: "Dennis", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop", desc: "Sneakerhead and fitness guru, Dennis always brings the heat live." },
+                { name: "Wanjiku", img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop", desc: "Catch her live for the best home decor and lifestyle hacks daily." },
+                { name: "Kevin", img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop", desc: "The gaming king. Tuning into Kevin's stream is always a good time." }
+              ].map((creator, i) => (
+                <div 
+                  key={i} 
+                  className="bg-white rounded-[2rem] p-8 shadow-xl flex flex-col items-center text-center transform transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl min-w-[280px] sm:min-w-[300px] max-w-[300px] snap-center relative overflow-hidden group/card"
+                >
+                  {/* Background flair animation */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-razzia-50 to-transparent  group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  
+                  <div className="w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-razzia-50 shadow-md relative z-10 transition-transform duration-500 group-hover/card:scale-110 group-hover/card:border-razzia-100">
+                    <Image src={creator.img} alt={creator.name} width={128} height={128} className="object-cover w-full h-full" />
                   </div>
-                  <h3 className="text-xl font-bold text-smoke-900 group-hover:text-razzia-500 transition-colors">{reason.title}</h3>
-                  <p className="mt-3 leading-relaxed text-smoke-600">{reason.body}</p>
-                  <div className="mt-4 h-0.5 w-0 bg-razzia-500 transition-all duration-500 group-hover:w-full rounded-full" />
-                </Card>
-              </Reveal>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* ── How It Works ─────────────────────────────────────── */}
-      <section className="relative overflow-hidden py-24 bg-slate-50 border-y border-line-100" id="how-it-works">
-
-        {/* Background grid */}
-        <div className="absolute inset-0 opacity-10 pointer-events-none"
-          style={{ backgroundImage: "radial-gradient(circle at 1px 1px, black 1px, transparent 0)", backgroundSize: "32px 32px" }} />
-
-        {/* Decorative glow */}
-        <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-[600px] rounded-full bg-razzia-100 opacity-60 blur-[100px]" />
-
-        <div className="relative mx-auto w-full max-w-7xl px-6">
-
-          {/* Header */}
-          <Reveal direction="up">
-            <div className="text-center">
-              <span className="inline-flex items-center gap-2 rounded-full border border-razzia-100 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-razzia-500 shadow-sm">
-                <span className="h-1.5 w-1.5 rounded-full bg-razzia-500 pulse-btn inline-block" />
-                How it works
-              </span>
-              <h2 className="mt-5 text-4xl font-extrabold text-smoke-900 md:text-5xl">
-                Simple steps for{" "}
-                <span className="text-transparent bg-clip-text"
-                  style={{ backgroundImage: "linear-gradient(135deg,#ea3b0c,#ff6f43)" }}>
-                  everyone.
-                </span>
-              </h2>
-              <p className="mt-4 text-smoke-600 max-w-xl mx-auto">
-                Each role has a clear, guided flow from sign-up to success — built for speed.
-              </p>
-            </div>
-          </Reveal>
-
-          {/* Role tabs */}
-          <Reveal delay={120}>
-            <div className="mt-10 flex justify-center">
-              <div className="inline-flex rounded-2xl border border-line-100 bg-white p-1.5 gap-1 shadow-sm">
-                {(["customers", "vendors", "drivers"] as const).map((tab) => (
-                  <button
-                    key={tab}
-                    onClick={() => setActiveTab(tab)}
-                    type="button"
-                    className={`relative overflow-hidden rounded-xl px-7 py-2.5 text-sm font-semibold transition-all duration-300 ${
-                      activeTab === tab
-                        ? "bg-razzia-500 text-white shadow-lg shadow-razzia-500/30"
-                        : "text-smoke-600 hover:text-smoke-900 hover:bg-razzia-50"
-                    }`}
-                  >
-                    {activeTab === tab && <div className="shimmer-btn pointer-events-none absolute inset-0" />}
-                    {tab === "customers" ? "Customers" : tab === "vendors" ? "Vendors" : "Drivers"}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-
-          {/* Main content */}
-          <Reveal delay={200}>
-            <div className="mt-12 grid items-stretch gap-6 lg:grid-cols-[1fr_1.1fr]">
-
-              {/* Left: Steps panel */}
-              <div className="flex flex-col justify-between rounded-3xl border border-line-100 bg-white p-8 shadow-sm">
-
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-razzia-500 mb-1">
-                    {activeTab === "customers" ? "Customer journey" : activeTab === "vendors" ? "Vendor journey" : "Driver journey"}
-                  </p>
-                  <h3 className="text-2xl font-extrabold text-smoke-900">
-                    {tabContent[activeTab].title}
-                  </h3>
-                  <p className="mt-2 text-sm text-smoke-600 leading-relaxed">
-                    {tabContent[activeTab].desc}
+                  <h3 className="text-2xl font-bold text-smoke-900 mb-3 relative z-10 transition-colors duration-300 group-hover/card:text-razzia-500">{creator.name}</h3>
+                  <p className="text-sm text-smoke-500 leading-relaxed relative z-10">
+                    {creator.desc}
                   </p>
                 </div>
-
-                {/* Steps with animated connector */}
-                <ol className="mt-8 space-y-0">
-                  {tabContent[activeTab].steps.map((step, index) => (
-                    <li key={step.label} className="flex gap-4">
-                      {/* Step indicator + connector line */}
-                      <div className="flex flex-col items-center">
-                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-razzia-500 text-xs font-extrabold text-white shadow-lg shadow-razzia-500/30 ring-4 ring-razzia-50">
-                          {index + 1}
-                        </div>
-                        {index < tabContent[activeTab].steps.length - 1 && (
-                          <div className="mt-1 w-px flex-1 bg-gradient-to-b from-razzia-200 to-transparent" style={{ minHeight: "28px" }} />
-                        )}
-                      </div>
-                      {/* Step text */}
-                      <div className={`pb-6 ${index === tabContent[activeTab].steps.length - 1 ? "pb-0" : ""}`}>
-                        <h4 className="text-sm font-bold text-smoke-900">{step.label}</h4>
-                        <p className="mt-1 text-xs leading-relaxed text-smoke-500">{step.detail}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ol>
-
-                {/* Bottom CTA */}
-                <div className="mt-8 pt-6 border-t border-line-100">
-                  <Button
-                    href={activeTab === "customers" ? "/landing/shop" : activeTab === "vendors" ? "/landing/register" : "/landing/driver"}
-                    className="!bg-razzia-500 !text-white !font-semibold hover:!bg-razzia-600 w-full justify-center"
-                  >
-                    {activeTab === "customers" ? "Start ordering" : activeTab === "vendors" ? "Become a vendor" : "Apply as driver"}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </div>
-              </div>
-
-              {/* Right: Image with overlay stats */}
-              <div className="relative overflow-hidden rounded-3xl min-h-[420px] lg:min-h-0">
-                <Image
-                  alt={tabContent[activeTab].imageAlt}
-                  className="absolute inset-0 h-full w-full object-cover transition-all duration-700"
-                  fill
-                  src={tabContent[activeTab].image}
-                  style={{ objectFit: "cover" }}
-                />
-                {/* Dark overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent" />
-
-                {/* Floating stat cards */}
-                {activeTab === "customers" && (
-                  <>
-                    <div className="float-a absolute top-5 right-5 flex items-center gap-3 rounded-2xl border border-line-100 bg-white/95 px-4 py-3 backdrop-blur-md shadow-xl">
-                      <CheckCircle2 className="h-5 w-5 text-emerald-500 shrink-0" />
-                      <div>
-                        <p className="text-xs font-bold text-smoke-900">Order confirmed</p>
-                        <p className="text-[10px] text-smoke-600">Delivery in 28 min</p>
-                      </div>
-                    </div>
-                    <div className="float-b absolute bottom-16 left-5 flex items-center gap-3 rounded-2xl border border-line-100 bg-white/95 px-4 py-3 backdrop-blur-md shadow-xl">
-                      <Star className="h-5 w-5 text-amber-500 fill-current shrink-0" />
-                      <div>
-                        <p className="text-xs font-bold text-smoke-900">4.9 avg rating</p>
-                        <p className="text-[10px] text-smoke-600">From 12,400+ orders</p>
-                      </div>
-                    </div>
-                  </>
-                )}
-                {activeTab === "vendors" && (
-                  <>
-                    <div className="float-a absolute top-5 right-5 flex items-center gap-3 rounded-2xl border border-line-100 bg-white/95 px-4 py-3 backdrop-blur-md shadow-xl">
-                      <TrendingUp className="h-5 w-5 text-emerald-500 shrink-0" />
-                      <div>
-                        <p className="text-xs font-bold text-smoke-900">KES 84,320</p>
-                        <p className="text-[10px] text-smoke-600">Today&apos;s revenue</p>
-                      </div>
-                    </div>
-                    <div className="float-b absolute bottom-16 left-5 flex items-center gap-3 rounded-2xl border border-line-100 bg-white/95 px-4 py-3 backdrop-blur-md shadow-xl">
-                      <Store className="h-5 w-5 text-razzia-500 shrink-0" />
-                      <div>
-                        <p className="text-xs font-bold text-smoke-900">48 active orders</p>
-                        <p className="text-[10px] text-smoke-600">Across 3 product lines</p>
-                      </div>
-                    </div>
-                  </>
-                )}
-                {activeTab === "drivers" && (
-                  <>
-                    <div className="float-a absolute top-5 right-5 flex items-center gap-3 rounded-2xl border border-line-100 bg-white/95 px-4 py-3 backdrop-blur-md shadow-xl">
-                      <Truck className="h-5 w-5 text-razzia-500 shrink-0" />
-                      <div>
-                        <p className="text-xs font-bold text-smoke-900">14 deliveries</p>
-                        <p className="text-[10px] text-smoke-600">Completed today</p>
-                      </div>
-                    </div>
-                    <div className="float-b absolute bottom-16 left-5 flex items-center gap-3 rounded-2xl border border-line-100 bg-white/95 px-4 py-3 backdrop-blur-md shadow-xl">
-                      <Zap className="h-5 w-5 text-amber-500 shrink-0" />
-                      <div>
-                        <p className="text-xs font-bold text-smoke-900">KES 4,850 earned</p>
-                        <p className="text-[10px] text-smoke-600">Payout ready now</p>
-                      </div>
-                    </div>
-                  </>
-                )}
-
-                {/* Bottom label */}
-                <div className="absolute bottom-0 left-0 right-0 px-6 pb-6">
-                  <p className="text-xs font-semibold text-white/80 uppercase tracking-widest">
-                    {tabContent[activeTab].imageAlt}
-                  </p>
-                </div>
-              </div>
-
+              ))}
             </div>
-          </Reveal>
-        </div>
-      </section>
-
-
-      {/* ── Marketplace Showcase ─────────────────────────────── */}
-      <section className="mx-auto w-full max-w-7xl px-6 py-20" id="showcase">
-        <Reveal direction="up">
-          <SectionHeading
-            description="Explore high-quality grocery baskets and daily items from our top neighborhood stores."
-            eyebrow="Marketplace Showcase"
-            title="Trending packs and fresh products near you"
-          />
-        </Reveal>
-
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featuredProducts.map((product, i) => (
-            <Reveal key={product.name} delay={i * 120} direction="up">
-              <Card className="group flex h-full flex-col overflow-hidden hover:-translate-y-1.5 hover:shadow-[0_24px_50px_rgba(20,20,20,0.09)] transition-all duration-400 !p-0">
-                {/* Product photo */}
-                <div className="relative h-52 w-full overflow-hidden">
-                  <Image
-                    alt={product.photoAlt}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    height={360}
-                    src={product.photo}
-                    width={600}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                  <span className="absolute top-3 left-3 rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-xs font-bold text-smoke-900 shadow-sm border border-line-100/50">
-                    {product.tag}
-                  </span>
-                </div>
-
-                <div className="flex flex-1 flex-col p-5">
-                  <div className="flex items-center gap-1.5">
-                    <span className="flex text-amber-400">
-                      {Array.from({ length: 5 }).map((_, s) => (
-                        <Star key={s} className="h-3.5 w-3.5 fill-current" />
-                      ))}
-                    </span>
-                    <span className="text-xs font-bold text-smoke-900">{product.rating}</span>
-                    <span className="text-[10px] text-smoke-600">({product.reviews} reviews)</span>
-                  </div>
-
-                  <h3 className="mt-3 text-lg font-bold text-smoke-900 transition-colors group-hover:text-razzia-500">
-                    {product.name}
-                  </h3>
-                  <p className="mt-1 text-xs text-smoke-600">
-                    Store: <span className="font-semibold text-smoke-900">{product.seller}</span>
-                  </p>
-
-                  <div className="mt-auto flex items-center justify-between border-t border-line-100/60 pt-4">
-                    <span className="text-base font-extrabold text-razzia-600">{product.price}</span>
-                    <Button className="!px-4 !py-2 !text-xs" variant="secondary" href="/landing/shop">
-                      Order Now
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* ── Payment channels ─────────────────────────────────── */}
-      <section className="mx-auto w-full max-w-7xl px-6 py-20 border-t border-line-100" id="payment">
-        <Reveal direction="up">
-          <SectionHeading
-            description="Checkout with the method your customers already trust."
-            eyebrow="Payment options"
-            title="Pay your way with secure channels"
-          />
-        </Reveal>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-5">
-
-          {/* M-Pesa */}
-          <Reveal delay={0} direction="up">
-            <Card className="group text-center hover:border-razzia-300 hover:shadow-[0_14px_30px_rgba(20,20,20,0.06)] hover:-translate-y-1 transition-all duration-300">
-              <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#00a550]/10 transition-transform duration-300 group-hover:scale-110">
-                <svg viewBox="0 0 64 64" className="h-9 w-9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="64" height="64" rx="12" fill="#00a550"/>
-                  <text x="50%" y="38" textAnchor="middle" fill="white" fontFamily="Arial Black, sans-serif" fontSize="11" fontWeight="900" letterSpacing="-0.5">M-PESA</text>
-                  <path d="M18 24 Q32 16 46 24" stroke="white" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
-                </svg>
-              </div>
-              <p className="font-bold text-smoke-900">M-Pesa</p>
-              <p className="mt-1 text-xs text-smoke-500">Instant mobile checkout</p>
-            </Card>
-          </Reveal>
-
-          {/* Airtel Money */}
-          <Reveal delay={80} direction="up">
-            <Card className="group text-center hover:border-razzia-300 hover:shadow-[0_14px_30px_rgba(20,20,20,0.06)] hover:-translate-y-1 transition-all duration-300">
-              <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#e40000]/10 transition-transform duration-300 group-hover:scale-110">
-                <svg viewBox="0 0 64 64" className="h-9 w-9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="64" height="64" rx="12" fill="#e40000"/>
-                  {/* Airtel wave mark */}
-                  <path d="M12 36 Q20 20 32 28 Q44 36 52 20" stroke="white" strokeWidth="3.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-                  <text x="50%" y="52" textAnchor="middle" fill="white" fontFamily="Arial, sans-serif" fontSize="9.5" fontWeight="700" letterSpacing="0.5">AIRTEL</text>
-                </svg>
-              </div>
-              <p className="font-bold text-smoke-900">Airtel Money</p>
-              <p className="mt-1 text-xs text-smoke-500">Airtel subscribers</p>
-            </Card>
-          </Reveal>
-
-          {/* Visa */}
-          <Reveal delay={160} direction="up">
-            <Card className="group text-center hover:border-razzia-300 hover:shadow-[0_14px_30px_rgba(20,20,20,0.06)] hover:-translate-y-1 transition-all duration-300">
-              <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#1a1f71]/10 transition-transform duration-300 group-hover:scale-110">
-                <svg viewBox="0 0 80 50" className="h-10 w-14" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="80" height="50" rx="7" fill="#1a1f71"/>
-                  <text x="50%" y="34" textAnchor="middle" fill="white" fontFamily="Arial, sans-serif" fontSize="26" fontWeight="900" fontStyle="italic" letterSpacing="1">VISA</text>
-                </svg>
-              </div>
-              <p className="font-bold text-smoke-900">Visa</p>
-              <p className="mt-1 text-xs text-smoke-500">Secure card payment</p>
-            </Card>
-          </Reveal>
-
-          {/* Mastercard */}
-          <Reveal delay={240} direction="up">
-            <Card className="group text-center hover:border-razzia-300 hover:shadow-[0_14px_30px_rgba(20,20,20,0.06)] hover:-translate-y-1 transition-all duration-300">
-              <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-100 transition-transform duration-300 group-hover:scale-110">
-                <svg viewBox="0 0 52 34" className="h-9 w-14" xmlns="http://www.w3.org/2000/svg">
-                  {/* Left circle (red) */}
-                  <circle cx="19" cy="17" r="15" fill="#EB001B"/>
-                  {/* Right circle (orange) */}
-                  <circle cx="33" cy="17" r="15" fill="#F79E1B"/>
-                  {/* Overlap blend — orange-red */}
-                  <path d="M26 5.8 A15 15 0 0 1 26 28.2 A15 15 0 0 1 26 5.8Z" fill="#FF5F00"/>
-                </svg>
-              </div>
-              <p className="font-bold text-smoke-900">Mastercard</p>
-              <p className="mt-1 text-xs text-smoke-500">Global card network</p>
-            </Card>
-          </Reveal>
-
-          {/* Bank Transfer */}
-          <Reveal delay={320} direction="up">
-            <Card className="group text-center hover:border-razzia-300 hover:shadow-[0_14px_30px_rgba(20,20,20,0.06)] hover:-translate-y-1 transition-all duration-300">
-              <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 transition-transform duration-300 group-hover:scale-110">
-                <svg viewBox="0 0 24 24" className="h-7 w-7 text-slate-700" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3 21h18"/>
-                  <path d="M3 10h18"/>
-                  <path d="M5 6l7-3 7 3"/>
-                  <path d="M4 10v11"/>
-                  <path d="M20 10v11"/>
-                  <path d="M8 14v3"/>
-                  <path d="M12 14v3"/>
-                  <path d="M16 14v3"/>
-                </svg>
-              </div>
-              <p className="font-bold text-smoke-900">Bank Transfer</p>
-              <p className="mt-1 text-xs text-smoke-500">Direct bank payment</p>
-            </Card>
-          </Reveal>
+            <button 
+              onClick={() => {
+                const el = document.getElementById("creators-scroll");
+                if (el) el.scrollBy({ left: 320, behavior: 'smooth' });
+              }}
+              className="absolute -right-5 top-1/2 -translate-y-1/2 z-20 bg-white text-razzia-500 rounded-full p-3 shadow-xl hover:scale-110 transition-all duration-300  group-hover:opacity-100 hidden md:block"
+            >
+              <ChevronRight size={28} />
+            </button>
+          </div>
 
         </div>
       </section>
 
-      {/* ── Testimonials ─────────────────────────────────────── */}
-      <section className="bg-white border-y border-line-100 py-20" id="testimonials">
-        <div className="mx-auto w-full max-w-7xl px-6">
-          <Reveal direction="up">
-            <SectionHeading
-              description="Real feedback from people using Razzia every week."
-              eyebrow="What people say"
-              title="Trusted by customers, sellers, and riders"
-            />
-          </Reveal>
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            {testimonials.map((item, i) => (
-              <Reveal key={item.name} delay={i * 110} direction="up">
-                <Card className="group flex h-full flex-col hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(20,20,20,0.07)] transition-all duration-300">
-                  <div className="flex text-amber-400 gap-0.5 mb-4">
-                    {Array.from({ length: 5 }).map((_, s) => (
-                      <Star key={s} className="h-4 w-4 fill-current" />
-                    ))}
-                  </div>
-                  <p className="flex-1 text-sm leading-relaxed text-smoke-600 italic">&ldquo;{item.quote}&rdquo;</p>
-                  <div className="mt-5 flex items-center gap-3 border-t border-line-100 pt-4">
-                    <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
-                      <Image alt={item.name} className="h-full w-full object-cover" height={40} src={item.photo} width={40} />
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold text-smoke-900">{item.name}</p>
-                      <p className="text-[10px] font-semibold uppercase tracking-wider text-smoke-600">{item.role}</p>
-                    </div>
-                  </div>
-                </Card>
-              </Reveal>
-            ))}
+      {/* 
+        ========================================================================
+        SECTION 7: BECOME A VENDOR
+        ========================================================================
+      */}
+      <section className="relative w-full bg-smoke-900 py-16 text-center border-t border-white/10">
+        <div className="relative mx-auto w-full max-w-3xl px-6 z-10 transition-all duration-1000 transform">
+          <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter">
+            Take Center Stage
+          </h2>
+          <p className="mt-6 text-xl text-smoke-300 font-light">
+            Ready to revolutionize your business? Join the live commerce movement today.
+          </p>
+          <div className="mt-12">
+            <Link href="/landing/register" className="inline-block bg-white text-smoke-900 font-black text-xl px-10 py-5 rounded-full shadow-[0_10px_40px_rgba(255,255,255,0.15)] hover:shadow-[0_15px_50px_rgba(255,255,255,0.25)] hover:scale-105 transition-all">
+              Start Selling on Razzia
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ── FAQ ──────────────────────────────────────────────── */}
-      <section className="mx-auto w-full max-w-4xl px-6 py-20" id="faq">
-        <Reveal direction="up">
-          <SectionHeading
-            description="Got questions about ordering, payments, or setting up a vendor account? We have answers."
-            eyebrow="Help & Support"
-            title="Frequently Asked Questions"
-          />
-        </Reveal>
-        <div className="mt-10 space-y-4">
-          {faqs.map((faq, index) => {
-            const isOpen = openFaq === index;
-            return (
-              <Reveal key={index} delay={index * 80} direction="up">
-                <div className={`overflow-hidden rounded-2xl border transition-all duration-300 ${isOpen ? "border-razzia-200 shadow-[0_8px_24px_rgba(234,59,12,.08)]" : "border-line-100 bg-white"}`}>
-                  <button
-                    className="flex w-full items-center justify-between px-6 py-5 text-left font-bold text-smoke-900 outline-none transition-colors hover:text-razzia-500"
-                    onClick={() => setOpenFaq(isOpen ? null : index)}
-                    type="button"
-                  >
-                    <span>{faq.q}</span>
-                    <span className={`ml-4 shrink-0 flex h-6 w-6 items-center justify-center rounded-full border transition-all duration-300 ${isOpen ? "border-razzia-300 bg-razzia-50 text-razzia-500 rotate-180" : "border-line-100 text-smoke-600"}`}>
-                      <ArrowRight className={`h-3 w-3 rotate-90 transition-transform duration-300 ${isOpen ? "text-razzia-500" : "text-smoke-400"}`} />
-                    </span>
-                  </button>
-                  <div className={`overflow-hidden px-6 transition-all duration-400 ease-in-out ${isOpen ? "max-h-[200px] pb-5 opacity-100" : "max-h-0 opacity-0"}`}>
-                    <p className="text-sm leading-relaxed text-smoke-600">{faq.a}</p>
-                  </div>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* ── CTA Banner ───────────────────────────────────────── */}
-      <section className="mx-auto w-full max-w-7xl px-6 pb-16">
-        <Reveal direction="up">
-          <div className="relative overflow-hidden rounded-3xl text-white"
-            style={{ background: "linear-gradient(135deg, var(--razzia-500) 0%, var(--razzia-600) 55%, var(--razzia-700) 100%)" }}>
-            <div className="absolute inset-0 opacity-20 bg-gradient-to-br from-white/30 to-transparent pointer-events-none" />
-            <div className="pointer-events-none absolute -top-16 -right-16 h-64 w-64 rounded-full bg-white opacity-10 blur-3xl" />
-            <div className="pointer-events-none absolute bottom-0 left-1/3 h-48 w-48 rounded-full bg-white opacity-10 blur-2xl" />
-
-            <div className="relative grid items-center gap-10 px-8 py-14 lg:grid-cols-[1.3fr_1fr] lg:py-16">
-              <div>
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white/90">
-                  <span className="h-1.5 w-1.5 rounded-full bg-white/80 pulse-btn inline-block" />
-                  Mobile first experience
-                </span>
-
-                <h2 className="mt-5 text-3xl font-extrabold leading-tight md:text-4xl lg:text-5xl">
-                  Download Razzia.<br />
-                  <span className="text-white/70">Run daily commerce</span><br />
-                  from your phone.
-                </h2>
-
-                <p className="mt-5 max-w-lg text-base leading-relaxed text-white/75">
-                  Manage shopping, selling, and delivery in one platform made for local communities — available anywhere, anytime.
-                </p>
-
-                <div className="mt-8 flex flex-wrap items-center gap-3">
-                  <div className="relative overflow-hidden rounded-full">
-                    <Button className="!bg-white !text-razzia-600 !font-bold !px-6 !py-3 !text-sm hover:!bg-white/90" href="/landing/login">
-                      Get started free
-                    </Button>
-                    <div className="shimmer-btn pointer-events-none absolute inset-0" />
-                  </div>
-                  <Button
-                    className="!border-white/30 !bg-white/15 !text-white !font-semibold !px-6 !py-3 !text-sm hover:!bg-white/25 hover:!border-white/50"
-                    href="/landing/driver"
-                    variant="secondary"
-                  >
-                    Join as driver <ArrowRight className="ml-1 inline h-4 w-4" />
-                  </Button>
-                </div>
-                <p className="mt-6 text-xs text-white/50">Free to join · No setup fees · Cancel anytime</p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { Icon: Clock, title: "Under 30 min", desc: "Average delivery time" },
-                  { Icon: Lock, title: "100% Secure", desc: "Encrypted payments" },
-                  { Icon: Smartphone, title: "M-Pesa ready", desc: "Instant checkout" },
-                  { Icon: Users, title: "1,800+ Riders", desc: "Always nearby" },
-                ].map((f) => (
-                  <div
-                    key={f.title}
-                    className="flex flex-col gap-3 rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-sm transition-all duration-300 hover:bg-white/15"
-                  >
-                    <f.Icon className="h-6 w-6 text-white/80" strokeWidth={1.75} />
-                    <div>
-                      <p className="text-sm font-bold text-white">{f.title}</p>
-                      <p className="text-xs text-white/65">{f.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </Reveal>
-      </section>
     </Layout>
   );
 }

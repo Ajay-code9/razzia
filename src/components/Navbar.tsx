@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -111,7 +111,7 @@ export function Navbar() {
     return false;
   };
 
-  const isDarkHeroTop = false;
+  const isDarkHeroTop = router.pathname === "/landing" && !isScrolled;
 
   return (
     <>
@@ -130,7 +130,14 @@ export function Navbar() {
           }`}
         >
           <Link className="flex items-center gap-3" href="/landing">
-            <Image alt="Razzia logo" src="/logo.png" width={36} height={36} />
+            <div className={`flex items-center justify-center rounded-full transition-colors duration-300 ${isDarkHeroTop ? "bg-white shadow-sm p-1" : ""}`}>
+              <Image 
+                alt="Razzia logo" 
+                src="/razzia-logo.svg" 
+                width={36} 
+                height={36} 
+              />
+            </div>
             <span className={`text-xl font-extrabold tracking-tight transition-colors duration-300 ${
               isDarkHeroTop ? "text-white" : "text-smoke-900"
             }`}>
@@ -138,24 +145,22 @@ export function Navbar() {
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-6 text-sm font-semibold lg:flex">
+          <nav className="hidden items-center gap-1 text-sm font-bold lg:flex">
             {navItems.map((item) => {
               if (item.dropdownItems) {
                 return (
                   <div className="relative group py-2 cursor-pointer" key={item.label}>
                     <span
-                      className={`flex items-center gap-1 transition-colors duration-300 ${
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all duration-300 ${
                         isMainActive(item)
-                          ? "!text-razzia-500"
+                          ? "!text-razzia-500 bg-razzia-50"
                           : isDarkHeroTop 
-                            ? "!text-white opacity-80 hover:opacity-100" 
-                            : "text-smoke-600 hover:text-smoke-900"
+                            ? "!text-white hover:bg-white/15" 
+                            : "!text-smoke-700 hover:!text-smoke-900 hover:bg-smoke-50"
                       }`}
                     >
                       {item.label}
-                      <span className="text-[10px] transition-transform duration-200 group-hover:rotate-180 inline-block">
-                        ▼
-                      </span>
+                      <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:-rotate-180" strokeWidth={2.5} />
                     </span>
                     <div className="absolute top-full left-0 mt-1 min-w-[200px] rounded-2xl border border-line-100 bg-white p-2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
                       {item.dropdownItems.map((subItem) => (
@@ -178,12 +183,12 @@ export function Navbar() {
 
               return (
                 <Link
-                  className={`transition-colors duration-300 ${
+                  className={`px-3 py-1.5 rounded-full transition-all duration-300 ${
                     isMainActive(item)
-                      ? "!text-razzia-500"
+                      ? "!text-razzia-500 bg-razzia-50"
                       : isDarkHeroTop
-                        ? "!text-white opacity-80 hover:opacity-100"
-                        : "text-smoke-600 hover:text-smoke-900"
+                        ? "!text-white hover:bg-white/15"
+                        : "!text-smoke-700 hover:!text-smoke-900 hover:bg-smoke-50"
                   }`}
                   href={item.href || "#"}
                   key={item.label}
@@ -209,12 +214,16 @@ export function Navbar() {
                     </Button>
                   </>
                 ) : (
-                  <>
-                    <Button href="/landing/login" variant="ghost" className={isDarkHeroTop ? "!text-white hover:!bg-white/10" : ""}>
-                      Log in
-                    </Button>
-                    <Button href="/landing/register">Become a vendor</Button>
-                  </>
+                  <Link 
+                    href="/landing/shop" 
+                    className={`rounded-full px-8 py-3 font-black shadow-xl transition-all hover:scale-105 active:scale-95 flex items-center justify-center border border-white/20
+                      ${isDarkHeroTop 
+                        ? "bg-white text-razzia-600 hover:bg-smoke-50 hover:shadow-[0_10px_30px_rgba(255,255,255,0.3)]" 
+                        : "bg-gradient-to-r from-razzia-500 to-razzia-600 text-white hover:shadow-[0_10px_30px_rgba(255,38,92,0.3)]"
+                      }`}
+                  >
+                    Download App
+                  </Link>
                 )}
               </div>
 
@@ -223,7 +232,16 @@ export function Navbar() {
                 {user ? (
                   <Button href={homeOrDashboard} variant="secondary" className="px-3 h-9 text-sm">Dashboard</Button>
                 ) : (
-                  <Button href="/landing/login" variant="ghost" className={`px-3 h-9 text-sm ${isDarkHeroTop ? "!text-white hover:!bg-white/10" : "text-smoke-900"}`}>Log in</Button>
+                  <Link 
+                    href="/landing/shop" 
+                    className={`rounded-full px-5 py-2 text-sm font-bold shadow-md transition-all active:scale-95 flex items-center justify-center
+                      ${isDarkHeroTop 
+                        ? "bg-white text-razzia-600 hover:bg-smoke-50" 
+                        : "bg-gradient-to-r from-razzia-500 to-razzia-600 text-white"
+                      }`}
+                  >
+                    Download App
+                  </Link>
                 )}
                 <button 
                   className={`p-2 rounded-xl transition-all duration-300 flex items-center justify-center

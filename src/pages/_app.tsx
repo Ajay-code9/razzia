@@ -10,12 +10,20 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <AuthProvider>
-      <main
-        className={`${plusJakartaSans.className} ${plusJakartaSans.variable}`}
-      >
-        <Component {...pageProps} />
-      </main>
-    </AuthProvider>
+    <>
+      <style jsx global>{`
+        :root {
+          --font-plus-jakarta: ${plusJakartaSans.style.fontFamily};
+        }
+        html, body {
+          font-family: ${plusJakartaSans.style.fontFamily}, sans-serif;
+        }
+      `}</style>
+      <AuthProvider>
+        <div className={`${plusJakartaSans.className} ${plusJakartaSans.variable}`}>
+          <Component {...pageProps} />
+        </div>
+      </AuthProvider>
+    </>
   );
 }

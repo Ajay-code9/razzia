@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const companyLinks = [
   { label: "About Us", href: "/landing/about" },
@@ -93,14 +94,10 @@ export function Footer() {
             {/* Brand column */}
             <div>
               <div className="flex items-center gap-2">
-                <div
-                  className="flex h-9 w-9 items-center justify-center rounded-xl shrink-0 bg-razzia-500"
-                >
-                  <svg viewBox="0 0 24 24" className="h-5 w-5 fill-white" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                  </svg>
-                </div>
-                <span className="text-2xl font-extrabold text-smoke-900 tracking-tight">Razzia</span>
+                <Image alt="Razzia logo" src="/razzia-logo.svg" width={36} height={36} />
+                <span className="text-xl font-black text-smoke-900 tracking-tight">
+                  Razzia
+                </span>
               </div>
 
               <p className="mt-5 text-sm leading-relaxed max-w-xs text-smoke-600">

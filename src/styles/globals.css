@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  /* New Light Rose/Coral Red Palette */
-  --razzia-50: #fff0f3;
-  --razzia-100: #ffe0e6;
-  --razzia-200: #ffc2d1;
-  --razzia-300: #ffa3b8;
-  --razzia-400: #ff7597;
-  --razzia-500: #ff3366; /* Primary Light Red */
-  --razzia-600: #e61c51;
-  --razzia-700: #bf103e;
-  --razzia-800: #990a30;
-  --razzia-900: #730020;
+  /* Brand Pink/Red Palette based on #FF265C */
+  --razzia-50: #FFF0F5;
+  --razzia-100: #FFD1DF;
+  --razzia-200: #FFA8BF;
+  --razzia-300: #FF7599;
+  --razzia-400: #FF4D7A;
+  --razzia-500: #FF265C; /* Logo Color */
+  --razzia-600: #E6174A;
+  --razzia-700: #CC0036;
+  --razzia-800: #A8002B;
+  --razzia-900: #800020;
   
   --smoke-900: #1a1a1a;
   --smoke-600: #666666;
@@ -115,7 +115,7 @@ a {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 8px 32px 0 rgba(255, 51, 102, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(255, 46, 46, 0.05);
 }
 
 .text-gradient {
@@ -125,7 +125,7 @@ a {
 }
 
 .soft-shadow {
-  box-shadow: 0 20px 40px -15px rgba(255, 51, 102, 0.1);
+  box-shadow: 0 20px 40px -15px rgba(255, 46, 46, 0.1);
 }
 
 .bento-card {
@@ -135,6 +135,6 @@ a {
 
 .bento-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 30px 60px -15px rgba(255, 51, 102, 0.15);
+  box-shadow: 0 30px 60px -15px rgba(255, 46, 46, 0.15);
   border-color: var(--razzia-200);
 }

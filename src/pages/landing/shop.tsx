@@ -24,16 +24,13 @@ function useReveal(delayOffset = 0) {
 }
 
 export default function CustomerAppPage() {
-  const heroReveal = useReveal(0);
-  const featureReveal1 = useReveal(0);
+    const featureReveal1 = useReveal(0);
   const featureReveal2 = useReveal(150);
-  const featureReveal3 = useReveal(300);
-  const ctaReveal = useReveal(100);
-
+    
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative mx-auto w-full max-w-7xl overflow-hidden px-6 pt-20 pb-12 lg:pt-24 lg:pb-20">
+      <section className="relative mx-auto w-full max-w-7xl overflow-hidden px-6 pt-28 pb-12 lg:pt-36 lg:pb-20">
         <div className="absolute inset-0 bg-grid-pattern opacity-60 -z-10" />
         
         {/* Glow Effects */}
@@ -41,7 +38,7 @@ export default function CustomerAppPage() {
         <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-amber-100 rounded-full blur-[80px] opacity-50 -z-10" />
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div ref={heroReveal.ref} style={{ opacity: heroReveal.isVisible ? 1 : 0, transform: heroReveal.isVisible ? "none" : "translateY(30px)", transition: "all 0.8s cubic-bezier(0.2, 1, 0.3, 1)" }}>
+          <div  >
 
             <h1 className="mt-6 text-5xl font-extrabold leading-[1.1] text-smoke-900 md:text-6xl lg:text-7xl">
               Your favorite <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-razzia-600 to-amber-500">creators<svg className="absolute w-full h-3 -bottom-1 left-0 text-amber-400 opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 15 100 5" stroke="currentColor" strokeWidth="4" fill="transparent"/></svg></span>, live and direct.
@@ -55,7 +52,7 @@ export default function CustomerAppPage() {
             </div>
           </div>
 
-          <div className="relative h-[400px] flex justify-center items-center mt-10 lg:mt-0 phone-container cursor-pointer">
+          <div className="relative h-[400px] flex justify-center items-center mt-16 lg:mt-8 phone-container cursor-pointer">
             {/* Custom Phone Mockup */}
             <div className="phone-mockup relative w-[260px] h-[520px] rounded-[36px] border-[6px] border-smoke-900 bg-white shadow-2xl overflow-hidden z-10 animate-float-slow scale-75 md:scale-90 origin-top">
               <div className="absolute top-0 inset-x-0 h-6 bg-smoke-900 rounded-b-3xl w-1/2 mx-auto z-20" />
@@ -127,7 +124,7 @@ export default function CustomerAppPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div ref={featureReveal1.ref} style={{ opacity: featureReveal1.isVisible ? 1 : 0, transform: featureReveal1.isVisible ? "none" : "translateY(30px)", transition: "all 0.6s ease 0ms" }}
+            <div  
               className="bento-card md:col-span-2 rounded-3xl bg-white border border-line-100 p-8 md:p-12 shadow-sm relative overflow-hidden group">
               <div className="relative z-10 w-full md:w-1/2">
                 <div className="w-14 h-14 rounded-2xl bg-razzia-50 text-razzia-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -141,7 +138,7 @@ export default function CustomerAppPage() {
               <div className="absolute right-[-10%] bottom-[-20%] w-[60%] h-[120%] bg-[url('https://www.transparenttextures.com/patterns/cartographer.png')] opacity-10 group-hover:rotate-3 transition-transform duration-1000" />
             </div>
 
-            <div ref={featureReveal2.ref} style={{ opacity: featureReveal2.isVisible ? 1 : 0, transform: featureReveal2.isVisible ? "none" : "translateY(30px)", transition: "all 0.6s ease 150ms" }}
+            <div  
               className="bento-card rounded-3xl bg-white border border-line-100 p-8 shadow-sm text-smoke-900 relative overflow-hidden group cursor-default">
               <div className="w-14 h-14 rounded-2xl bg-razzia-50 text-razzia-600 flex items-center justify-center mb-6 group-hover:bg-razzia-500 group-hover:text-white transition-colors duration-500">
                 <Zap size={28} />
@@ -153,7 +150,7 @@ export default function CustomerAppPage() {
               <Zap size={200} className="absolute -bottom-10 -right-10 text-razzia-500 opacity-5 group-hover:opacity-10 group-hover:scale-110 transition-all duration-700" />
             </div>
 
-            <div ref={featureReveal3.ref} style={{ opacity: featureReveal3.isVisible ? 1 : 0, transform: featureReveal3.isVisible ? "none" : "translateY(30px)", transition: "all 0.6s ease 300ms" }}
+            <div  
               className="bento-card md:col-span-3 rounded-3xl bg-surface-50 border border-line-100 p-8 md:p-12 shadow-sm text-smoke-900 flex flex-col md:flex-row items-center justify-between gap-10 group">
               <div className="md:w-1/2">
                 <h3 className="text-3xl font-bold mb-4 group-hover:text-razzia-600 transition-colors duration-500">Seamless Checkout with Razzia Pay</h3>
@@ -186,7 +183,7 @@ export default function CustomerAppPage() {
         <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-razzia-200/50 rounded-full blur-[120px] -z-10" />
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-amber-200/50 rounded-full blur-[120px] -z-10" />
 
-        <div ref={ctaReveal.ref} style={{ opacity: ctaReveal.isVisible ? 1 : 0, transform: ctaReveal.isVisible ? "scale(1)" : "scale(0.95)", transition: "all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)" }}
+        <div  
           className="mx-auto w-full max-w-5xl px-6">
           <div className="rounded-[40px] bg-slate-50 border border-line-100 p-10 md:p-20 text-center shadow-lg relative overflow-hidden group">
             <div className="absolute inset-0 bg-razzia-50 opacity-10 group-hover:opacity-20 transition-opacity duration-1000" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, rgba(0,0,0,0.05) 1px, transparent 0)", backgroundSize: "24px 24px" }} />
