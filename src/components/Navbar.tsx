@@ -127,16 +127,16 @@ export function Navbar() {
           className={`mx-auto flex w-full max-w-7xl items-center justify-between px-6 transition-all duration-300 ${isScrolled ? "py-2.5" : "py-5"
             }`}
         >
-          <Link className="flex items-center h-12" href="/landing">
+          <Link className="flex items-center h-14" href="/landing">
             <div className="flex items-center justify-center transition-all duration-300">
               <Image
                 alt="Razzia logo"
                 src="/logo-navbar.svg"
-                width={130}
-                height={48}
+                width={180}
+                height={64}
                 priority
                 unoptimized
-                className="h-8 lg:h-10 w-auto object-contain"
+                className="h-10 lg:h-14 w-auto object-contain"
               />
             </div>
           </Link>
