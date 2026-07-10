@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  /* Brand True Red Palette */
-  --razzia-50: #FFF0F0;
-  --razzia-100: #FFD6D6;
-  --razzia-200: #FFADAD;
-  --razzia-300: #FF7A7A;
-  --razzia-400: #FF5252;
-  --razzia-500: #FF3333; /* Light Red */
-  --razzia-600: #E60000;
-  --razzia-700: #B30000;
-  --razzia-800: #800000;
-  --razzia-900: #4D0000;
+  /* Brand Pure Red Palette */
+  --razzia-50: #fef2f2;
+  --razzia-100: #fee2e2;
+  --razzia-200: #fecaca;
+  --razzia-300: #fca5a5;
+  --razzia-400: #f87171;
+  --razzia-500: #ef4444; /* Pure Red */
+  --razzia-600: #dc2626;
+  --razzia-700: #b91c1c;
+  --razzia-800: #991b1b;
+  --razzia-900: #7f1d1d;
   
   --smoke-900: #1a1a1a;
   --smoke-600: #666666;
