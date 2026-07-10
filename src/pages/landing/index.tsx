@@ -229,7 +229,7 @@ export default function LandingPage() {
         
         {/* Abstract background circles */}
         <div className={`absolute top-1/2 right-1/4 w-[500px] h-[500px] bg-gradient-to-tr from-razzia-500 to-razzia-300 rounded-full blur-2xl opacity-80 translate-x-1/2 -translate-y-1/2 shadow-2xl transition-all duration-[2s]     `} />
-        <div className={`absolute top-1/4 right-[10%] w-32 h-32 bg-white rounded-full border-[16px] border-razzia-500 shadow-xl transition-all duration-[2s] delay-500     `} />
+        <div className={`absolute top-[60%] md:top-1/4 -right-8 md:right-[10%] w-32 h-32 bg-white rounded-full border-[16px] border-razzia-500 shadow-xl opacity-40 md:opacity-100 transition-all duration-[2s] delay-500     `} />
 
         <div className="relative mx-auto w-full max-w-7xl px-6 grid gap-16 lg:grid-cols-2 items-center z-10">
           
