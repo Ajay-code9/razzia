@@ -83,19 +83,19 @@ export function Footer() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-7xl px-6 pt-16 pb-0">
+      <div className="relative mx-auto w-full max-w-7xl px-6 pt-10 pb-0">
 
         {/* ── Main grid ── */}
         <div
-          className="grid gap-12 pb-14 border-b border-line-200"
+          className="grid gap-10 pb-10 border-b border-line-200"
         >
           <div className="grid gap-10 lg:grid-cols-[1.8fr_1fr_1fr_1fr]">
 
             {/* Brand column */}
             <div>
-              <div className="flex items-center gap-2">
-                <Image alt="Razzia logo" src="/razzia-logo.svg" width={36} height={36} />
-                <span className="text-xl font-black text-smoke-900 tracking-tight">
+              <div className="flex items-center gap-3">
+                <Image alt="Razzia logo" src="/razzia-logo.svg" width={80} height={80} className="drop-shadow-md" />
+                <span className="text-2xl font-black text-smoke-900 tracking-tight">
                   Razzia
                 </span>
               </div>
