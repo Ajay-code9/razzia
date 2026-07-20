@@ -94,7 +94,18 @@ export function Footer() {
             {/* Brand column */}
             <div>
               <div className="flex items-center gap-3">
-                <Image alt="Razzia logo" src="/razzia-logo.svg" width={120} height={120} className="drop-shadow-md" unoptimized priority />
+                <Image
+                  alt="Razzia logo"
+                  src="/razzia-logo.svg"
+                  width={360}
+                  height={360}
+                  className="drop-shadow-md w-[120px] h-[120px] object-contain"
+                  unoptimized
+                  priority
+                  style={{
+                    imageRendering: "-webkit-optimize-contrast",
+                  }}
+                />
               </div>
 
               <p className="mt-5 text-sm leading-relaxed max-w-xs text-smoke-600">
