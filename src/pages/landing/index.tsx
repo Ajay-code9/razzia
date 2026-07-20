@@ -225,20 +225,20 @@ export default function LandingPage() {
         SECTION 3: EVERYONE CAN SELL (LIGHT BACKGROUND)
         ========================================================================
       */}
-      <section className="relative w-full overflow-hidden bg-surface-50 py-16 lg:py-24">
+      <section className="relative w-full overflow-hidden bg-surface-50 py-12 lg:py-16">
         
         {/* Abstract background circles */}
         <div className={`absolute top-1/2 right-1/4 w-[500px] h-[500px] bg-gradient-to-tr from-razzia-500 to-razzia-300 rounded-full blur-2xl opacity-80 translate-x-1/2 -translate-y-1/2 shadow-2xl transition-all duration-[2s]     `} />
         <div className={`absolute top-[60%] md:top-1/4 -right-8 md:right-[10%] w-32 h-32 bg-white rounded-full border-[16px] border-razzia-500 shadow-xl opacity-40 md:opacity-100 transition-all duration-[2s] delay-500     `} />
 
-        <div className="relative mx-auto w-full max-w-7xl px-6 grid gap-16 lg:grid-cols-2 items-center z-10">
+        <div className="relative mx-auto w-full max-w-7xl px-6 grid gap-10 lg:grid-cols-2 items-center z-10">
           
           {/* Left: Text */}
           <div className={`lg:pr-12 transition-all duration-1000 transform     `}>
-            <h2 className="text-5xl md:text-7xl font-black text-smoke-900 tracking-tighter">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-smoke-900 tracking-tighter">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-razzia-500 to-razzia-400">Turn Views</span> into Sales
             </h2>
-            <p className="mt-8 text-xl text-smoke-600 leading-relaxed font-light max-w-lg">
+            <p className="mt-4 text-base md:text-lg text-smoke-600 leading-relaxed font-light max-w-lg">
               Whether you're a local boutique or a rising influencer, Razzia gives you the stage. <br/><br/>
               Go live from your phone, showcase your passion, and watch your community—and your business—grow instantly.
             </p>
@@ -262,12 +262,12 @@ export default function LandingPage() {
         SECTION 4: COMMUNICATE DIRECTLY
         ========================================================================
       */}
-      <section className="relative w-full overflow-hidden bg-white py-16 lg:py-24">
+      <section className="relative w-full overflow-hidden bg-white py-12 lg:py-16">
         {/* Abstract background circles */}
         <div className={`absolute top-1/4 left-10 w-64 h-64 bg-razzia-50 rounded-full blur-2xl opacity-80 transition-all duration-[2s]  - `} />
         <div className={`absolute bottom-10 right-1/4 w-96 h-96 bg-razzia-50 rounded-full blur-3xl opacity-60 transition-all duration-[2s] delay-300   `} />
 
-        <div className="relative mx-auto w-full max-w-7xl px-6 grid gap-16 lg:grid-cols-2 items-center z-10">
+        <div className="relative mx-auto w-full max-w-7xl px-6 grid gap-10 lg:grid-cols-2 items-center z-10">
           
           {/* Left: Phone */}
           <div className={`order-2 lg:order-1 relative transition-all duration-1000 transform     `}>
@@ -281,10 +281,10 @@ export default function LandingPage() {
 
           {/* Right: Text */}
           <div className={`order-1 lg:order-2 lg:pl-12 transition-all duration-1000 delay-300 transform     `}>
-            <h2 className="text-5xl md:text-7xl font-black text-smoke-900 tracking-tighter">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-smoke-900 tracking-tighter">
               Build <span className="text-transparent bg-clip-text bg-gradient-to-r from-razzia-500 to-razzia-400">Connections</span>
             </h2>
-            <p className="mt-8 text-xl text-smoke-600 leading-relaxed font-light max-w-lg">
+            <p className="mt-4 text-base md:text-lg text-smoke-600 leading-relaxed font-light max-w-lg">
               Don't just add to cart—say hello! <br/><br/>
               Ask questions, request specific product demonstrations, and chat directly with the people behind your favorite products.
             </p>
@@ -298,16 +298,16 @@ export default function LandingPage() {
         SECTION 5: CATCH THE DROP
         ========================================================================
       */}
-      <section className="relative w-full overflow-hidden bg-razzia-50 py-16 lg:py-24">
+      <section className="relative w-full overflow-hidden bg-razzia-50 py-12 lg:py-16">
         
-        <div className="relative mx-auto w-full max-w-7xl px-6 grid gap-16 lg:grid-cols-2 items-center z-10">
+        <div className="relative mx-auto w-full max-w-7xl px-6 grid gap-10 lg:grid-cols-2 items-center z-10">
           
           {/* Left: Text */}
           <div className={`lg:pr-12 transition-all duration-1000 transform     `}>
-            <h2 className="text-5xl md:text-7xl font-black text-smoke-900 tracking-tighter">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-smoke-900 tracking-tighter">
               Catch the <span className="text-transparent bg-clip-text bg-gradient-to-r from-razzia-500 to-razzia-600">Flash Drops</span>
             </h2>
-            <p className="mt-8 text-xl text-smoke-600 leading-relaxed font-light max-w-lg">
+            <p className="mt-4 text-base md:text-lg text-smoke-600 leading-relaxed font-light max-w-lg">
               FOMO is real. <br/><br/>
               Grab exclusive items and limited-time discounts right from the live stream. When the drop happens, you have to be fast!
             </p>
@@ -352,16 +352,16 @@ export default function LandingPage() {
         SECTION 6: MEET OUR TOP CREATORS
         ========================================================================
       */}
-      <section className="relative w-full overflow-hidden bg-razzia-500 pt-24 pb-32 lg:pt-32 lg:pb-48">
+      <section className="relative w-full overflow-hidden bg-razzia-500 py-16 lg:py-20">
         <div className={`relative mx-auto w-full max-w-7xl px-6 z-10 text-center transition-all duration-1000 transform     `}>
-          <h2 className="text-5xl md:text-6xl font-black text-white tracking-tighter drop-shadow-sm">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tighter drop-shadow-sm">
             Discover Top Creators
           </h2>
-          <p className="mt-6 text-lg text-white/90 leading-relaxed max-w-xl mx-auto font-light">
+          <p className="mt-4 text-base md:text-lg text-white/90 leading-relaxed max-w-xl mx-auto font-light">
             Tune in daily to watch Razzia's most loved vendors showcase their latest drops, share styling tips, and entertain.
           </p>
 
-          <div className="relative mt-16 group">
+          <div className="relative mt-10 group">
             <button 
               onClick={() => {
                 const el = document.getElementById("creators-scroll");
@@ -422,15 +422,15 @@ export default function LandingPage() {
         SECTION 7: BECOME A VENDOR
         ========================================================================
       */}
-      <section className="relative w-full bg-smoke-900 py-16 text-center border-t border-white/10">
+      <section className="relative w-full bg-smoke-900 py-12 text-center border-t border-white/10">
         <div className="relative mx-auto w-full max-w-3xl px-6 z-10 transition-all duration-1000 transform">
-          <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tighter">
             Take Center Stage
           </h2>
-          <p className="mt-6 text-xl text-smoke-300 font-light">
+          <p className="mt-4 text-base md:text-lg text-smoke-300 font-light">
             Ready to revolutionize your business? Join the live commerce movement today.
           </p>
-          <div className="mt-12">
+          <div className="mt-8">
             <Link href="/landing/register" className="inline-block bg-white text-smoke-900 font-black text-xl px-10 py-5 rounded-full shadow-[0_10px_40px_rgba(255,255,255,0.15)] hover:shadow-[0_15px_50px_rgba(255,255,255,0.25)] hover:scale-105 transition-all">
               Start Selling on Razzia
             </Link>

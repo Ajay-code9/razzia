@@ -39,19 +39,19 @@ export default function ContactPage() {
       `}} />
 
       {/* Hero Section */}
-      <section className="relative bg-[#FAFAFA] pt-24 pb-16 lg:pt-24 lg:pb-16 overflow-hidden border-b border-line-100">
+      <section className="relative bg-[#FAFAFA] pt-28 pb-8 lg:pt-32 lg:pb-12 overflow-hidden border-b border-line-100">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, black 1px, transparent 0)", backgroundSize: "32px 32px" }} />
         
         <div className="mx-auto w-full max-w-7xl px-6 relative z-10">
-          <div ref={heroReveal.ref} style={{ opacity: heroReveal.isVisible ? 1 : 0, transform: heroReveal.isVisible ? "none" : "translateY(30px)", transition: "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)" }}
+          <div ref={heroReveal.ref} style={{ opacity: heroReveal.isVisible ? 1 : 0, transform: heroReveal.isVisible ? "none" : "translateY(20px)", transition: "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)" }}
             className="text-center max-w-3xl mx-auto">
-            <div className="w-16 h-16 bg-white border border-line-200 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-sm rotate-3">
-              <MessageSquare size={28} className="text-razzia-500" />
+            <div className="w-12 h-12 bg-white border border-line-200 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-sm rotate-3">
+              <MessageSquare size={22} className="text-razzia-500" />
             </div>
-            <h1 className="text-5xl font-extrabold leading-[1.1] text-smoke-900 md:text-7xl tracking-tight mb-6">
+            <h1 className="text-3xl font-extrabold leading-[1.1] text-smoke-900 md:text-4xl lg:text-5xl tracking-tight mb-4">
               Get in touch.
             </h1>
-            <p className="text-xl leading-relaxed text-smoke-600 font-light">
+            <p className="text-sm md:text-base leading-relaxed text-smoke-500 max-w-xl mx-auto font-light">
               Whether you want to partner with us, have a question about your order, or just want to say hi, our team is always ready to help.
             </p>
           </div>
@@ -59,7 +59,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main Content Layout */}
-      <section className="py-24 bg-white relative">
+      <section className="py-12 lg:py-16 bg-white relative">
         <div className="mx-auto w-full max-w-7xl px-6 grid lg:grid-cols-12 gap-16">
           
           {/* Left Column: Contact Methods & Offices */}
@@ -68,8 +68,8 @@ export default function ContactPage() {
             <div ref={cardsReveal.ref} style={{ opacity: cardsReveal.isVisible ? 1 : 0, transform: cardsReveal.isVisible ? "none" : "translateY(30px)", transition: "all 0.8s ease" }}
               className="space-y-6">
               
-              <div className="bento-hover bg-surface-50 border border-line-100 rounded-3xl p-8 group cursor-pointer">
-                <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-blue-500 mb-6 group-hover:scale-110 transition-transform">
+              <div className="bento-hover bg-surface-50 border border-line-100 rounded-3xl p-8 group cursor-pointer hover:border-blue-500 hover:shadow-[0_20px_40px_rgba(59,130,246,0.08)]">
+                <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-blue-500 mb-6 group-hover:scale-110 transition-transform border border-blue-50">
                   <HelpCircle size={24} />
                 </div>
                 <h3 className="text-2xl font-bold text-smoke-900 mb-2">Customer Support</h3>
@@ -79,8 +79,8 @@ export default function ContactPage() {
                 </a>
               </div>
 
-              <div className="bento-hover bg-surface-50 border border-line-100 rounded-3xl p-8 group cursor-pointer">
-                <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-razzia-500 mb-6 group-hover:scale-110 transition-transform">
+              <div className="bento-hover bg-surface-50 border border-line-100 rounded-3xl p-8 group cursor-pointer hover:border-razzia-500 hover:shadow-[0_20px_40px_rgba(255,51,102,0.08)]">
+                <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-razzia-500 mb-6 group-hover:scale-110 transition-transform border border-razzia-50">
                   <Building size={24} />
                 </div>
                 <h3 className="text-2xl font-bold text-smoke-900 mb-2">Sales & Partnerships</h3>

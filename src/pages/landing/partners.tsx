@@ -59,7 +59,7 @@ export default function PartnersPage() {
               <div className="relative h-[400px] lg:h-[500px] w-full overflow-hidden rounded-[2rem]">
                 <img 
                   alt="Live streamer showcasing products" 
-                  src="https://images.unsplash.com/photo-1621570169569-8fc97e33e143?auto=format&fit=crop&w=800&q=80" 
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" 
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" 
                 />
               </div>
@@ -88,7 +88,7 @@ export default function PartnersPage() {
       </div>
 
       {/* Massive Image Bento Grid */}
-      <section id="categories" className="py-32 bg-white relative overflow-hidden">
+      <section id="categories" className="py-16 lg:py-20 bg-white relative overflow-hidden">
         {/* Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-razzia-100 opacity-60 rounded-full blur-[150px] pointer-events-none" />
 
@@ -171,7 +171,7 @@ export default function PartnersPage() {
       </section>
 
       {/* Partner Spotlight Carousel */}
-      <section className="py-32 bg-white relative overflow-hidden border-t border-line-100">
+      <section className="py-16 lg:py-20 bg-white relative overflow-hidden border-t border-line-100">
         <div className="mx-auto max-w-7xl px-6 mb-16 text-center">
            <h2 className="text-4xl font-extrabold text-smoke-900 md:text-6xl tracking-tight mb-6">Partner Spotlight</h2>
            <p className="text-xl text-smoke-600 max-w-2xl mx-auto">Discover the fan favorites. These businesses consistently deliver incredible quality and service on Razzia.</p>
@@ -186,8 +186,8 @@ export default function PartnersPage() {
              { name: "Tech Haven", type: "Electronics", img: "https://images.unsplash.com/photo-1531297172868-9f140cece061?auto=format&fit=crop&w=600&q=80", rating: "4.9" },
              { name: "Artisan Hub", type: "Handcrafted", img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80", rating: "4.8" }
            ].map((spotlight, i) => (
-             <div key={i} className="min-w-[350px] md:min-w-[450px] snap-center group cursor-pointer">
-               <div className="w-full h-[300px] md:h-[400px] rounded-[30px] overflow-hidden mb-6 relative shadow-lg">
+             <div key={i} className="min-w-[280px] sm:min-w-[350px] md:min-w-[450px] snap-center group cursor-pointer">
+               <div className="w-full h-[240px] sm:h-[300px] md:h-[400px] rounded-[24px] sm:rounded-[30px] overflow-hidden mb-6 relative shadow-lg">
                  <img src={spotlight.img} alt={spotlight.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur text-smoke-900 px-3 py-1.5 rounded-full font-bold text-sm flex items-center gap-1 shadow-xl">
                    <Star size={14} className="text-amber-500" fill="currentColor"/> {spotlight.rating}
@@ -201,7 +201,7 @@ export default function PartnersPage() {
       </section>
 
       {/* Massive CTA */}
-      <section className="py-32 relative overflow-hidden bg-razzia-500 flex items-center justify-center">
+      <section className="py-16 lg:py-20 relative overflow-hidden bg-razzia-500 flex items-center justify-center">
         {/* Dynamic Background Pattern */}
         <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, white 1px, transparent 0)", backgroundSize: "32px 32px" }} />
         

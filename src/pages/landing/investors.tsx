@@ -102,7 +102,7 @@ export default function InvestorsPage() {
       </section>
 
       {/* Financial Traction Dashboard */}
-      <section className="py-24 bg-white border-b border-line-100 relative overflow-hidden">
+      <section className="py-12 lg:py-16 bg-white border-b border-line-100 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-razzia-50 rounded-full blur-[100px] -z-10" />
         
         <div className="mx-auto max-w-7xl px-6 relative z-10">
@@ -137,7 +137,7 @@ export default function InvestorsPage() {
       </section>
 
       {/* Investment Thesis - Bento Grid */}
-      <section className="py-24 bg-[#FAFAFA] relative overflow-hidden">
+      <section className="py-12 lg:py-16 bg-[#FAFAFA] relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-16">
             <h2 className="text-3xl font-extrabold text-smoke-900 tracking-tight md:text-4xl">Investment Thesis</h2>
@@ -182,7 +182,7 @@ export default function InvestorsPage() {
       </section>
 
       {/* Elegant CTA */}
-      <section id="invest" className="py-24 bg-white text-smoke-900 relative overflow-hidden border-t border-line-100">
+      <section id="invest" className="py-12 lg:py-16 bg-white text-smoke-900 relative overflow-hidden border-t border-line-100">
         {/* Subtle light leak */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-razzia-100/50 rounded-full blur-[120px] pointer-events-none" />
         

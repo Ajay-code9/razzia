@@ -32,7 +32,7 @@ export default function FAQPage() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative bg-white pt-24 pb-8 lg:pt-28 lg:pb-8 border-b border-line-100 overflow-hidden">
+      <section className="relative bg-white pt-28 pb-8 lg:pt-32 lg:pb-8 border-b border-line-100 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, black 1px, transparent 0)", backgroundSize: "32px 32px" }} />
         <div className="mx-auto w-full max-w-4xl px-6 relative z-10 text-center">
           <div className="w-12 h-12 bg-blue-50 text-blue-500 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-sm">

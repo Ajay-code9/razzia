@@ -148,7 +148,7 @@ export default function MerchantDashboardPage() {
         </div>
 
         {/* Features Bento Grid */}
-        <section id="features" className="py-24 bg-white relative">
+        <section id="features" className="py-16 lg:py-20 bg-white relative">
           <div className="mx-auto w-full max-w-7xl px-6 relative z-10">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <h2 className="text-3xl font-extrabold md:text-5xl text-smoke-900">Built for live engagement.</h2>
@@ -165,7 +165,7 @@ export default function MerchantDashboardPage() {
                   <h3 className="text-2xl font-bold text-smoke-900">Real-Time Analytics</h3>
                   <p className="mt-4 text-smoke-600 text-lg group-hover:text-smoke-900 transition-colors">Stop guessing. Track your live viewers, engagement metrics, and instant stream revenue with beautiful, easy-to-read charts while you broadcast.</p>
                 </div>
-                <div className="absolute right-0 bottom-0 w-1/2 h-full bg-gradient-to-tl from-razzia-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="absolute right-0 bottom-0 w-1/2 h-full bg-gradient-to-l from-[#FDF3F2] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                 <div className="absolute -right-20 -bottom-20 opacity-5 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none text-razzia-500">
                   <BarChart3 size={300} />
                 </div>
@@ -206,7 +206,7 @@ export default function MerchantDashboardPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-24 bg-slate-50 overflow-hidden relative border-t border-line-100">
+        <section className="py-16 lg:py-20 bg-slate-50 overflow-hidden relative border-t border-line-100">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-razzia-100 rounded-full blur-[100px] pointer-events-none opacity-50" />
           
           <div ref={ctaReveal.ref} style={{ opacity: ctaReveal.isVisible ? 1 : 0, transform: ctaReveal.isVisible ? "scale(1)" : "scale(0.95)", transition: "all 0.8s ease" }}

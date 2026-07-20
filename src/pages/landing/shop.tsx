@@ -30,75 +30,75 @@ export default function CustomerAppPage() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative mx-auto w-full max-w-7xl overflow-hidden px-6 pt-28 pb-12 lg:pt-36 lg:pb-20">
+      <section className="relative mx-auto w-full max-w-7xl overflow-hidden px-6 pt-20 pb-8 lg:pt-24 lg:pb-12">
         <div className="absolute inset-0 bg-grid-pattern opacity-60 -z-10" />
         
         {/* Glow Effects */}
         <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-razzia-100 rounded-full blur-[100px] opacity-60 -z-10" />
         <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-amber-100 rounded-full blur-[80px] opacity-50 -z-10" />
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div  >
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div>
 
-            <h1 className="mt-6 text-5xl font-extrabold leading-[1.1] text-smoke-900 md:text-6xl lg:text-7xl">
+            <h1 className="mt-4 text-5xl font-extrabold leading-[1.1] text-smoke-900 md:text-6xl lg:text-7xl">
               Your favorite <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-razzia-600 to-amber-500">creators<svg className="absolute w-full h-3 -bottom-1 left-0 text-amber-400 opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 15 100 5" stroke="currentColor" strokeWidth="4" fill="transparent"/></svg></span>, live and direct.
             </h1>
-            <p className="mt-6 max-w-lg text-lg text-smoke-600 leading-relaxed">
+            <p className="mt-4 max-w-lg text-lg text-smoke-600 leading-relaxed">
               Join live streams, interact with local creators, and shop exclusive product drops instantly. Entertainment meets shopping in your pocket.
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-6 flex flex-wrap gap-4">
               <Button href="/landing/register" className="h-14 px-8 text-base shadow-[0_0_20px_rgba(255,51,102,0.2)] hover:shadow-[0_0_30px_rgba(255,51,102,0.4)] transition-shadow">Get the App</Button>
               <Button href="#features" variant="secondary" className="h-14 px-8 text-base bg-white border border-line-100 hover:bg-razzia-50">Explore Features</Button>
             </div>
           </div>
 
-          <div className="relative h-[400px] flex justify-center items-center mt-16 lg:mt-8 phone-container cursor-pointer">
+          <div className="relative h-[480px] w-full flex justify-center items-center mt-6 lg:mt-0 phone-container cursor-pointer">
             {/* Custom Phone Mockup */}
-            <div className="phone-mockup relative w-[260px] h-[520px] rounded-[36px] border-[6px] border-smoke-900 bg-white shadow-2xl overflow-hidden z-10 animate-float-slow scale-75 md:scale-90 origin-top">
-              <div className="absolute top-0 inset-x-0 h-6 bg-smoke-900 rounded-b-3xl w-1/2 mx-auto z-20" />
+            <div className="phone-mockup relative w-[240px] h-[480px] rounded-[32px] border-[5px] border-smoke-900 bg-white shadow-2xl overflow-hidden z-10 animate-float-slow">
+              <div className="absolute top-0 inset-x-0 h-4 bg-smoke-900 rounded-b-2xl w-1/3 mx-auto z-20" />
               
               {/* App UI Mockup */}
-              <div className="p-4 pt-12 h-full bg-surface-50 flex flex-col gap-4">
+              <div className="p-3 pt-8 h-full bg-surface-50 flex flex-col gap-3">
                 <div className="flex justify-between items-center">
                   <div>
-                    <p className="text-xs text-smoke-600">Watching Live From</p>
-                    <p className="font-bold text-sm">Nairobi Creators ▼</p>
+                    <p className="text-[10px] text-smoke-500">Watching Live From</p>
+                    <p className="font-bold text-xs text-smoke-900">Nairobi Creators ▼</p>
                   </div>
-                  <div className="w-10 h-10 rounded-full bg-razzia-100 flex justify-center items-center text-razzia-600"><Search size={18} /></div>
+                  <div className="w-8 h-8 rounded-full bg-razzia-100 flex justify-center items-center text-razzia-600"><Search size={14} /></div>
                 </div>
 
                 {/* Animated Order Tracker */}
-                <div className="bg-white rounded-2xl p-4 shadow-sm border border-line-100">
-                  <div className="flex justify-between items-center mb-2">
-                    <p className="font-bold text-sm">Live Drop Active</p>
-                    <span className="flex h-2 w-2 rounded-full bg-green-500">
-                      <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-green-400 opacity-75"></span>
+                <div className="bg-white rounded-xl p-3 shadow-sm border border-line-100">
+                  <div className="flex justify-between items-center mb-1.5">
+                    <p className="font-bold text-xs text-smoke-800">Live Drop Active</p>
+                    <span className="flex h-1.5 w-1.5 rounded-full bg-green-500 relative">
+                      <span className="animate-ping absolute inline-flex h-1.5 w-1.5 rounded-full bg-green-400 opacity-75"></span>
                     </span>
                   </div>
-                  <div className="w-full bg-line-100 h-2 rounded-full overflow-hidden">
+                  <div className="w-full bg-line-100 h-1.5 rounded-full overflow-hidden">
                     <div className="bg-green-500 h-full animate-progress" />
                   </div>
                 </div>
 
-                <div className="h-32 rounded-2xl bg-gradient-to-br from-razzia-400 to-amber-400 p-4 text-white flex flex-col justify-end relative overflow-hidden group">
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-white/20 rounded-full -mr-8 -mt-8 group-hover:scale-150 transition-transform duration-700" />
-                  <h3 className="font-bold text-lg relative z-10">Exclusive Live Drop: Sneakers</h3>
-                  <p className="text-xs relative z-10">Ending in 10 minutes</p>
+                <div className="h-28 rounded-xl bg-gradient-to-br from-razzia-400 to-amber-400 p-3.5 text-white flex flex-col justify-end relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-white/20 rounded-full -mr-6 -mt-6 group-hover:scale-150 transition-transform duration-700" />
+                  <h3 className="font-bold text-sm leading-snug relative z-10">Exclusive Live Drop: Sneakers</h3>
+                  <p className="text-[10px] opacity-90 relative z-10">Ending in 10 mins</p>
                 </div>
 
-                <p className="font-bold text-sm mt-2">Live Now</p>
-                 <div className="flex gap-3 overflow-hidden">
+                <p className="font-bold text-xs text-smoke-800">Live Now</p>
+                <div className="flex gap-2.5 overflow-hidden">
                   {[
                     { name: "Aisha's Shop", category: "Fashion", avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&h=100&fit=crop" },
                     { name: "Kamau Tech", category: "Gadgets", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" },
                     { name: "Zawadi Art", category: "Handmade", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" }
                   ].map((creator, i) => (
-                    <div key={i} className="min-w-[120px] bg-white rounded-xl p-3 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center">
-                      <div className="w-10 h-10 rounded-full mb-2 relative overflow-hidden border border-razzia-100">
+                    <div key={i} className="min-w-[95px] bg-white rounded-lg p-2 flex flex-col items-center text-center border border-line-50 shadow-sm">
+                      <div className="w-7 h-7 rounded-full mb-1 relative overflow-hidden border border-razzia-100">
                         <img src={creator.avatar} alt={creator.name} className="w-full h-full object-cover" />
                       </div>
-                      <p className="text-[10px] font-bold text-smoke-900 truncate w-full">{creator.name}</p>
-                      <p className="text-[8px] text-razzia-500 font-semibold">{creator.category}</p>
+                      <p className="text-[9px] font-bold text-smoke-900 truncate w-full">{creator.name}</p>
+                      <p className="text-[7px] text-razzia-500 font-bold">{creator.category}</p>
                     </div>
                   ))}
                 </div>
@@ -122,7 +122,7 @@ export default function CustomerAppPage() {
       </div>
 
       {/* Features Bento Grid */}
-      <section id="features" className="py-24 bg-surface-50">
+      <section id="features" className="py-16 lg:py-20 bg-surface-50">
         <div className="mx-auto w-full max-w-7xl px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl font-extrabold text-smoke-900 md:text-5xl">Watch, interact, and <br/>buy instantly.</h2>
@@ -131,17 +131,68 @@ export default function CustomerAppPage() {
 
           <div className="grid md:grid-cols-3 gap-6">
             <div  
-              className="bento-card md:col-span-2 rounded-3xl bg-white border border-line-100 p-8 md:p-12 shadow-sm relative overflow-hidden group">
-              <div className="relative z-10 w-full md:w-1/2">
+              className="bento-card md:col-span-2 rounded-3xl bg-white border border-line-100 p-8 md:p-12 shadow-sm relative overflow-hidden group flex items-center justify-between">
+              <div className="relative z-10 w-full md:w-1/2 pr-4">
                 <div className="w-14 h-14 rounded-2xl bg-razzia-50 text-razzia-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <MapPin size={28} />
                 </div>
                 <h3 className="text-2xl font-bold text-smoke-900">Live Discovery</h3>
                 <p className="mt-4 text-smoke-600">Swipe through engaging live streams. Discover new products as they are demonstrated live by your favorite local creators.</p>
               </div>
-              <div className="absolute right-0 bottom-0 w-1/2 h-full bg-gradient-to-tl from-razzia-50 to-transparent opacity-50 group-hover:opacity-100 transition-opacity" />
+              
+              {/* Mock Live Stream UI on the right half */}
+              <div className="absolute right-8 top-8 bottom-8 w-[40%] hidden md:flex flex-col rounded-2xl overflow-hidden border border-line-100 bg-slate-950 shadow-2xl relative group-hover:scale-[1.03] transition-transform duration-500 z-10">
+                {/* Live stream preview background image/gradient */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#EF3E36]/40 via-slate-950 to-amber-500/20 opacity-90" />
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop&q=80')] bg-cover bg-center opacity-40 mix-blend-overlay" />
+                
+                {/* Top overlay: LIVE badge and views */}
+                <div className="absolute top-3 inset-x-3 flex justify-between items-center z-10">
+                  <div className="flex items-center gap-1 bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-bold text-white uppercase tracking-wider relative overflow-hidden">
+                    <span className="w-2.5 h-2.5 bg-red-500 rounded-full animate-ping absolute" />
+                    <span className="w-1.5 h-1.5 bg-red-500 rounded-full relative z-10" />
+                    <span className="ml-1">LIVE</span>
+                  </div>
+                  <div className="bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-bold text-white/90 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full" /> 2.4k
+                  </div>
+                </div>
+
+                {/* Bottom Overlay: Pinned product and comments */}
+                <div className="absolute bottom-3 inset-x-3 flex flex-col gap-2 z-10">
+                  {/* Comments */}
+                  <div className="flex flex-col gap-1.5 select-none pointer-events-none">
+                    <div className="bg-black/30 backdrop-blur-md px-2.5 py-1.5 rounded-lg text-[9px] text-white max-w-[90%] self-start transform group-hover:-translate-y-1 transition-transform duration-700">
+                      <span className="font-bold text-amber-400 mr-1">Amina K:</span>
+                      Wow, that fit is absolute fire! 🔥
+                    </div>
+                    <div className="bg-black/30 backdrop-blur-md px-2.5 py-1.5 rounded-lg text-[9px] text-white max-w-[90%] self-start transform group-hover:-translate-y-1 transition-transform duration-700 delay-100">
+                      <span className="font-bold text-sky-400 mr-1">Mwangi J:</span>
+                      Does it come in black?
+                    </div>
+                  </div>
+
+                  {/* Pinned Product Drop */}
+                  <div className="bg-white/95 backdrop-blur-sm p-2 rounded-xl flex items-center justify-between shadow-lg border border-white/20 hover:bg-white transition-all cursor-pointer group/product scale-95 group-hover:scale-100 duration-500">
+                    <div className="flex items-center gap-2">
+                      <div className="w-9 h-9 rounded-lg bg-razzia-50 overflow-hidden relative border border-line-100 flex items-center justify-center">
+                        <span className="text-base">👟</span>
+                      </div>
+                      <div className="text-left">
+                        <p className="text-[9px] font-bold text-smoke-900 leading-tight">Urban Sneakers V2</p>
+                        <p className="text-[8px] font-semibold text-razzia-600">KES 4,200</p>
+                      </div>
+                    </div>
+                    <div className="bg-razzia-500 text-white font-bold text-[8px] px-2.5 py-1 rounded-lg group-hover/product:bg-razzia-600 transition-colors uppercase tracking-wider">
+                      Buy
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute right-0 bottom-0 w-1/2 h-full bg-gradient-to-l from-[#FDF3F2] to-transparent opacity-70 group-hover:opacity-100 transition-opacity pointer-events-none" />
               {/* Decorative Map graphic */}
-              <div className="absolute right-[-10%] bottom-[-20%] w-[60%] h-[120%] bg-[url('https://www.transparenttextures.com/patterns/cartographer.png')] opacity-10 group-hover:rotate-3 transition-transform duration-1000" />
+              <div className="absolute right-[-10%] bottom-[-20%] w-[60%] h-[120%] bg-[url('https://www.transparenttextures.com/patterns/cartographer.png')] opacity-5 group-hover:rotate-3 transition-transform duration-1000" />
             </div>
 
             <div  
@@ -184,7 +235,7 @@ export default function CustomerAppPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 overflow-hidden relative">
+      <section className="py-16 lg:py-20 overflow-hidden relative">
         {/* Floating background blobs for CTA */}
         <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-razzia-200/50 rounded-full blur-[120px] -z-10" />
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-amber-200/50 rounded-full blur-[120px] -z-10" />

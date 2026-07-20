@@ -157,7 +157,7 @@ export default function DriverHubPage() {
       </div>
 
       {/* Features Bento Grid */}
-      <section id="features" className="py-24 bg-surface-50 relative overflow-hidden">
+      <section id="features" className="py-12 lg:py-16 bg-surface-50 relative overflow-hidden">
         {/* Background decorative path */}
         <svg className="absolute left-0 top-0 w-full h-full opacity-[0.03] pointer-events-none" viewBox="0 0 1000 1000" preserveAspectRatio="none">
            <path d="M0,100 C300,300 700,-100 1000,200 L1000,1000 L0,1000 Z" fill="currentColor" />
@@ -227,7 +227,7 @@ export default function DriverHubPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-12 lg:py-16 relative overflow-hidden">
         {/* Floating background blobs */}
         <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-green-500/20 rounded-full blur-[100px] -z-10" />
         <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-amber-500/20 rounded-full blur-[100px] -z-10" />

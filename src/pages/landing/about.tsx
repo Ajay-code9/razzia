@@ -3,7 +3,7 @@ import Image from "next/image";
 import {
   Heart, Eye, Zap, Globe, ShieldCheck, Users,
   CheckCircle2, ArrowRight, Award, Building2,
-  Lock, Star,
+  Lock, Star, Lightbulb, Rocket, CreditCard, Wallet
 } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/Button";
@@ -85,11 +85,11 @@ const values = [
 ];
 
 const milestones = [
-  { year: "2022", title: "The Idea", body: "Razzia was founded in Nairobi by two tech entrepreneurs frustrated that local shops couldn't connect with online customers in a human way." },
-  { year: "2023", title: "Beta Launch", body: "Launched our first live stream prototype. 50 local boutiques went live, resulting in a 400% increase in their daily sales." },
-  { year: "2024", title: "Instant Checkout", body: "Expanded the platform to support instant in-stream checkout, allowing buyers to purchase directly without leaving the video." },
-  { year: "2025", title: "Razzia Pay", body: "Launched our own payment layer enabling instant M-Pesa and bank payouts for vendors instantly after live drops." },
-  { year: "2026", title: "East Africa", body: "Operating in 5 cities with 15,000+ active users engaging in thousands of hours of live shopping." },
+  { year: "2022", title: "The Idea", body: "Razzia was founded in Nairobi by two tech entrepreneurs frustrated that local shops couldn't connect with online customers in a human way.", icon: Lightbulb },
+  { year: "2023", title: "Beta Launch", body: "Launched our first live stream prototype. 50 local boutiques went live, resulting in a 400% increase in their daily sales.", icon: Rocket },
+  { year: "2024", title: "Instant Checkout", body: "Expanded the platform to support instant in-stream checkout, allowing buyers to purchase directly without leaving the video.", icon: CreditCard },
+  { year: "2025", title: "Razzia Pay", body: "Launched our own payment layer enabling instant M-Pesa and bank payouts for vendors instantly after live drops.", icon: Wallet },
+  { year: "2026", title: "East Africa", body: "Operating in 5 cities with 15,000+ active users engaging in thousands of hours of live shopping.", icon: Globe },
 ];
 
 const team = [
@@ -120,7 +120,66 @@ const techPartners = [
 /* ─── Page ───────────────────────────────────────────────── */
 export default function AboutPage() {
   const [heroVisible, setHeroVisible] = useState(false);
+  const [activeMilestone, setActiveMilestone] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const milestoneRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const timelineRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => { const t = setTimeout(() => setHeroVisible(true), 80); return () => clearTimeout(t); }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.getAttribute("data-index"));
+            setActiveMilestone(index);
+          }
+        });
+      },
+      {
+        rootMargin: "-25% 0px -45% 0px",
+        threshold: 0.15,
+      }
+    );
+
+    milestoneRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const el = timelineRef.current;
+      if (!el) return;
+      
+      const rect = el.getBoundingClientRect();
+      const elementHeight = rect.height;
+      const elementTop = rect.top;
+      
+      const viewportCenter = window.innerHeight / 2;
+      const totalDist = elementHeight;
+      const scrolledDist = viewportCenter - elementTop;
+      
+      let progress = scrolledDist / totalDist;
+      progress = Math.max(0, Math.min(1, progress));
+      
+      setScrollProgress(progress * 100);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+    
+    // Initial run
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
 
   return (
     <Layout>
@@ -149,7 +208,7 @@ export default function AboutPage() {
         <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-96 w-[700px] rounded-full bg-razzia-100 opacity-60 blur-3xl" />
         <div className="pointer-events-none absolute bottom-0 right-0 h-64 w-[400px] rounded-full bg-amber-50 opacity-60 blur-3xl" />
 
-        <div className="relative mx-auto max-w-7xl px-6 pt-20 pb-12 lg:pt-24 lg:pb-20">
+        <div className="relative mx-auto max-w-7xl px-6 pt-28 pb-12 lg:pt-32 lg:pb-20">
           <div className="grid items-center gap-10 lg:grid-cols-2">
             {/* Left */}
             <div>
@@ -237,7 +296,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── ANIMATED COUNTERS ─────────────────────────────────── */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-12">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal direction="up">
             <div className="text-center mb-14">
@@ -259,7 +318,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── MISSION & VISION ─────────────────────────────────── */}
-      <section className="border-y border-line-100 bg-surface-50 py-20">
+      <section className="border-y border-line-100 bg-surface-50 py-12">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-10 lg:grid-cols-2">
             <Reveal direction="left">
@@ -345,7 +404,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── JOURNEY / TIMELINE ───────────────────────────────── */}
-      <section className="relative overflow-hidden py-24 bg-surface-50 border-y border-line-100">
+      <section className="relative overflow-hidden py-16 bg-surface-50 border-y border-line-100">
         <div className="absolute inset-0 pointer-events-none opacity-[0.04]"
           style={{ backgroundImage: "radial-gradient(circle at 1px 1px,black 1px,transparent 0)", backgroundSize: "32px 32px" }} />
         <div className="pointer-events-none absolute top-0 left-1/4 h-72 w-72 rounded-full bg-razzia-100 opacity-60 blur-3xl" />
@@ -369,40 +428,106 @@ export default function AboutPage() {
             </div>
           </Reveal>
 
-          <div className="relative">
-            {/* Center vertical line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-gradient-to-b from-razzia-200 via-razzia-200/50 to-transparent hidden lg:block" />
+          <div className="relative" ref={timelineRef}>
+            {/* Center vertical line (background track) */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-[3px] -translate-x-1/2 bg-line-100 rounded-full hidden lg:block" />
 
-            <div className="space-y-12">
-              {milestones.map((m, i) => (
-                <Reveal key={m.year} delay={i * 100} direction={i % 2 === 0 ? "left" : "right"}>
-                  <div className={`flex items-center gap-6 lg:gap-0 ${i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}>
+            {/* Center vertical line (active progress track) */}
+            <div 
+              className="absolute left-1/2 top-0 w-[3px] -translate-x-1/2 bg-gradient-to-b from-razzia-50 to-razzia-500 rounded-full hidden lg:block" 
+              style={{ 
+                height: `${scrollProgress}%`,
+                maxHeight: "100%"
+              }}
+            />
+
+            <div className="space-y-12 relative z-10">
+              {milestones.map((m, i) => {
+                const MilestoneIcon = m.icon;
+                const isActive = activeMilestone >= i;
+                const isCurrentlyActive = activeMilestone === i;
+
+                return (
+                  <div 
+                    key={m.year} 
+                    ref={el => { milestoneRefs.current[i] = el; }} 
+                    data-index={i}
+                    className={`flex items-center gap-6 lg:gap-0 ${i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} transition-all duration-500`}
+                  >
                     {/* Content card */}
                     <div className="w-full lg:w-[calc(50%-2.5rem)]">
-                      <div className="rounded-2xl border border-line-100 bg-white p-6 shadow-sm hover:border-razzia-200 hover:shadow-md transition-all duration-300">
-                        <span className="text-xs font-extrabold uppercase tracking-widest text-razzia-500">{m.year}</span>
-                        <h4 className="mt-2 text-lg font-bold text-smoke-900">{m.title}</h4>
-                        <p className="mt-2 text-sm leading-relaxed text-smoke-600">{m.body}</p>
+                      <div 
+                        className={`rounded-2xl border p-6 bg-white transition-all duration-500 relative overflow-hidden group/item ${
+                          isCurrentlyActive 
+                            ? "border-razzia-500 shadow-[0_15px_30px_rgba(255,51,102,0.1)] scale-[1.03]" 
+                            : isActive 
+                              ? "border-razzia-200 shadow-sm" 
+                              : "border-line-100 shadow-sm opacity-60"
+                        }`}
+                      >
+                        {/* Glowing corner pattern for active card */}
+                        {isCurrentlyActive && (
+                          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-razzia-500/10 to-transparent pointer-events-none animate-pulse-glow" />
+                        )}
+
+                        <div className="flex justify-between items-start">
+                          <span className={`text-xs font-extrabold uppercase tracking-widest transition-colors duration-300 ${isCurrentlyActive ? "text-razzia-500" : "text-smoke-400"}`}>
+                            {m.year}
+                          </span>
+                          {MilestoneIcon && (
+                            <MilestoneIcon 
+                              size={18} 
+                              className={`transition-all duration-500 ${
+                                isCurrentlyActive 
+                                  ? "text-razzia-500 scale-110 rotate-6" 
+                                  : isActive 
+                                    ? "text-smoke-400" 
+                                    : "text-smoke-300"
+                              }`} 
+                            />
+                          )}
+                        </div>
+
+                        <h4 className={`mt-2 text-lg font-bold transition-colors duration-300 ${isCurrentlyActive ? "text-razzia-500" : "text-smoke-900"}`}>
+                          {m.title}
+                        </h4>
+                        <p className="mt-2 text-sm leading-relaxed text-smoke-600">
+                          {m.body}
+                        </p>
                       </div>
                     </div>
+
                     {/* Center node */}
-                    <div className="hidden lg:flex shrink-0 w-20 justify-center">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-razzia-500 text-xs font-extrabold text-white shadow-lg shadow-razzia-900/50 ring-4 ring-razzia-500/20">
+                    <div className="hidden lg:flex shrink-0 w-20 justify-center relative">
+                      <div 
+                        className={`relative flex h-10 w-10 items-center justify-center rounded-full text-xs font-extrabold transition-all duration-500 z-10 ${
+                          isCurrentlyActive 
+                            ? "bg-gradient-to-r from-razzia-500 to-amber-500 text-white shadow-lg shadow-razzia-900/40 scale-110" 
+                            : isActive 
+                              ? "bg-razzia-500 text-white shadow-sm" 
+                              : "bg-white text-smoke-400 border-2 border-line-200"
+                        }`}
+                      >
+                        {/* Glow ring for currently active */}
+                        {isCurrentlyActive && (
+                          <span className="absolute inset-0 rounded-full bg-razzia-500/35 animate-ping pointer-events-none" />
+                        )}
                         {m.year.slice(2)}
                       </div>
                     </div>
+
                     {/* Empty side */}
                     <div className="hidden lg:block w-[calc(50%-2.5rem)]" />
                   </div>
-                </Reveal>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
       </section>
 
       {/* ── TEAM ─────────────────────────────────────────────── */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal direction="up">
             <div className="text-center mb-14">
