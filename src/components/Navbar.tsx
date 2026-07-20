@@ -142,7 +142,6 @@ export function Navbar() {
                 unoptimized
                 className="absolute inset-0 h-full w-auto object-contain transition-opacity duration-300"
                 style={{
-                  imageRendering: "-webkit-optimize-contrast",
                   opacity: isDarkHeroTop ? 1 : 0,
                   pointerEvents: isDarkHeroTop ? "auto" : "none",
                 }}
@@ -157,7 +156,6 @@ export function Navbar() {
                 unoptimized
                 className="absolute inset-0 h-full w-auto object-contain transition-opacity duration-300"
                 style={{
-                  imageRendering: "-webkit-optimize-contrast",
                   opacity: isDarkHeroTop ? 0 : 1,
                   pointerEvents: isDarkHeroTop ? "none" : "auto",
                 }}

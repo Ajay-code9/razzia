@@ -32,19 +32,18 @@ export default function FAQPage() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative bg-white pt-24 pb-16 lg:pt-24 lg:pb-16 border-b border-line-100 overflow-hidden">
+      <section className="relative bg-white pt-24 pb-8 lg:pt-28 lg:pb-8 border-b border-line-100 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, black 1px, transparent 0)", backgroundSize: "32px 32px" }} />
         <div className="mx-auto w-full max-w-4xl px-6 relative z-10 text-center">
-          <div className="w-16 h-16 bg-blue-50 text-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-sm">
-            <HelpCircle size={32} />
+          <div className="w-12 h-12 bg-blue-50 text-blue-500 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-sm">
+            <HelpCircle size={24} />
           </div>
-          <h1 className="text-4xl font-extrabold text-smoke-900 tracking-tight md:text-5xl lg:text-6xl mb-6">Frequently Asked Questions</h1>
-          <p className="text-lg text-smoke-600 font-light">Find answers to common questions about using the Razzia platform.</p>
+          <h1 className="text-2xl font-extrabold text-smoke-900 tracking-tight md:text-3xl lg:text-4xl mb-3">Frequently Asked Questions</h1>
+          <p className="text-sm md:text-base text-smoke-600 font-light">Find answers to common questions about using the Razzia platform.</p>
         </div>
       </section>
 
-      {/* Content Section */}
-      <section className="py-24 bg-[#FAFAFA] relative">
+      <section className="py-12 lg:py-16 bg-[#FAFAFA] relative">
         {/* Cute Ambient Background */}
         <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
           <div className="absolute -top-[10%] -left-[10%] w-[40rem] h-[40rem] bg-blue-200/40 rounded-full blur-[120px] mix-blend-multiply" />
@@ -53,14 +52,14 @@ export default function FAQPage() {
         </div>
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, black 1px, transparent 0)", backgroundSize: "32px 32px" }} />
         
-        <div className="mx-auto w-full max-w-7xl px-6 flex flex-col lg:flex-row gap-12 relative z-10">
+        <div className="mx-auto w-full max-w-7xl px-6 flex flex-col lg:flex-row gap-8 relative z-10">
           
           <SidebarScrollspy headings={headings} />
 
-          <div className="lg:w-3/4 space-y-12 pb-24">
+          <div className="lg:w-3/4 space-y-8 pb-8">
           
           {/* Vendors */}
-          <div id="vendors" className="scroll-mt-32 bg-white p-8 md:p-10 rounded-[2rem] border border-line-100 shadow-sm relative overflow-hidden">
+          <div id="vendors" className="scroll-mt-32 bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full blur-3xl opacity-50 pointer-events-none transform translate-x-1/2 -translate-y-1/2" />
             <div className="flex items-center gap-3 mb-8 relative z-10">
               <Store className="text-razzia-500" size={32}/>
@@ -95,7 +94,7 @@ export default function FAQPage() {
           </div>
 
           {/* Riders */}
-          <div id="riders" className="scroll-mt-32 bg-white p-8 md:p-10 rounded-[2rem] border border-line-100 shadow-sm relative overflow-hidden">
+          <div id="riders" className="scroll-mt-32 bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm relative overflow-hidden">
             <div className="absolute bottom-0 right-0 w-40 h-40 bg-orange-50 rounded-full blur-3xl opacity-50 pointer-events-none transform translate-x-1/4 translate-y-1/4" />
             <div className="flex items-center gap-3 mb-8 relative z-10">
               <Navigation className="text-razzia-500" size={32}/>
@@ -130,7 +129,7 @@ export default function FAQPage() {
           </div>
 
           {/* Users */}
-          <div id="users" className="scroll-mt-32 bg-white p-8 md:p-10 rounded-[2rem] border border-line-100 shadow-sm relative overflow-hidden">
+          <div id="users" className="scroll-mt-32 bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-full blur-3xl opacity-50 pointer-events-none transform translate-x-1/2 -translate-y-1/2" />
             <div className="flex items-center gap-3 mb-8 relative z-10">
               <User className="text-razzia-500" size={32}/>
@@ -165,7 +164,7 @@ export default function FAQPage() {
           </div>
 
           {/* Payments */}
-          <div id="payments" className="scroll-mt-32 bg-white p-8 md:p-10 rounded-[2rem] border border-line-100 shadow-sm relative overflow-hidden">
+          <div id="payments" className="scroll-mt-32 bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm relative overflow-hidden">
             <div className="absolute bottom-0 left-0 w-32 h-32 bg-purple-50 rounded-full blur-3xl opacity-50 pointer-events-none transform -translate-x-1/2 translate-y-1/2" />
             <div className="flex items-center gap-3 mb-8 relative z-10">
               <Wallet className="text-razzia-500" size={32}/>

@@ -17,18 +17,18 @@ const headings = [
 export default function PrivacyPage() {
   return (
     <Layout>
-      <section className="relative bg-[#FAFAFA] pt-24 pb-16 lg:pt-24 lg:pb-16 border-b border-line-100 overflow-hidden">
+      <section className="relative bg-[#FAFAFA] pt-24 pb-8 lg:pt-28 lg:pb-8 border-b border-line-100 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, black 1px, transparent 0)", backgroundSize: "32px 32px" }} />
         <div className="mx-auto w-full max-w-4xl px-6 relative z-10 text-center">
-          <div className="w-16 h-16 bg-green-50 text-green-500 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-sm">
-            <ShieldCheck size={32} />
+          <div className="w-12 h-12 bg-green-50 text-green-500 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-sm">
+            <ShieldCheck size={24} />
           </div>
-          <h1 className="text-4xl font-extrabold text-smoke-900 tracking-tight md:text-5xl lg:text-6xl mb-6">Privacy Policy</h1>
-          <p className="text-lg text-smoke-600 font-light">Last updated: October 2026</p>
+          <h1 className="text-2xl font-extrabold text-smoke-900 tracking-tight md:text-3xl lg:text-4xl mb-3">Privacy Policy</h1>
+          <p className="text-sm md:text-base text-smoke-600 font-light">Last updated: October 2026</p>
         </div>
       </section>
 
-      <section className="py-24 bg-[#FAFAFA] relative">
+      <section className="py-12 lg:py-16 bg-[#FAFAFA] relative">
         {/* Cute Ambient Background */}
         <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
           <div className="absolute -top-[10%] -left-[10%] w-[40rem] h-[40rem] bg-pink-200/40 rounded-full blur-[120px] mix-blend-multiply" />
@@ -37,14 +37,14 @@ export default function PrivacyPage() {
         </div>
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, black 1px, transparent 0)", backgroundSize: "32px 32px" }} />
         
-        <div className="mx-auto w-full max-w-7xl px-6 flex flex-col lg:flex-row gap-12 relative z-10">
+        <div className="mx-auto w-full max-w-7xl px-6 flex flex-col lg:flex-row gap-8 relative z-10">
           
           <SidebarScrollspy headings={headings} />
 
-          <div className="lg:w-3/4 pb-24 space-y-12">
+          <div className="lg:w-3/4 pb-8 space-y-8">
             
-            {/* Introduction */}
-            <div className="bg-white p-8 md:p-12 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
+             {/* Introduction */}
+            <div className="bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
               <h2 id="introduction" className="text-2xl font-bold text-smoke-900 mt-0 scroll-mt-32">Introduction</h2>
               <p className="text-smoke-600 leading-relaxed mb-6">
                 Razzia Technologies Limited (“we” or “us” or “our”) strictly respects the privacy of our ecosystem participants (“user” or “you”). This extensive Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our digital marketplace, merchant dashboard, and mobile applications (collectively, the “Platform”). Please read this Privacy Policy carefully. IF YOU DO NOT AGREE WITH THE TERMS OF THIS PRIVACY POLICY, PLEASE DO NOT ACCESS THE PLATFORM.
@@ -54,8 +54,8 @@ export default function PrivacyPage() {
               </p>
             </div>
 
-            {/* Collection */}
-            <div className="bg-white p-8 md:p-12 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
+             {/* Collection */}
+            <div className="bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
               <h2 id="collection" className="text-2xl font-bold text-smoke-900 mt-0 scroll-mt-32">Collection of Your Information</h2>
               <p className="text-smoke-600 leading-relaxed mb-4">We may collect information about you in various ways through the Platform. The information we may collect includes:</p>
 
@@ -72,8 +72,8 @@ export default function PrivacyPage() {
               </ul>
             </div>
 
-            {/* Use */}
-            <div className="bg-white p-8 md:p-12 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
+             {/* Use */}
+            <div className="bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
               <h2 id="use" className="text-2xl font-bold text-smoke-900 mt-0 scroll-mt-32">Use of Your Information</h2>
               <p className="text-smoke-600 leading-relaxed mb-4">We use information collected through the Platform to provide you with a smooth, efficient, and highly customized experience. This strictly includes:</p>
               <ul className="list-disc pl-5 text-smoke-600 space-y-3 mb-0 marker:text-razzia-500">
@@ -89,8 +89,8 @@ export default function PrivacyPage() {
               </ul>
             </div>
 
-            {/* Disclosure */}
-            <div className="bg-white p-8 md:p-12 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
+             {/* Disclosure */}
+            <div className="bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
               <h2 id="disclosure" className="text-2xl font-bold text-smoke-900 mt-0 scroll-mt-32">Disclosure of Your Information</h2>
               <p className="text-smoke-600 leading-relaxed mb-4">We may share your information in the following circumstances to ensure the Platform operates effectively:</p>
               <ul className="list-disc pl-5 text-smoke-600 space-y-3 mb-0 marker:text-razzia-500">
@@ -103,8 +103,8 @@ export default function PrivacyPage() {
               </ul>
             </div>
 
-            {/* Retention */}
-            <div className="bg-white p-8 md:p-12 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none relative overflow-hidden">
+             {/* Retention */}
+            <div className="bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full blur-3xl opacity-50 pointer-events-none transform translate-x-1/2 -translate-y-1/2" />
               <h2 id="retention" className="text-2xl font-bold text-smoke-900 mt-0 scroll-mt-32">Data Retention</h2>
               <p className="text-smoke-600 leading-relaxed mb-4">
@@ -115,16 +115,16 @@ export default function PrivacyPage() {
               </p>
             </div>
 
-            {/* International */}
-            <div className="bg-white p-8 md:p-12 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
+             {/* International */}
+            <div className="bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
               <h2 id="international" className="text-2xl font-bold text-smoke-900 mt-0 scroll-mt-32">International Data Transfers</h2>
               <p className="text-smoke-600 leading-relaxed mb-0">
                 Razzia operates globally. This means your data may be transferred to, and processed in, countries other than the country in which you reside. These countries may have data protection laws that are different to the laws of your country. However, we have taken appropriate safeguards to require that your personal information remains protected in accordance with this Privacy Policy, such as utilizing Standard Contractual Clauses approved by relevant data protection authorities.
               </p>
             </div>
 
-            {/* Rights */}
-            <div className="bg-white p-8 md:p-12 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none relative overflow-hidden">
+             {/* Rights */}
+            <div className="bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none relative overflow-hidden">
               <div className="absolute bottom-0 right-0 w-48 h-48 bg-green-50 rounded-full blur-3xl opacity-50 pointer-events-none transform translate-x-1/4 translate-y-1/4" />
               <h2 id="rights" className="text-2xl font-bold text-smoke-900 mt-0 scroll-mt-32">Your User Rights</h2>
               <p className="text-smoke-600 leading-relaxed mb-4">Depending on your location, you may have specific rights regarding your personal information:</p>
@@ -137,24 +137,24 @@ export default function PrivacyPage() {
               </ul>
             </div>
 
-            {/* Tracking */}
-            <div className="bg-white p-8 md:p-12 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
+             {/* Tracking */}
+            <div className="bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
               <h2 id="tracking" className="text-2xl font-bold text-smoke-900 mt-0 scroll-mt-32">Tracking Technologies</h2>
               <p className="text-smoke-600 leading-relaxed mb-0">
                 We use cookies, web beacons, and other tracking technologies to customize the Platform and improve your experience. You may disable cookies in your browser, but this may affect the Platform's functionality (e.g., maintaining active sessions). We also partner with third-party vendors to track user activity for analytics and advertising purposes.
               </p>
             </div>
 
-            {/* Security */}
-            <div className="bg-white p-8 md:p-12 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
+             {/* Security */}
+            <div className="bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
               <h2 id="security" className="text-2xl font-bold text-smoke-900 mt-0 scroll-mt-32">Security of Your Information</h2>
               <p className="text-smoke-600 leading-relaxed mb-0">
                 We utilize bank-grade administrative, technical, and physical security measures to protect your personal information. However, no data transmission method can guarantee complete security over the internet, and we cannot guarantee your information's safety against interception by highly sophisticated unauthorized parties.
               </p>
             </div>
 
-            {/* Contact */}
-            <div className="bg-gradient-to-br from-surface-100 to-white p-8 md:p-12 rounded-[2rem] border border-line-200 shadow-sm">
+             {/* Contact */}
+            <div className="bg-gradient-to-br from-surface-100 to-white p-6 md:p-8 rounded-[2rem] border border-line-200 shadow-sm">
               <h3 className="text-2xl font-bold text-smoke-900 mb-2">Have Questions?</h3>
               <p className="text-smoke-600 leading-relaxed mb-6">
                 If you have questions, comments, or wish to exercise your data rights regarding this Privacy Policy, our Data Protection Officer is ready to help.

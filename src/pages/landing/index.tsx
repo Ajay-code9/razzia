@@ -65,9 +65,9 @@ function PhoneMockup({
               <p><span className="font-bold text-white">Davidopelnn</span> Thanks for the amazing story</p>
               <p><span className="font-bold text-white">Donnykk</span> That's gorgeous</p>
               <div className="bg-black/40 backdrop-blur-md rounded-full px-2.5 py-1.5 inline-flex items-center gap-1.5 mt-1 border border-white/10">
-                <span className="text-yellow-400">🔔</span>
-                <span className="text-[10px] font-bold text-yellow-400">Notification</span>
-                <span className="text-[10px] text-white">2 weeks after you order</span>
+                <span className="text-yellow-400">🔥</span>
+                <span className="text-[10px] font-bold text-yellow-400">Live Drop</span>
+                <span className="text-[10px] text-white">Kamau pinned a new product!</span>
                 <ChevronRight className="w-3 h-3 text-white/50" />
               </div>
             </div>

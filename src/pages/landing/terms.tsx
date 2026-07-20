@@ -17,18 +17,18 @@ const headings = [
 export default function TermsPage() {
   return (
     <Layout>
-      <section className="relative bg-[#FAFAFA] pt-24 pb-16 lg:pt-24 lg:pb-16 border-b border-line-100 overflow-hidden">
+      <section className="relative bg-[#FAFAFA] pt-24 pb-8 lg:pt-28 lg:pb-8 border-b border-line-100 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, black 1px, transparent 0)", backgroundSize: "32px 32px" }} />
         <div className="mx-auto w-full max-w-4xl px-6 relative z-10 text-center">
-          <div className="w-16 h-16 bg-orange-50 text-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-sm">
-            <Scale size={32} />
+          <div className="w-12 h-12 bg-orange-50 text-orange-500 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-sm">
+            <Scale size={24} />
           </div>
-          <h1 className="text-4xl font-extrabold text-smoke-900 tracking-tight md:text-5xl lg:text-6xl mb-6">Terms & Conditions</h1>
-          <p className="text-lg text-smoke-600 font-light">Please carefully read the Terms of Use before using the Razzia Platform.</p>
+          <h1 className="text-2xl font-extrabold text-smoke-900 tracking-tight md:text-3xl lg:text-4xl mb-3">Terms & Conditions</h1>
+          <p className="text-sm md:text-base text-smoke-600 font-light">Please carefully read the Terms of Use before using the Razzia Platform.</p>
         </div>
       </section>
 
-      <section className="py-24 bg-[#FAFAFA] relative">
+      <section className="py-12 lg:py-16 bg-[#FAFAFA] relative">
         {/* Cute Ambient Background */}
         <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
           <div className="absolute -top-[10%] -left-[10%] w-[40rem] h-[40rem] bg-orange-200/40 rounded-full blur-[120px] mix-blend-multiply" />
@@ -37,14 +37,14 @@ export default function TermsPage() {
         </div>
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-0" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, black 1px, transparent 0)", backgroundSize: "32px 32px" }} />
         
-        <div className="mx-auto w-full max-w-7xl px-6 flex flex-col lg:flex-row gap-12 relative z-10">
+        <div className="mx-auto w-full max-w-7xl px-6 flex flex-col lg:flex-row gap-8 relative z-10">
           
           <SidebarScrollspy headings={headings} />
 
-          <div className="lg:w-3/4 pb-24 space-y-12">
+          <div className="lg:w-3/4 pb-8 space-y-8">
             
-            {/* Overview */}
-            <div className="bg-white p-8 md:p-12 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
+             {/* Overview */}
+            <div className="bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
               <h2 id="overview" className="text-2xl font-bold text-smoke-900 mt-0 scroll-mt-32">1. Overview</h2>
               <p className="text-smoke-600 leading-relaxed mb-6">
                 Your use of the Platform (hereinafter defined) is subject to these Terms of Use. By using the Platform, you will be deemed to have accepted and agreed to be bound by these Terms of Use and create a legal relationship between the Company and yourself. The Company may make changes to these Terms of Use from time to time by posting the revised version on the Platform. Your continued use of the Platform following changes constitutes your acceptance of those changes.
@@ -54,8 +54,8 @@ export default function TermsPage() {
               </p>
             </div>
 
-            {/* Definitions */}
-            <div className="bg-white p-8 md:p-12 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
+             {/* Definitions */}
+            <div className="bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
               <h2 id="definitions" className="text-2xl font-bold text-smoke-900 mt-0 scroll-mt-32">2. Definitions</h2>
               <ul className="list-disc pl-5 text-smoke-600 space-y-3 mb-0 marker:text-razzia-500">
             <li><strong>Company:</strong> Means Razzia Technologies Limited, a company incorporated in Kenya.</li>
@@ -65,8 +65,8 @@ export default function TermsPage() {
               </ul>
             </div>
 
-            {/* Responsibilities */}
-            <div className="bg-white p-8 md:p-12 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none relative overflow-hidden">
+             {/* Responsibilities */}
+            <div className="bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full blur-3xl opacity-50 pointer-events-none transform translate-x-1/2 -translate-y-1/2" />
               <h2 id="responsibilities" className="text-2xl font-bold text-smoke-900 mt-0 scroll-mt-32">3. User Responsibilities</h2>
               <p className="text-smoke-600 leading-relaxed mb-4">You are strictly responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to:</p>
@@ -78,8 +78,8 @@ export default function TermsPage() {
               </ul>
             </div>
 
-            {/* Content */}
-            <div className="bg-white p-8 md:p-12 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
+             {/* Content */}
+            <div className="bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
               <h2 id="content" className="text-2xl font-bold text-smoke-900 mt-0 scroll-mt-32">4. Content Uploading & Conduct</h2>
               <p className="text-smoke-600 leading-relaxed mb-4">By uploading content on the Platform or interacting with other Users, you warrant that:</p>
               <ul className="list-disc pl-5 text-smoke-600 space-y-3 mb-8 marker:text-razzia-500">
@@ -92,8 +92,8 @@ export default function TermsPage() {
               </p>
             </div>
 
-            {/* Performance */}
-            <div className="bg-white p-8 md:p-12 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
+             {/* Performance */}
+            <div className="bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
               <h2 id="performance" className="text-2xl font-bold text-smoke-900 mt-0 scroll-mt-32">5. Performance & Suspension</h2>
               <p className="text-smoke-600 leading-relaxed mb-6">
                 The Company shall use all reasonable efforts to ensure the Platform is available at all times. However, the Platform is provided on an ‘as is’ basis. The Company cannot guarantee that the Platform will always be available and/or error-free. The Company shall not incur any liability for any direct or indirect loss (including loss of profit or revenue) suffered by yourself as a consequence of Platform unavailability.
@@ -110,8 +110,8 @@ export default function TermsPage() {
               </p>
             </div>
 
-            {/* Liability */}
-            <div className="bg-white p-8 md:p-12 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
+             {/* Liability */}
+            <div className="bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
               <h2 id="liability" className="text-2xl font-bold text-smoke-900 mt-0 scroll-mt-32">6. Liability & Indemnification</h2>
               <p className="text-smoke-600 leading-relaxed mb-6">
                 The Company acts strictly as a digital marketplace connecting Users, Vendors, and Riders. We do not warrant, represent, or assume responsibility for any product or service offered by a Vendor through the Platform. You assume the sole risk of using the Platform.
@@ -121,8 +121,8 @@ export default function TermsPage() {
               </p>
             </div>
 
-            {/* Termination */}
-            <div className="bg-white p-8 md:p-12 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none relative overflow-hidden">
+             {/* Termination */}
+            <div className="bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none relative overflow-hidden">
               <div className="absolute bottom-0 right-0 w-48 h-48 bg-orange-50 rounded-full blur-3xl opacity-50 pointer-events-none transform translate-x-1/4 translate-y-1/4" />
               <h2 id="termination" className="text-2xl font-bold text-smoke-900 mt-0 scroll-mt-32">7. Account Termination</h2>
               <p className="text-smoke-600 leading-relaxed mb-0">
@@ -130,16 +130,16 @@ export default function TermsPage() {
               </p>
             </div>
 
-            {/* Disputes */}
-            <div className="bg-white p-8 md:p-12 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
+             {/* Disputes */}
+            <div className="bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
               <h2 id="disputes" className="text-2xl font-bold text-smoke-900 mt-0 scroll-mt-32">8. Dispute Resolution</h2>
               <p className="text-smoke-600 leading-relaxed mb-0">
                 Any dispute, controversy, or claim arising out of or relating to this contract, or the breach, termination, or invalidity thereof, shall be settled by arbitration in accordance with the Nairobi Centre for International Arbitration Rules. The language to be used in the arbitral proceedings shall be English.
               </p>
             </div>
 
-            {/* General */}
-            <div className="bg-white p-8 md:p-12 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
+             {/* General */}
+            <div className="bg-white p-6 md:p-8 rounded-[2rem] border border-line-100 shadow-sm prose prose-smoke max-w-none">
               <h2 id="general" className="text-2xl font-bold text-smoke-900 mt-0 scroll-mt-32">9. General Provisions</h2>
               <ul className="list-disc pl-5 text-smoke-600 space-y-3 mb-0 marker:text-razzia-500">
             <li><strong>Severance:</strong> If any provision of these Terms becomes invalid or unenforceable, the validity of the remaining provisions shall not be affected.</li>

@@ -83,7 +83,7 @@ export default function DriverHubPage() {
             {/* Custom Map Mockup */}
             <div className="map-mockup relative w-full max-w-md h-[400px] rounded-[36px] border-[6px] border-white bg-surface-50 shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden z-10 animate-float scale-75 md:scale-90 origin-center">
               
-              {/* Real Embedded Map of Dubai, UAE */}
+              {/* Real Embedded Map of Nairobi, Kenya */}
               <div className="absolute inset-0 bg-[#e5e7eb] opacity-80 mix-blend-luminosity">
                 <iframe 
                   width="100%" 
@@ -92,9 +92,9 @@ export default function DriverHubPage() {
                   scrolling="no" 
                   marginHeight={0} 
                   marginWidth={0} 
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=55.25%2C25.18%2C55.32%2C25.24&amp;layer=mapnik" 
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=36.78%2C-1.32%2C36.86%2C-1.26&amp;layer=mapnik" 
                   className="w-full h-full object-cover pointer-events-none"
-                  title="Dubai Map"
+                  title="Nairobi Map"
                 />
               </div>
               {/* Animated Route Line (SVG) */}

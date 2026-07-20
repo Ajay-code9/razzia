@@ -87,12 +87,18 @@ export default function CustomerAppPage() {
                 </div>
 
                 <p className="font-bold text-sm mt-2">Live Now</p>
-                <div className="flex gap-3 overflow-hidden">
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} className="min-w-[120px] bg-white rounded-xl p-3 shadow-sm hover:shadow-md transition-shadow">
-                      <div className="w-10 h-10 rounded-full bg-razzia-50 mb-2" />
-                      <div className="h-3 w-16 bg-line-100 rounded mb-1" />
-                      <div className="h-2 w-10 bg-line-100 rounded" />
+                 <div className="flex gap-3 overflow-hidden">
+                  {[
+                    { name: "Aisha's Shop", category: "Fashion", avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&h=100&fit=crop" },
+                    { name: "Kamau Tech", category: "Gadgets", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" },
+                    { name: "Zawadi Art", category: "Handmade", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" }
+                  ].map((creator, i) => (
+                    <div key={i} className="min-w-[120px] bg-white rounded-xl p-3 shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center">
+                      <div className="w-10 h-10 rounded-full mb-2 relative overflow-hidden border border-razzia-100">
+                        <img src={creator.avatar} alt={creator.name} className="w-full h-full object-cover" />
+                      </div>
+                      <p className="text-[10px] font-bold text-smoke-900 truncate w-full">{creator.name}</p>
+                      <p className="text-[8px] text-razzia-500 font-semibold">{creator.category}</p>
                     </div>
                   ))}
                 </div>
