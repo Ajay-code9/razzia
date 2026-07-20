@@ -136,12 +136,12 @@ export function Navbar() {
                 height={192}
                 priority
                 unoptimized
-                className="h-10 lg:h-14 w-auto object-contain"
+                className="h-8 lg:h-14 w-auto object-contain"
                 style={{
                   imageRendering: "-webkit-optimize-contrast",
                   filter: isDarkHeroTop
                     ? "none"
-                    : "brightness(0) saturate(100%) invert(44%) sepia(71%) saturate(5196%) hue-rotate(320deg) brightness(111%) contrast(107%)",
+                    : "brightness(0) saturate(100%) invert(43%) sepia(57%) saturate(4476%) hue-rotate(324deg) brightness(135%) contrast(58%)",
                   transition: "filter 0.3s ease",
                 }}
               />
