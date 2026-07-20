@@ -127,8 +127,12 @@ export function Navbar() {
           className={`mx-auto flex w-full max-w-7xl items-center justify-between px-6 transition-all duration-300 ${isScrolled ? "py-2.5" : "py-5"
             }`}
         >
-          <Link className="flex items-center h-14" href="/landing">
-            <div className="flex items-center justify-center transition-all duration-300">
+          <Link className="flex items-center h-14 relative" href="/landing">
+            <div
+              className="flex items-center justify-center transition-all duration-300 relative h-10 lg:h-14"
+              style={{ aspectRatio: "540/192" }}
+            >
+              {/* White Logo (Visible at top on red background) */}
               <Image
                 alt="Razzia logo"
                 src="/logo-navbar.svg"
@@ -136,13 +140,26 @@ export function Navbar() {
                 height={192}
                 priority
                 unoptimized
-                className="h-8 lg:h-14 w-auto object-contain"
+                className="absolute inset-0 h-full w-auto object-contain transition-opacity duration-300"
                 style={{
                   imageRendering: "-webkit-optimize-contrast",
-                  filter: isDarkHeroTop
-                    ? "none"
-                    : "brightness(0) saturate(100%) invert(43%) sepia(57%) saturate(4476%) hue-rotate(324deg) brightness(135%) contrast(58%)",
-                  transition: "filter 0.3s ease",
+                  opacity: isDarkHeroTop ? 1 : 0,
+                  pointerEvents: isDarkHeroTop ? "auto" : "none",
+                }}
+              />
+              {/* Red Logo (Visible when scrolled on white background) */}
+              <Image
+                alt="Razzia logo"
+                src="/logo-red.svg"
+                width={540}
+                height={192}
+                priority
+                unoptimized
+                className="absolute inset-0 h-full w-auto object-contain transition-opacity duration-300"
+                style={{
+                  imageRendering: "-webkit-optimize-contrast",
+                  opacity: isDarkHeroTop ? 0 : 1,
+                  pointerEvents: isDarkHeroTop ? "none" : "auto",
                 }}
               />
             </div>
