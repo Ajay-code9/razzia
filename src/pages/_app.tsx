@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import { AuthProvider } from "@/context/AuthContext";
+import { AuthProvider, ProtectedGate } from "@/context/AuthContext";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -20,9 +20,11 @@ export default function App({ Component, pageProps }: AppProps) {
         }
       `}</style>
       <AuthProvider>
-        <div className={`${plusJakartaSans.className} ${plusJakartaSans.variable}`}>
-          <Component {...pageProps} />
-        </div>
+        <ProtectedGate>
+          <div className={`${plusJakartaSans.className} ${plusJakartaSans.variable}`}>
+            <Component {...pageProps} />
+          </div>
+        </ProtectedGate>
       </AuthProvider>
     </>
   );

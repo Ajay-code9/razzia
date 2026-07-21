@@ -14,16 +14,14 @@ const roleOptions: Array<{ value: UserRole; label: string }> = [
 ];
 
 export default function LoginPage() {
-  const { login } = useAuth();
   const router = useRouter();
   const [email, setEmail] = useState("");
-  const [role, setRole] = useState<UserRole>("vendor");
+  const [role, setRole] = useState<"customer" | "vendor" | "driver">("vendor");
 
   const displayName = useMemo(() => email.split("@")[0] || "Razzia User", [email]);
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    login({ name: displayName, email, role });
     void router.push(getRouteByRole(role));
   };
 

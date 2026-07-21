@@ -44,7 +44,7 @@ const navItems: MenuItem[] = [
 
 export function Navbar() {
   const router = useRouter();
-  const { user, logout } = useAuth();
+  const { logoutSite } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
@@ -94,12 +94,11 @@ export function Navbar() {
   }, [isMobileMenuOpen]);
 
   const onLogout = () => {
-    logout();
+    logoutSite();
     void router.push("/landing");
   };
 
-  const homeOrDashboard =
-    user?.role === "driver" ? "/landing/driver" : "/landing/dashboard";
+
 
   const isMainActive = (item: MenuItem) => {
     if (item.href) {
@@ -219,45 +218,33 @@ export function Navbar() {
             <div className="flex items-center gap-3">
               {/* Desktop only buttons */}
               <div className="hidden lg:flex items-center gap-3">
-                {user ? (
-                  <>
-                    <Button href={homeOrDashboard} variant="secondary">
-                      Dashboard
-                    </Button>
-                    <Button onClick={onLogout} variant="ghost" className={isDarkHeroTop ? "!text-white hover:!bg-white/10" : ""}>
-                      Log out
-                    </Button>
-                  </>
-                ) : (
-                  <Link
-                    href="/landing/shop"
-                    className={`rounded-full px-8 py-3 font-black shadow-xl transition-all hover:scale-105 active:scale-95 flex items-center justify-center border border-white/20
-                      ${isDarkHeroTop
-                        ? "bg-white text-razzia-600 hover:bg-smoke-50 hover:shadow-[0_10px_30px_rgba(255,255,255,0.3)]"
-                        : "bg-gradient-to-r from-razzia-500 to-razzia-600 text-white hover:shadow-[0_10px_30px_rgba(255,38,92,0.3)]"
-                      }`}
-                  >
-                    Download App
-                  </Link>
-                )}
+                <Link
+                  href="/landing/shop"
+                  className={`rounded-full px-8 py-3 font-black shadow-xl transition-all hover:scale-105 active:scale-95 flex items-center justify-center border border-white/20
+                    ${isDarkHeroTop
+                      ? "bg-white text-razzia-600 hover:bg-smoke-50 hover:shadow-[0_10px_30px_rgba(255,255,255,0.3)]"
+                      : "bg-gradient-to-r from-razzia-500 to-razzia-600 text-white hover:shadow-[0_10px_30px_rgba(255,38,92,0.3)]"
+                    }`}
+                >
+                  Download App
+                </Link>
+                <Button onClick={onLogout} variant="ghost" className={isDarkHeroTop ? "!text-white hover:!bg-white/10" : ""}>
+                  Exit Site
+                </Button>
               </div>
 
               {/* Mobile only buttons */}
               <div className="lg:hidden flex items-center gap-2">
-                {user ? (
-                  <Button href={homeOrDashboard} variant="secondary" className="px-3 h-9 text-sm">Dashboard</Button>
-                ) : (
-                  <Link
-                    href="/landing/shop"
-                    className={`rounded-full px-5 py-2 text-sm font-bold shadow-md transition-all active:scale-95 flex items-center justify-center
-                      ${isDarkHeroTop
-                        ? "bg-white text-razzia-600 hover:bg-smoke-50"
-                        : "bg-gradient-to-r from-razzia-500 to-razzia-600 text-white"
-                      }`}
-                  >
-                    Download App
-                  </Link>
-                )}
+                <Link
+                  href="/landing/shop"
+                  className={`rounded-full px-5 py-2 text-sm font-bold shadow-md transition-all active:scale-95 flex items-center justify-center
+                    ${isDarkHeroTop
+                      ? "bg-white text-razzia-600 hover:bg-smoke-50"
+                      : "bg-gradient-to-r from-razzia-500 to-razzia-600 text-white"
+                    }`}
+                >
+                  Download App
+                </Link>
                 <button
                   className={`p-2 rounded-xl transition-all duration-300 flex items-center justify-center
                     ${isDarkHeroTop ? "text-white hover:bg-white/10" : "text-smoke-900 hover:bg-surface-50"}`}
@@ -353,17 +340,9 @@ export function Navbar() {
 
               {/* Footer Action Buttons */}
               <div className="pt-6 mt-6 border-t border-line-100 flex flex-col gap-3">
-                {user ? (
-                  <>
-                    <Button href={homeOrDashboard} className="w-full justify-center py-6 text-lg">Dashboard</Button>
-                    <Button onClick={() => { onLogout(); setIsMobileMenuOpen(false); }} variant="secondary" className="w-full justify-center py-6 text-lg">Log out</Button>
-                  </>
-                ) : (
-                  <>
-                    <Button href="/landing/register" className="w-full justify-center py-6 text-lg">Become a vendor</Button>
-                    <Button href="/landing/login" variant="secondary" className="w-full justify-center py-6 text-lg">Log in</Button>
-                  </>
-                )}
+                <Button onClick={() => { onLogout(); setIsMobileMenuOpen(false); }} variant="secondary" className="w-full justify-center py-6 text-lg">
+                  Exit Site
+                </Button>
               </div>
             </div>
           </div>

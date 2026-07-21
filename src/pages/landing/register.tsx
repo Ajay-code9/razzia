@@ -2,21 +2,19 @@ import { useState, type FormEvent } from "react";
 import { useRouter } from "next/router";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/Button";
+
 import type { UserRole } from "@/context/AuthContext";
-import { useAuth } from "@/context/AuthContext";
 import { getRouteByRole } from "@/lib/routeByRole";
 
 export default function RegisterPage() {
-  const { login } = useAuth();
   const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState<UserRole>("vendor");
+  const [role, setRole] = useState<"customer" | "vendor" | "driver">("vendor");
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    login({ name, email, role });
     void router.push(getRouteByRole(role));
   };
 
